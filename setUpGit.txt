@@ -1,0 +1,22 @@
+GitHub is a website. It uses Git.
+
+Git is a free and open sourced distributed version control system.
+It takes snapshots of your code, and saves them. This allows you to easily make changes in your code due to the ease of reestablishing a previous state.
+
+There are 3 stages to git's version control. The working directory, the staging directory, and the git directory (repository).
+The working directory is your local directory, where you'll make all the changes to your code. The staging directory holds all of the changes and snapshots of your code that you commit. Once you are ready to save those changes, you will push them to your git directory. The staging directory is the middle man between the two directories, the purgatory on the way to git heaven.
+
+Github is the web-based hosting using Git for version control. It is the GUI for using Git.
+
+On a Debian based Linux OS
+    <code> sudo apt-get install git </code>
+
+Set the settings
+    <code>git config --global user.name "Your Name Here"</code>
+    <code>git config --global user.email "Your Email Here"</code>
+        Make sure the email you use is the same one as your account on GitHub.
+        Your email is how they match up your profile, with your commits.
+
+
+You can also change the settings so you won't have to enter your password everytime you commit something.
+    <code>git config --global credential.helper cache</code>
