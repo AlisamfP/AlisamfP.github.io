@@ -4,8 +4,13 @@ body{
 	padding: 60px 50px 0px 50px;
 }
 
-.title{
+.sidebar{
 	background-color:rgba(0,0,0,0.5);
+	margin-right: 50px;
+}
+.blog-main{
+	background-color:rgba(0,0,0,0.5);
+
 }
 .main-image{
 	max-width: 100%;
