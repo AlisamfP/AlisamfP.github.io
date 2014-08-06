@@ -19,17 +19,11 @@ body{
 	max-height: 100%;
 }
 .bulk{
-	max-height: 80%;
-	max-width: 80%;
 	background-color: rgba(255,255,255,0.5);
 }
 h1{
 	text-align: center;
 }
-
-.active{
-	visibility: visible;
-}
-.hidden{
-	visibility: hidden;
+.about{
+	margin: 5px 5px 5px 5px;
 }
