@@ -7,9 +7,11 @@ body{
 .sidebar{
 	background-color:rgba(0,0,0,0.5);
 	margin-right: 50px;
+	color: #FDFDFD;
 }
 .blog-main{
 	background-color:rgba(0,0,0,0.5);
+	color: #FDFDFD;
 
 }
 .main-image{
@@ -20,9 +22,6 @@ body{
 	max-height: 80%;
 	max-width: 80%;
 	background-color: rgba(255,255,255,0.5);
-}
-p{
-	color: #FDFDFD;
 }
 h1{
 	text-align: center;
