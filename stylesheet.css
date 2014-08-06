@@ -27,3 +27,9 @@ h1{
 	text-align: center;
 }
 
+.active{
+	visibility: visible;
+}
+.hidden{
+	visibility: hidden;
+}
