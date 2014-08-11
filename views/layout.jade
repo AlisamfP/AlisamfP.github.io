@@ -1,7 +1,75 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
+    block title
+        title Home
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Alisa Palson
+    link(rel='shortcut icon', type='image/ico', href='favicon.ico')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Alisa Palson
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='/') Home
+            li
+              a(href='/about.html') About
+            li
+              a(href='/blog.html') Blog
+    .container-fluid.title
+      .row
+        .col-sm-3.col-sm.sidebar
+          .sidebar-module.sidebar-module-insert
+            block title
+            img.main-image(src='images/programming.jpg')
+            br
+            br
+            p
+              a(href='http://www.twitter.com/alisamfp', title='Twitter')
+                i.fa.fa-twitter-square
+              a(href='http://www.github.com/alisamfp', title='Github')
+                i.fa.fa-github-square
+              a(href='http://www.google.com/recaptcha/mailhide/d?k=01a1t635Oa0fgk_wBhwfuk1Q==&c=HTxbyZjVPBfnIwJ21Mkz534QyNWKclRtkAc6qnQVyAE=', onclick='window.open(\'http://www.google.com/recaptcha/mailhide/d?k\07501a1t635Oa0fgk_wBhwfuk1Q\75\75\46c\75HTxbyZjVPBfnIwJ21Mkz534QyNWKclRtkAc6qnQVyAE\075\', \'\', \'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300\'); return false;', title='Email')
+                i.fa.fa-envelope
+              br
+              | The name's Alisa
+              | (
+              i#sayName.fa.fa-volume-up
+                audio#pronounce(src='name.ogg', type='audio/ogg')
+              | )
+              br
+              br
+              | Junior JavaScript Dev.
+              br
+              | Open Source Proponent.
+              br
+              | Data Visualization Lover.
+              br
+              | Video Game Enthusiast.
+              br
+              br
+              a(href='http://www.heatsynclabs.org') HeatSync Labs
+              | Member.
+              br
+              a(href='http://www.hackerschool.com') Hacker School
+              | Alumni.
+              br
+    .col-sm-8.blog-main
+        block content
+
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+      script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+      script(src='audio.js', type='text/javascript')
