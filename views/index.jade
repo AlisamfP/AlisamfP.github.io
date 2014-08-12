@@ -1,5 +1,13 @@
 extends ./layout.jade
 
+block navList
+    li.active
+      a(href='/') Home
+    li
+      a(href='/about.html') About
+    li
+      a(href='/blog.html') Blog
+
 block mainTitle
   h2 Oh, Hello
 
@@ -16,7 +24,7 @@ block content
         br
         br
         i.fa.fa-cogs
-        | this website is currently under construction.
+        |  this website is currently under construction. 
         i.fa.fa-wrench
         br
         br

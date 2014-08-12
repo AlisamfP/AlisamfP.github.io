@@ -1,5 +1,13 @@
 extends ./layout.jade
 
+block navList
+    li
+      a(href='/') Home
+    li
+      a(href='/about.html') About
+    li.active
+      a(href='/blog.html') Blog
+
 block mainTitle
     h2 Blog
 
@@ -24,7 +32,7 @@ block content
         br
         br
         | //My favicon is actually my Github
-        a(href='https://github.com/blog/1586-identicons') identicon
+        a(href='https://github.com/blog/1586-identicons')  identicon
         | .
       h2.blog-post-title
         | Setting Up Github
