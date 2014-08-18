@@ -5,14 +5,18 @@ permalink: /about/
 ---
 <div class='row about'>
 <div class='col-sm-3'>
-    My resume is available <a href='/resume.html'>here (not now)</a>.
+    My resume is available <a href='http://resume.github.io/?AlisamfP'>here</a>.
     <br><br>
-    Feel free to email me at Alisa [at] Alisa dot Codes
+    You can also check out my <a href="https://osrc.dfm.io/alisamfp/">Open Source Report Card</a>.
 </div>
 <div class = 'col-sm-9'>
-  Born and raised in Phoenix, AZ, I graduated from Greenway High School in 2009 and went to Scottsdale Community College to pursue a degree in Mathematics. Growing up I competed in Guitar Hero and DDR tournaments, which led to my working at GameStop until early 2014. I started programming in the winter of 2012, competed in a few hackathons, and returned to school changing my major from Math to Computer Science.
-  <br><br>
-  In the summer of 2013, I was accepted to Hacker School and spent 3 months in New York becoming a better programmer. Since then, I've been working diligently on that same goal, becoming a better programmer.
+    I'm a loud mouthed lover of cats and data. I think code should be free, scalable, and beautiful. I'm in love with new technology and exploring the best option for a project rather than whatever will work. I prefer the terminal over GUI and javascript is my language of choice. I love to dance and make others smile.
+    <br><br>
+    I'm currently working towards becoming a software engineer specializing in data visualization.
+    <br><br>
+    Born and raised in Phoenix, AZ. I've been a member of HeatSync Labs, a hackerspace in Mesa, AZ, since 2012. In the summer of 2013, I was accepted to Hacker School and spent 3 months in New York becoming a better programmer.
+    <br><br>
+    When I'm not programming, I enjoy video games, music, hiking, rock climbing, and dancing.
 </div>
 <br>
 </div>
