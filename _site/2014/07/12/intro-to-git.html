@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>Intro to Git.</title>
+    <meta name="description" content="Alisa is a software developer in Tempe, AZ. She loves data visualization and cats.
+">
+
+    <link rel='shortcut icon' type='image/ico' href='/favicon.ico'>
+    <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://alisa.codes/2014/07/12/intro-to-git.html">
+</head>
+<body>
+    <div class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
+      <div class='container'>
+        <div class='navbar-header'>
+          <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand' href='/'>Alisa Palson</a>
+        </div>
+        <div class='collapse navbar-collapse'>
+          <ul class='nav navbar-nav'>
+		        
+		          
+		          <li><a class="page-link" href="/about/">About</a></li>
+		          
+		        
+		          
+		          <li><a class="page-link" href="/blog/">Blog</a></li>
+		          
+		        
+		          
+		        
+		          
+		        
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class='container-fluid title'>
+      <div class='row'>
+        <div class='col-sm-3 col-sm sidebar'>
+          <div class='sidebar-module sidebar-module-insert'>
+            <h2>Oh, hello there.</h2>
+              <img class='main-image' src='/images/programming.jpg'>
+              <br><br>
+                var name = 'Alisa';
+                ( <i class='fa fa-volume-up' id='sayName'>
+                  <audio id='pronounce' src='/images/name.ogg' type='audio/ogg'></audio>
+                </i> )
+                <br>
+              <p>
+                <a href='http://www.twitter.com/alisamfp' title='Twitter'><i class='fa fa-twitter-square fa-lg'></i></a>
+                <a href='http://www.github.com/alisamfp' title='Github'><i class='fa fa-github-square fa-lg'></i></a>
+
+                <a href="http://www.google.com/recaptcha/mailhide/d?k=01a1t635Oa0fgk_wBhwfuk1Q==&amp;c=HTxbyZjVPBfnIwJ21Mkz534QyNWKclRtkAc6qnQVyAE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501a1t635Oa0fgk_wBhwfuk1Q\75\75\46c\75HTxbyZjVPBfnIwJ21Mkz534QyNWKclRtkAc6qnQVyAE\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Email"><i class='fa fa-envelope fa-lg'></i></a>
+
+                <br><br>
+                Junior JavaScript Dev.
+                <br>
+                Open Source Proponent.
+                <br>
+                Data Visualization Lover.
+                <br>
+                Video Game Enthusiast.
+                <br><br>
+                <a href='http://www.heatsynclabs.org'>HeatSync Labs</a> Member.<br>
+                <a href='http://www.hackerschool.com'>Hacker School</a> Alumni.<br>
+              </p>
+            </div>
+          </div>
+  <body>
+    <div class='col-sm-8 main'>
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Intro to Git.</h1>
+    <p class="post-meta">Jul 12, 2014</p>
+  </header>
+
+  <article class="post-content">
+    <p>GitHub is a website. It uses Git.
+Git is a free and open sourced distributed version control system.
+It takes snapshots of your code, and saves them. This allows you to easily make changes in your code due to the ease of reestablishing a previous state.</p>
+
+<p>tldr; if you royally fuck up your code (delete an important file, change a bunch, etc)</p>
+
+<p>There are 3 stages to git’s version control. The working directory, the staging directory, and the git directory (repository).
+The working directory is your local directory, where you’ll make all the changes to your code. 
+The staging directory holds all of the changes and snapshots of your code that you commit. Once you are ready to save those changes, you will push them to your git directory. The staging directory is the middle man between the two directories, the purgatory on the way to git heaven.</p>
+
+<p>Github is the web-based hosting using Git for version control.
+It is the GUI for using Git.</p>
+
+<p>You don’t need to use Github to use Git.</p>
+
+<p><a href="http://git-scm.com/downloads">Download Git</a></p>
+
+<p>Or, in the terminal (on a Debian based Linux OS)
+<code> sudo apt-get install git </code></p>
+
+<p>Set the settings</p>
+
+<p><code>git config --global user.name 'Your Name Here'</code></p>
+
+<p><code>git config --global user.email 'Your Email Here'</code></p>
+
+<p>Make sure the email you use is the same one as your account on GitHub.</p>
+
+<p>Your email is how they match up your profile, with your commits.</p>
+
+<p>You can also change the settings so you won’t have to enter your password everytime you commit something.</p>
+
+<p><code>git config --global credential.helper cache</code></p>
+
+<p>The first thing you’ll want to do is initialize a repository.</p>
+
+<p>To do that first make a directory where your project will live.</p>
+
+<p><code>~/ mkdir example</code></p>
+
+<p>Then, initialize a repository in the folder you just made.</p>
+
+<p><code>~/ cd example/</code></p>
+
+<p><code>~/exmaple/ git init</code></p>
+
+<p>You should see, “Initialized empty Git repository in /example/.git/”</p>
+
+<p>Try doing a <code>git status</code></p>
+
+<p>If you haven’t made a repository on <a href="http://www.github.com">github</a> yet, this is the time to do so. Make sure to create the repository without a README, since you’ll do that later. After you’ve created the repository, copy the SSH URL and add it as a remote origin.</p>
+
+<p><code>git remote add origin git@github.com:your_username/your_example_repo.git</code></p>
+
+<p>Great! Now when you push your code, you’ll be able to see that in your github repository.</p>
+
+<p>Now, add a readme to your project</p>
+
+<p><code>touch README.md</code></p>
+
+<p>Now do the <code>git status</code> again to see the changes.</p>
+
+<p>To add these changes to the staging directory type</p>
+
+<p><code>git add README.md</code></p>
+
+<p>Now, if you do <code>git status</code> again, you’ll see the README has been added and is ready to be committed (it’s so crazy….get it? because it’s ready to be committed….)</p>
+
+<p>Time to commit this code!</p>
+
+<p><code>git commit</code></p>
+
+<p>This will bring you to a screen where you can add a message to your commit. Best practices for commit messages are to keep them concise, and straightforeward. </p>
+
+<p>If you check <code>git status</code> you’ll see that there are no changes to be staged. This means that the code you just committed is now ready to be pushed.</p>
+
+<p>Once you’re ready to push your code, just run <code>git push origin master</code></p>
+
+<p>Then, check your github repo to see your code! ^_^</p>
+
+  </article>
+
+</div>
+
+    </div>
+    <!-- </div>
+<div class="row">
+  <h2 class="footer-heading">Alisa Palson</h2>
+    <div class="col-sm-4">
+      <ul>
+        <li><a href="mailto:palson@alisa.codes">palson@alisa.codes</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4 social-media">
+      <ul>
+      <li>
+        <a href="https://github.com/alisamfp">
+          <i class='fa fa-github-square fa-lg'>
+            alisamfp</i>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/alisamfp">
+          <i class='fa fa-twitter-square fa-lg'>
+            alisamfp</i>
+        </a>
+      </li>
+      </ul>
+    </div>
+    <div class="col-sm-4 description">
+        <p class="text">Alisa is a software developer in Tempe, AZ. She loves data visualization and cats.
+</p>
+    </div>
+</div>
+</body>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+  <script src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+  <script src='audio.js' type="text/javascript"></script>
+</html>
+ -->
+</div>
+    </body>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+  <script src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+  <script src='audio.js' type="text/javascript"></script>
+</html>
+
+
