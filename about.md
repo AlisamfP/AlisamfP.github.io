@@ -3,6 +3,11 @@ layout: default
 title: About
 permalink: /about/
 ---
+<li class="active"><a href="/about.html">About
+</li>
+<li><a href="/blog.html">Blog</li>
+
+
 <div class='row about'>
 <div class='col-sm-4'>
     <a href='http://resume.github.io/?AlisamfP'>Github Resume</a>
