@@ -6,8 +6,8 @@
 </description>
     <link>http://alisa.codes/</link>
     <atom:link href="http://alisa.codes/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 20 Aug 2014 16:09:37 -0700</pubDate>
-    <lastBuildDate>Wed, 20 Aug 2014 16:09:37 -0700</lastBuildDate>
+    <pubDate>Thu, 21 Aug 2014 13:36:32 -0700</pubDate>
+    <lastBuildDate>Thu, 21 Aug 2014 13:36:32 -0700</lastBuildDate>
     <generator>Jekyll v2.3.0</generator>
     
       <item>
@@ -35,12 +35,6 @@
 Git is a free and open sourced distributed version control system.
 It takes snapshots of your code, and saves them. This allows you to easily make changes in your code due to the ease of reestablishing a previous state.&lt;/p&gt;
 
-&lt;p&gt;tldr; if you royally fuck up your code (delete an important file, change a bunch, etc)&lt;/p&gt;
-
-&lt;p&gt;There are 3 stages to git’s version control. The working directory, the staging directory, and the git directory (repository).
-The working directory is your local directory, where you’ll make all the changes to your code. 
-The staging directory holds all of the changes and snapshots of your code that you commit. Once you are ready to save those changes, you will push them to your git directory. The staging directory is the middle man between the two directories, the purgatory on the way to git heaven.&lt;/p&gt;
-
 &lt;p&gt;Github is the web-based hosting using Git for version control.
 It is the GUI for using Git.&lt;/p&gt;
 
@@ -65,25 +59,25 @@ It is the GUI for using Git.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git config --global credential.helper cache&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;The first thing you’ll want to do is initialize a repository.&lt;/p&gt;
+&lt;p&gt;Now that you have Git set up, the first thing you’ll want to do is initialize a repository for your project.&lt;/p&gt;
 
 &lt;p&gt;To do that first make a directory where your project will live.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;~/ mkdir example&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;~/ mkdir example_project&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Then, initialize a repository in the folder you just made.&lt;/p&gt;
+&lt;p&gt;Then, initialize a repository in the folder you just made by typing ‘git init’.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;~/ cd example/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;~/ cd example_project/&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;~/exmaple/ git init&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;~/example_project/ git init&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;You should see, “Initialized empty Git repository in /example/.git/”&lt;/p&gt;
+&lt;p&gt;You should see, “Initialized empty Git repository in /example_project/.git/”&lt;/p&gt;
 
 &lt;p&gt;Try doing a &lt;code&gt;git status&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;If you haven’t made a repository on &lt;a href=&quot;http://www.github.com&quot;&gt;github&lt;/a&gt; yet, this is the time to do so. Make sure to create the repository without a README, since you’ll do that later. After you’ve created the repository, copy the SSH URL and add it as a remote origin.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;git remote add origin git@github.com:your_username/your_example_repo.git&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git remote add origin git@github.com:your_username/your_example_project.git&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Great! Now when you push your code, you’ll be able to see that in your github repository.&lt;/p&gt;
 
@@ -92,6 +86,10 @@ It is the GUI for using Git.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;touch README.md&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Now do the &lt;code&gt;git status&lt;/code&gt; again to see the changes.&lt;/p&gt;
+
+&lt;p&gt;There are 3 stages to git’s version control. The working directory, the staging directory, and the git directory (repository).
+The working directory is your local directory, where you’ll make all the changes to your code. 
+The staging directory holds all of the changes and snapshots of your code that you commit. Once you are ready to save those changes, you will push them to your git directory. The staging directory is the middle man between the two directories, the purgatory on the way to git heaven.&lt;/p&gt;
 
 &lt;p&gt;To add these changes to the staging directory type&lt;/p&gt;
 
@@ -110,6 +108,8 @@ It is the GUI for using Git.&lt;/p&gt;
 &lt;p&gt;Once you’re ready to push your code, just run &lt;code&gt;git push origin master&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Then, check your github repo to see your code! ^_^&lt;/p&gt;
+
+&lt;p&gt;Check out this &lt;a href=&quot;https://www.codeschool.com/courses/try-git&quot;&gt;awesome tutorial&lt;/a&gt; from Code School on Git!&lt;/p&gt;
 </description>
         <pubDate>Sat, 12 Jul 2014 00:00:00 -0700</pubDate>
         <link>http://alisa.codes/2014/07/12/intro-to-git.html</link>
