@@ -7,6 +7,6 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://alisa.codes" # the base hostname & protocol for your site
 twitter_username: alisamfp
 github_username:  alisamfp
-
 # Build settings
 markdown: kramdown
+pygments: true 
