@@ -10,6 +10,9 @@ Favicon's are usually 16x16 pixels and can be added to your site by placing the 
 
 Adding the file into the root directory should be all you need to do (give it a few minutes once you update your site for the changes to take effect), however if it doesn't you can also link to it directly. 
 
-< link rel='shortcut icon' type='image/ico' href='favicon.ico' / > 
+{% highlight html %}
+<link rel='shortcut icon' type='image/ico' href='favicon.ico' /> 
+{% endhighlight %}
+
 
 //My favicon is actually my Github identicon.

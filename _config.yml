@@ -10,3 +10,4 @@ github_username:  alisamfp
 # Build settings
 markdown: kramdown
 highlighter: pygments
+pygments-style: monokai
