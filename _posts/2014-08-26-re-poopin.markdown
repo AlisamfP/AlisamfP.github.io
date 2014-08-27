@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "Re:Poopin."
+date:   2014-08-26
+---
+
+I made a bot that retweets #poopin
+
+I did it in python, using the [tweepy]('http://www.tweepy.org/') library.
+It was the first project in which I used oAuth and the first time I'd ever deployed anything on Heroku. 
+
+I create a standard output listener class passing in tweepy's Streamlistener. When it receieves any kind of data (ie: when someone tweets #poopin), it first checks if the tweet didn't come from [@hashtagpoopin]('http://twitter.com/hashtagpoopin') (#poopin back and forth forever), then it retweets using the tweet ID.
+
+
+{% highlight python %}
+class StdOutListener(tweepy.StreamListener):
+    def on_data(self, data):
+        # Twitter returns data in JSON format - we need to decode it first
+        decoded = json.loads(data)
+        #check to make sure I don't retweet my own tweets
+        if (decoded['user']['screen_name'] != 'hashtagpoopin'):
+            api = tweepy.API(auth)
+            api.retweet(decoded['id'])
+            return True
+        else:
+            return True
+    def on_error(self, status):
+        print status
+{% endhighlight %}
+
+Then, I just create a variable for the listener and pass that in to the stream along with my oAuth details. Since I was filtering a public stream, I didn't have to specify anything other than the term that I wanted my stream to [filter]('https://dev.twitter.com/docs/api/1.1/post/statuses/filter') by
+
+{% highlight python%}
+l = StdOutListener()
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+print "Twitter Stream Listening for #poopin..."
+stream = tweepy.Stream(auth, l)
+stream.filter(track=['#poopin'])
+{% endhighlight %}
+
+
+If you're seeing this, then you've made it to this blog post before I've gotten a chance to write up why I made this bot. It's probably the most important part of this blog post. Please check back for that. (I'm just driving home, it should be about an hour, seriously bad timing man)

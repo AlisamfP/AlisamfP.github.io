@@ -40,3 +40,10 @@ body {
 .fa {
   padding: 0px 3px;
 }
+pre{
+  background-color: #49483e;
+  border-width: 0px;
+}
+.highlight{
+  background-color: #49483e;
+}

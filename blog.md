@@ -3,7 +3,6 @@ layout: default
 title: Blog
 permalink: /blog/
 ---
-
 <h1 class="page-heading">Posts</h1>
 
 <ul class="post-list">
