@@ -8,10 +8,10 @@ I made a bot that retweets #poopin
 
 
 #How Did I Do It
-I did it in python, using the [tweepy]('http://www.tweepy.org/') library.
+I did it in python, using the [tweepy](https://www.tweepy.org/) library.
 It was the first project in which I used oAuth and the first time I'd ever deployed anything on Heroku. 
 
-I create a standard output listener class passing in tweepy's Streamlistener. When it receieves any kind of data (ie: when someone tweets #poopin), it first checks if the tweet didn't come from [@hashtagpoopin]('http://twitter.com/hashtagpoopin') (#poopin back and forth forever), then it retweets using the tweet ID.
+I create a standard output listener class passing in tweepy's Streamlistener. When it receieves any kind of data (ie: when someone tweets #poopin), it first checks if the tweet didn't come from [@hashtagpoopin](https://twitter.com/hashtagpoopin) (#poopin back and forth forever), then it retweets using the tweet ID.
 
 
 {% highlight python %}
@@ -30,7 +30,7 @@ class StdOutListener(tweepy.StreamListener):
         print status
 {% endhighlight %}
 
-Then, I just create a variable for the listener and pass that in to the stream along with my oAuth details. Since I was filtering a public stream, I didn't have to specify anything other than the term that I wanted my stream to [filter]('https://dev.twitter.com/docs/api/1.1/post/statuses/filter') by
+Then, I just create a variable for the listener and pass that in to the stream along with my oAuth details. Since I was filtering a public stream, I didn't have to specify anything other than the term that I wanted my stream to [filter](https://dev.twitter.com/docs/api/1.1/post/statuses/filter) by
 
 {% highlight python%}
 l = StdOutListener()
@@ -46,6 +46,6 @@ stream.filter(track=['#poopin'])
 
 First, I should explain the origin of #poopin.
 
-At HeatSync, whenever someone would walk away from their computer leaving it unlocked and vulnerable, we would navigate to their twitter and post #poopin. It was hilarious, and acted as a friendly reminder to lock your devices. If I had wanted, I could have done something much more malicious to the unprotected computer, instead I just tweeted something, in the same vein as hacking someone's facebook if they stay logged in on your device. We are all on our computers daily, filling them with every aspect of our lives, and every scrap of privacy all without being properly protected against those wanting to infiltrate our systems.
+At HeatSync, whenever someone would walk away from their computer leaving it unlocked and vulnerable, we would navigate to their twitter and post #poopin. It was hilarious, and acted as a friendly reminder to lock your devices. If I had wanted, I could have done something much more malicious to the unprotected computer; I just tweeted something in the same vein as hacking someone's facebook if they stay logged in on your device. We are all on our computers daily, filling them with every aspect of our lives, and every scrap of privacy all without being properly protected against those wanting to infiltrate our systems.
 
 tldr; Lock your fucking computer.
