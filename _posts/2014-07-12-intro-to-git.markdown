@@ -114,7 +114,7 @@ Time to commit this code!
 git commit
 </kbd>
 
-This will bring you to a screen where you can add a message to your commit. Best practices for commit messages are to keep them concise, and straightforeward. 
+This will bring you to a screen where you can add a message to your commit. Best practices for commit messages are to keep them concise, and straightforward. 
 
 If you check 
 <kbd>
