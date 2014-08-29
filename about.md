@@ -6,6 +6,14 @@ permalink: /about/
 
 <div class='row about'>
 <div class='col-sm-4'>
+    <h3>Projects</h3>
+    <a href="http://visualize-fm.herokuapp.com/">Last.FM Music Visualization</a>
+    <br><br>
+    <a href="http://hackphx-html5games.github.io/team7/">HTML5 Game Hackathon submission</a>
+    <br><br>
+    <h3>Oh look, neat!</h3>
+    <a href="http://registry.jsonresume.org/alisamfp">JSON Resume</a>
+    <br><br>
     <a href='http://resume.github.io/?AlisamfP'>Github Resume</a>
     <br><br>
     <a href="https://osrc.dfm.io/alisamfp/">Open Source Report Card</a>
