@@ -37,11 +37,11 @@ Navigate to the webpage it says gateblu is hosted at (it should be http://localh
 
 ###Getting started with NodeBlu
 Launch the nodeblu app from the chrome web store.
-The first thing we have to do is test that our skynet gateway is working. We'll be doing that by using the greeting subdevice that is already listed in your skynet gateway.
+The first thing we have to do is test that our gateblu is working. We'll be doing that by using the greeting subdevice that is already listed in your gateblu.
 
-Link an inject node to a function node, then link the output of that function to a Skynet Gateway output node.
+Link an inject node to a function node, then link the output of that function to a skynet output node.
 
-In the output skynet gateway node, add a new skynet-device.
+In the skynet output node, add a new skynet-device.
 
 ![add new skynet-device](/images/addnewdevice.png)
 
@@ -55,15 +55,16 @@ In the function node, simply add
 
 *make sure you still return the msg after setting the subdevice!*
 
-Save that, and inject once. You should see a greeting in the terminal console that is running your skynet gateway.
+Save that, and inject once. You should see a greeting in the terminal console that is running gateblu.
 
-Now, all you have to do it link the tv as a new subdevice for the skynet gateway. 
+Now, all you have to do it link alljoyn as a new subdevice for gateblu. 
 
 
 ###Create AllJoyn Subdevice
-Link an input node to a function node to the skynet output. 
+Edit the function node in your nodeblu setup to create a new subdevice for gateblu.
 ![create new subdevice setup](/images/createdevicesetup.png)
-In the function node, you're going to set up alljoyn as a subdevice in your skynet gateway. You can copy and paste this gist in, replacing the uuid and token with the ones listed in your gateblu page.
+
+In the function node, you're going to set up alljoyn as a subdevice in gateblu by replacing the 'gateway uuid' and 'gateway token' with the uuid and token listed in your gateblu page.
 
 {% highlight javascript %}
 msg.uuid = 'gateway uuid';
@@ -88,11 +89,11 @@ return msg;
 [gist](https://gist.github.com/monteslu/eef338a6189e965bb387) by [monteslu](http://azprogrammer.com/)
 
 after you have that, save to deploy the code.
-You only have to inject once to create the subdevice in your skynet gateway. After hitting the inject node, check your subdevice page for the new alljoyn subdevice. 
+You only have to inject once to create the subdevice in gateblu. After hitting the inject node, check your subdevice page for the new alljoyn subdevice. 
 
 ![show alljoyn in skynet-gateway subdevice portal](/images/gatewaysubdeviceviewaj.png)
 
-Awesome! Now that we have Alljoyn available in our skynet gateway, we can send notifications to the tv!
+Awesome! Now that we have Alljoyn available in gateblu, we can send notifications to the tv!
 
 ###Send a Notification to the TV
 Replace the content of the function node to set the subdevice of the msg to 'aj', and send the payload an object with a method of 'notify' and a message of 'hello world'.
