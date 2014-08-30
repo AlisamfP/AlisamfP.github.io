@@ -16,27 +16,31 @@ I wrote a script in Node.JS that listened in for certain keywords on twitter. Wh
 ###Download dependencies
 
 ####Nodeblu
-You'll need Nodeblu, which you can download through the [Chrome Web Store](https://chrome.google.com/webstore/detail/nodeblu/aanmmiaepnlibdlobmbhmfemjioahilm).
+Nodeblu helps you experiment with the Octoblu and Meshblu (formerly SkyNet.im) Internet of Things platforms by dragging, dropping, and wiring up various nodes connected to the platform!
+
+You can download Nodeblu through the Chrome Web Store [here](https://chrome.google.com/webstore/detail/nodeblu/aanmmiaepnlibdlobmbhmfemjioahilm).
+
 
 ####Gateblu
-You'll also need Gateblu to connect to the various devices.
+Gateblu allows you to connect to devices through Octoblu (formerly Skynet).
 
 <kbd>git clone https://github.com/octoblu/gateblu.git</kbd>
 
 move into the repository it created called gateblu
 <kbd>cd gateblu<kbd>
 
-then run an <kbd>npm install</kbd> to download all of gateblu's dependancies.
+then run an <kbd>npm install</kbd> to download all of gateblu's dependencies.
+
 
 
 ###Get UUID and Token from Gateblu
-<kbd>node server.js</kbd>
+In the gateblu folder run <kbd>node server.js</kbd> to start the service.
 
-Navigate to the webpage it says gateblu is hosted at (it should be http://localhost:8888
-) and make note of your UUID and Token. Then look at the subdevice tab. For now, leave that alone. We'll come back to that in a little bit.
+You should see this <kbd>Skynet Gateway webserver listening at http://localhost:8888</kbd>
+Navigate to the web page your terminal says (http://localhost:8888) gateblu is hosted at and make note of your UUID and Token. Then look at the subdevice tab. For now, leave that alone. We'll come back to that in a little bit.
 
 ###Getting started with NodeBlu
-Launch the nodeblu app from the chrome web store.
+Launch the Nodeblu app from the chrome web store.
 The first thing we have to do is test that our gateblu is working. We'll be doing that by using the greeting subdevice that is already listed in your gateblu.
 
 Link an inject node to a function node, then link the output of that function to a skynet output node.
@@ -49,6 +53,8 @@ In the next screen, set the UUID of the output node to the same one given to you
 
 ![add new skynet-device page](/images/addnewdevicepage.png)
 
+Enable the 'Forward Response' check box and connect the output to a debug node for easier testing.
+
 In the function node, simply add
 
 ![greeting subdevice setup in nodeblu](/images/greetingsfromgateblu.png)
@@ -57,46 +63,53 @@ In the function node, simply add
 
 Save that, and inject once. You should see a greeting in the terminal console that is running gateblu.
 
-Now, all you have to do it link alljoyn as a new subdevice for gateblu. 
+If you'd like to connect AllJoyn to gateblu and send a notification to an AllJoyn enabled TV, that post is [here](http://www.alisa.codes/2014/08/29/alljoyn-and-gateblu.html)
 
+###Create LIFX Subdevice
 
-###Create AllJoyn Subdevice
-Edit the function node in your nodeblu setup to create a new subdevice for gateblu.
-![create new subdevice setup](/images/createdevicesetup.png)
+In the gateblu directory, install the [skynet lifx](https://www.npmjs.org/package/skynet-lifx) plugin.
 
-In the function node, you're going to set up alljoyn as a subdevice in gateblu by replacing the 'gateway uuid' and 'gateway token' with the uuid and token listed in your gateblu page.
+<kbd>npm install skynet-lifx</kbd>
+
+In Nodeblu, link a function node to your inject and gateblu nodes. In that function node you'll be creating a new subdevice in gateblu for the LIFX bulbs.
+
+![create subdevice setup](/images/createlifxsubdevice.png)
 
 {% highlight javascript %}
-msg.uuid = 'gateway uuid';
-msg.token = 'gateway token';
+msg.uuid = 'gateway uuid'; //replace with your uuid
+msg.token = 'gateway token'; //replace with your token
 msg.alternateMethod = 'gatewayConfig';
 
 msg.method = 'createSubdevice';
-msg.name = 'aj';
-msg.type = 'skynet-alljoyn';
+msg.name = 'lx'; 
+msg.type = 'skynet-lifx';
 
-msg.options = {
-  advertisedName: 'test',
-  interfaceName: 'org.alljoyn.bus.samples.chat',
-  findAdvertisedName: 'org.alljoyn.bus.samples.chat',
-  signalMemberName: 'Chat',
-  messageServiceName: '/chatService',
-  relayUuid: '*'
-};
+msg.options = {};
 
 return msg;
 {% endhighlight %}
-[gist](https://gist.github.com/monteslu/eef338a6189e965bb387) by [monteslu](http://azprogrammer.com/)
+[gist](https://gist.github.com/AlisamfP/f268d131ea52dbaf0e19) by me
 
-after you have that, save to deploy the code.
-You only have to inject once to create the subdevice in gateblu. After hitting the inject node, check your subdevice page for the new alljoyn subdevice. 
+Save that to deploy and hit the inject node once to create the subdevice in gateblu. After you inject, double check that the subdevice was created in your local gateblu web portal(http://localhost:8888/subdevices).
 
-![show alljoyn in skynet-gateway subdevice portal](/images/gatewaysubdeviceviewaj.png)
+Once the subdevice is connected through gateblu, you can talk to the bulbs.
 
-Awesome! Now that we have Alljoyn available in gateblu, we can send notifications to the tv!
+###Make Lights Go
+Edit that function node again to send a message to the bulb. 
+(If you've opened the app and named your bulb, you can also access them by name by setting that. Feel free to remove that to access all bulbs on your wifi network.)
 
-###Send a Notification to the TV
-Replace the content of the function node to set the subdevice of the msg to 'aj', and send the payload an object with a method of 'notify' and a message of 'hello world'.
-![send tv notification](/images/sendtvhelloworld.png)
+{% highlight javascript %}
+msg.subdevice = 'lx'
+msg.payload = {
+ setState: {
+  hue: 30000,
+  sat: 0xffff, 
+  lum: 0x8000,
+  name: bulbsy,
+  timing: 3000
+ }
+};
+return msg;
+{% endhighlight %}
 
-Now, if you save that and hit the inject node, you should see 'Hello World' show up as a notification on the tv.
+If you save that and inject the code, your bulb should change to a teal color.
