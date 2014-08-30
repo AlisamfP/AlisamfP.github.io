@@ -15,8 +15,8 @@ I wrote a script in Node.JS that listened in for certain keywords on twitter. Wh
 
 ###Download dependencies
 
-####Meshblu
-You'll need Meshblu, which you can download through the [Chrome Web Store](https://chrome.google.com/webstore/detail/nodeblu/aanmmiaepnlibdlobmbhmfemjioahilm).
+####Nodeblu
+You'll need Nodeblu, which you can download through the [Chrome Web Store](https://chrome.google.com/webstore/detail/nodeblu/aanmmiaepnlibdlobmbhmfemjioahilm).
 
 ####Gateblu
 You'll also need Gateblu to connect to the various devices.
