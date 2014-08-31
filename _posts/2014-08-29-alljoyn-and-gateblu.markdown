@@ -16,8 +16,8 @@ Edit the function node in your nodeblu setup to create a new subdevice for gateb
 In the function node, you're going to set up alljoyn as a subdevice in gateblu by replacing the 'gateway uuid' and 'gateway token' with the uuid and token listed in your gateblu page.
 
 {% highlight javascript %}
-msg.uuid = 'gateway uuid';
-msg.token = 'gateway token';
+msg.uuid = 'gateway uuid'; 
+msg.token = 'gateway token'; 
 msg.alternateMethod = 'gatewayConfig';
 
 msg.method = 'createSubdevice';
@@ -49,4 +49,4 @@ Awesome! Now that we have Alljoyn available in gateblu, we can send notification
 Replace the content of the function node to set the subdevice of the msg to 'aj', and send the payload an object with a method of 'notify' and a message of 'hello world'.
 ![send tv notification](/images/sendtvhelloworld.png)
 
-Now, if you save that and hit the inject node, you should see 'Hello World' show up as a notification on the tv.
+Now, if you save that and hit the inject node, you should see 'Hello World' show up as a notification on the TV.
