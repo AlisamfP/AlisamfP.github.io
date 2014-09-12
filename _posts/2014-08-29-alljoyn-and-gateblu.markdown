@@ -43,7 +43,7 @@ You only have to inject once to create the subdevice in gateblu. After hitting t
 
 ![show alljoyn in skynet-gateway subdevice portal](/images/gatewaysubdeviceviewaj.png)
 
-Awesome! Now that we have Alljoyn available in gateblu, we can send notifications to the tv!
+Awesome! Now that we have Alljoyn available in gateblu, we can send notifications to the TV!
 
 ###Send a Notification to the TV
 Replace the content of the function node to set the subdevice of the msg to 'aj', and send the payload an object with a method of 'notify' and a message of 'hello world'.

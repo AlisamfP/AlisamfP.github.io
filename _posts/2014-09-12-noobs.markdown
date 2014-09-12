@@ -1,0 +1,100 @@
+---
+layout: post
+title:  "Formatting SD card for NOOBS"
+date:   2014-09-12
+---
+
+I got a Raspberry Pi for my birthday and had never touched one before so I decided to document the different processes I go through to set it up and any projects I do. Today I formatted my 8gb SD card and loaded the NOOBs program onto it.
+
+###Locate your SD card
+
+<kbd>df</kbd> is a linux command that shows disk usage.
+
+The <kbd>-h</kbd> option prints sizes human readable format (e.g., 1K 234M 2G)
+
+First, leaving the SD card out of your computer, run <kbd>~$ df -h</kbd> to see the current disk usage.
+
+Then, insert the SD card, opening the folder if prompted or clicking the icon that appears to mount it, and run <kbd>~$ df -h</kbd> again. The new partition is where your SD card is located.
+
+
+###File Systems and Mounting
+The file system is the physical location where the partition for the SD card is, and the mounted on location is where you'll access the data on that partition. A mount point is a logical route to a physical file system.
+
+The file system where my SD card slot lives is <kbd>/dev/mmcblk0</kbd> and partitions on the SD card are named <kbd>/dev/mmcblk0pn</kbd> (where n starts at 1, and is incremented as needed)
+
+
+###What is FDisk
+fdisk is a menu driven program that allows you to create and edit partitions. You'll need to be super user to run fdisk commands.
+
+Before actually making any changes, double check that the directory you have is that of the SD card by running a fdisk list on the path with and without the SD card (same check we did with df previously)
+
+<kbd>~$ fdisk -l /path/to/SD</kbd>
+will list the partitions
+
+Running that without the SD card inserted should give you no result.
+Now when you insert your SD card, ignore the option to open, and don't click the icon, we don't need/want the SD card to be mounted.
+
+run <kbd>~$ fdisk -l /path/to/SD</kbd> again.
+This time you should see fdisk show the current partition on your SD card.
+
+###Using fdisk
+run fdisk on the file system where your SD card is without the '-l' option
+
+<kbd>~$ fdisk /dev/mmcblk0</kbd>
+
+These are the steps you'll want to take in order to format the SD with fdisk
+
+1. 'p'
+    - print out partitions on disk
+    - you should see mmcblk0p1
+
+2. 'd'
+    - delete partitions on disk (fdisk will ask you for each partition by number, starting at 1 with mmcblk0p1, and continue until all partitions are deleted)
+
+3. 'p'
+    - run print to double check that your partitions were deleted
+
+4. 'n'
+    - new partition (creates a new partition on the disk)
+    - primary partition type
+    - hit enter to select default value of first and last sector
+
+5. 'p'
+    - run print again to check that the partition was made
+    - if all went well, you should see the partitioned mmcblk0p1
+    - the only problem is that it's formatted for linux, not FAT
+
+4. 't' 
+    - change system id
+    - b is W95 FAT32 
+    - FAT32 stands for 32 bit File Allocation Table
+5. 'w'
+    - write data to partition (save and quit)
+
+After fdisk is done syncing, you need to actually format the SD card. All fdisk did was partition the space and set the format type to FAT32.
+
+
+###MKFS that shit son
+Format the SD card by running
+
+<kbd>~$ mkfs.vfat /dev/mmcblk0p1</kbd>
+
+*make sure you format the partition on the SD (mmcblk0p1), not the filesystem where it's located(mmcblk0)!*
+
+###Download NOOBS
+NOOBS stands for New Out Of the Box Software
+
+Download it [here](http://www.raspberrypi.org/downloads/)
+
+Once you have it downloaded, insert your newly formatted SD card back in, mounting it this time, and change into the directory of where the SD is mounted. (mine is /media/alisa/5EDC-6500)
+
+<kbd>~$ cd /media/alisa/53DC-6500</kbd>
+
+Then unzip your newly downloaded file into that folder.
+
+<kbd>/media/alisa/53DC-6500$ unzip /home/alisa/Downloads/RaspberryPi/distros/NOOBS.zip</kbd>
+
+
+This is as far as I got to today since I don't have a monitor with an HDMI input. I plan on updating with how to load the SD onto the pi later on in the day.
+
+[here's](http://qdosmsq.dunbar-it.co.uk/blog/2013/06/noobs-for-raspberry-pi/) another awesome tutorial

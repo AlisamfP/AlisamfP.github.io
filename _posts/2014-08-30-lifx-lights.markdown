@@ -48,7 +48,7 @@ To connect to LIFX using gateblu and nodeblu, set the subdevice method of the ms
 Then change the different values in the setState object of the msg payload to control your LIFX light.
 
 ###Turn Light On
-{% highlight javascript %}
+{% highlight js %}
 msg.subdevice = 'lx';
 msg.payload = {
     setState = {
@@ -59,7 +59,7 @@ return msg;
 {% endhighlight %}
 
 ###Turn Light Off
-{% highlight javascript %}
+{% highlight js %}
 msg.subdevice = 'lx';
 msg.payload = {
     setState = {
@@ -70,7 +70,7 @@ return msg;
 {% endhighlight %}
 
 ###Color Mode
-{% highlight javascript %}
+{% highlight js %}
 msg.subdevice = 'lx';
 msg.payload = {
     setState = {
@@ -83,7 +83,7 @@ return msg;
 {% endhighlight %}
 
 ###White Mode
-{% highlight javascript %}
+{% highlight js %}
 msg.subdevice = 'lx';
 msg.payload = {
     setState = {
