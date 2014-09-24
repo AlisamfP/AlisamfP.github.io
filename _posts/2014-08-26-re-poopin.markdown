@@ -46,6 +46,6 @@ stream.filter(track=['#poopin'])
 
 First, I should explain the origin of #poopin.
 
-At HeatSync, whenever someone would walk away from their computer leaving it unlocked and vulnerable, we would navigate to their twitter and post #poopin. It was hilarious, and acted as a friendly reminder to lock your devices. If I had wanted, I could have done something much more malicious to the unprotected computer; I just tweeted something in the same vein as hacking someone's facebook if they stay logged in on your device. We are all on our computers daily, filling them with every aspect of our lives, and every scrap of privacy all without being properly protected against those wanting to infiltrate our systems.
+At HeatSync, whenever someone would walk away from their computer leaving it unlocked and vulnerable, we would navigate to their twitter and post #poopin. It was hilarious, and acted as a friendly reminder to lock your devices. If I had wanted, I could have done something much more malicious to the unprotected computer. We are all on our computers daily, filling them with every aspect of our lives, and every scrap of private lives without concern for protection in the same way we have with physical objects. Much like locking your house to protect the items inside, you should lock your computer when you're away.
 
 tldr; Lock your fucking computer.
