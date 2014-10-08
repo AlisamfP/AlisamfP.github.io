@@ -17,6 +17,9 @@ body {
   margin-right: 10px;
   color: #fdfdfd;
 }
+.list-unstyled li{
+  padding: .3em 0em;
+}
 .main {
   background-color: rgba(0,0,0,0.5);
   color: #fdfdfd;
@@ -67,4 +70,8 @@ pre{
 }
 .highlight{
   background-color: #272822;
+}
+.post-list{
+  overflow: scroll;
+  height: 70vh;
 }
