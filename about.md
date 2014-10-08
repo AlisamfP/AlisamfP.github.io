@@ -22,7 +22,7 @@ permalink: /about/
 </div>
 <div class='col-sm-4'>
     <h3>Projects</h3>
-    <ul class="list-group">
+    <ul class="list-group navbar-inverse">
         <li class="list-group-item"><a href="http://visualize-fm.herokuapp.com/">Last.FM Music Visualization</a>
         </li>
 

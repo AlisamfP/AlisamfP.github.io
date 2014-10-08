@@ -72,6 +72,6 @@ pre{
   background-color: #272822;
 }
 .post-list{
-  overflow: scroll;
-  height: 70vh;
+  overflow: auto;
+  height: 60vh;
 }
