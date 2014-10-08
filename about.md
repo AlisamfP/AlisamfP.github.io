@@ -5,27 +5,35 @@ permalink: /about/
 ---
 
 <div class='row about'>
+<div class='col-lg-8 info'>
+    <h3>About</h3>
+    <p>I'm a loud mouthed lover of cats and data.</p>
+
+    <p>I think code should be free, scalable, and beautiful. Intellectually curious and self-driven, I and strive to learn as much as possible everyday. Data is wonderful. Everything is better with data, and data is better when it's beautiful.</p>
+
+    <p>I'm currently working towards becoming a software engineer specializing in data visualization.</p>
+    
+    <p>Born and raised in Phoenix, AZ. I've helped run HeatSync Labs, a hackerspace in Mesa, AZ, since 2012. I help maintain the space, hold open hours, host different events bringing tech into the community(Coffee&Code, HackPHX), and teach classes on different topics(soldering, piano, DNS, musical theory, 3D printing). In the summer of 2013, I was accepted to Hacker School and spent 3 months in New York becoming a better programmer.
+    </p>
+    <p>
+    Video games are a second passion of mine. I was a professional video game player for years, and helped tutor autistic kids using video games. I believe that video games can be used to enhance the learning process, and help with multiple other aspects as well.
+    I love to dance and make others smile.
+</p>
+</div>
 <div class='col-sm-4'>
     <h3>Projects</h3>
-    <a href="http://visualize-fm.herokuapp.com/">Last.FM Music Visualization</a>
-    <br><br>
-    <a href="http://hackphx-html5games.github.io/team7/">HTML5 Game Hackathon submission</a>
-    <br><br>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="http://visualize-fm.herokuapp.com/">Last.FM Music Visualization</a>
+        </li>
+
+        <li class="list-group-item"><a href="http://hackphx-html5games.github.io/team7/">HTML5 Game Hackathon submission</a></li>
+    </ul>
     <h3>Oh look, neat!</h3>
-    <a href="http://registry.jsonresume.org/alisamfp">JSON Resume</a>
-    <br><br>
-    <a href='http://resume.github.io/?AlisamfP'>Github Resume</a>
-    <br><br>
-    <a href="https://osrc.dfm.io/alisamfp/">Open Source Report Card</a>
-</div>
-<div class = 'col-sm-8'>
-    I'm a loud mouthed lover of cats and data. I think code should be free, scalable, and beautiful. I'm in love with new technology and exploring the best option for a project rather than whatever will work. I prefer the terminal over GUI and javascript is my language of choice. I love to dance and make others smile.
-    <br><br>
-    I'm currently working towards becoming a software engineer specializing in data visualization.
-    <br><br>
-    Born and raised in Phoenix, AZ. I've been a member of HeatSync Labs, a hackerspace in Mesa, AZ, since 2012. In the summer of 2013, I was accepted to Hacker School and spent 3 months in New York becoming a better programmer.
-    <br><br>
-    When I'm not programming, I enjoy video games, music, hiking, rock climbing, and dancing.
+    <ul class="list-group">
+        <li class="list-group-item"><a href="http://registry.jsonresume.org/alisamfp">JSON Resume</a></li>
+        <li class="list-group-item"><a href='http://resume.github.io/?AlisamfP'>Github Resume</a></li>
+        <li class="list-group-item"><a href="https://osrc.dfm.io/alisamfp/">Open Source Report Card</a></li>
+    </ul>
 </div>
 <br>
 </div>
