@@ -126,3 +126,9 @@ Now, time to connect things!
 ##ACTION!
 
 I personally followed [this tutorial](https://learn.adafruit.com/sparkle-skirt/overview) to sew the neopixels into the skirt.
+
+Some problems I ran into:
+
+1. The Embroidery hoop is completely necessary. I tried sewing without it and it was a mess.
+2. When sewing the neo-pixels, the input & output of each pixel shouldn't touch each other.
+3. The power/ground bus thread should be reaaaallllyyy long, for my project, it was about 1.5 ft long, and I was running short near the end.
