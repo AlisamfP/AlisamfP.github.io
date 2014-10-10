@@ -6,21 +6,34 @@ date:   2014-10-09
 
 Getting started with Gemma
 
-http://www.thingiverse.com/thing:237034
+----
+The [adafruit gemma](http://www.adafruit.com/product/1222) is an small arduino made for wearable electronics.
+
+
+Unfortunately, it is not supported in the Arduino IDE currently, but you can [download](https://learn.adafruit.com/introducing-gemma/setting-up-with-arduino-ide) a standalone IDE to work with or modify you're current Arduino IDE.
+
+---
+
+I wanted to make a skirt that lights up with movement, so I used an Adafruit Gemma, 7 neo-pixels, a ton of conductive thread, a 9v coin cell battery, and a piezo film sensor.
 
 ----
-The adafruit gemma is an impressively small arduino made for wearable electronics.
 
+####FIRST
+If you don't have the Arduino IDE, you can download it [here](http://arduino.cc/en/Main/Software)
 
-Unfortunately, it is not supported in the Arduino IDE currently, but you can [download](https://learn.adafruit.com/introducing-gemma/setting-up-with-arduino-ide) a standalone IDE to work with.
+I'd also recommend reading about the [basics](https://learn.adafruit.com/introducing-gemma/guided-tour) and the [pinouts](https://learn.adafruit.com/introducing-gemma/pinouts) of the Gemma.
 
+----
 
-I wanted to make a skirt that lights up with movement, so I used an Adafruit Gemma, 7 neo-pixels, a ton of conductive thread, a 9v coin cell batter, and a piezo film sensor.
 
 ##Lights
 Connect the neopixels together using alligator clips (or if you have a strip they're already connected). Each neopixel needs a connection to power, ground, and the previous/next neo pixel.
 
+When you're connecting the neo-pixels to each other, make sure you're following the arrows. Those show what direction your data is traveling. 
+
 The neopixels have [example code](https://github.com/adafruit/Adafruit_NeoPixel) you can use to test your lights.
+
+----
 
 ##Sensor
 To set up the sensor, you just have to instantiate the variable, set that varible to read the analog data outputed by the sensor
