@@ -1,0 +1,82 @@
+---
+layout: post
+title:  "Mongo Intro."
+date:   2014-10-21
+---
+
+
+####What is a database?
+A database is an organized collection of data. They are usually organized in such a way that makes it easy to naviagte the data. You usually interact with them using DBMS like MySQL, PostgreSQL, Oracle. If you want to know more, you should probably [Google it](http://lmgtfy.com/?q=Database).
+
+---
+
+####DBMS?
+DBMS stands for database management system. Database management systems help...manage databases? Specifically they're programs designed to help users interact with databases and the data stored within them. They usually contain the ability to do some CRUD operations.
+
+---
+
+####CRUD?
+The four operations every DBMS has to allow the user to manipulate the data.
+
+1. Create
+2. Read
+3. Update
+4. Delete
+
+
+---
+
+####What is a RDBMS?
+RDBMS stands for a relational database management system. A relational database is a database in which the data and how it's related is stored.
+
+---
+
+####SQL
+Structured Query Language. A language designed to navigate RDBMS (Relational Database Management Systems).
+
+---
+
+####NoSQL vs SQL
+This debate is really centered around the concept that relational databases are not always the most efficient choice for data storage. [The best explaination.](http://www.mongodb.com/nosql-explained)
+
+---
+
+####NoSQL Database Types
+
+1. Document Based
+2. Key-Value Pairs
+3. Graph Stores
+4. Wide Column Stores
+
+---
+
+####Mongo DB
+[Mongo DB](http://www.mongodb.org/about/introduction/) is an open source, document based, NoSQL database.
+
+---
+
+####DOWNLOAD TIME
+> [OSX](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/) 
+> 
+> [Ubuntu](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
+>
+> [Red Hat](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat-centos-or-fedora-linux/)
+>
+> [Debian](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-debian-linux/)
+>
+> [Windows](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/)
+
+---
+
+####What's Mongod?
+
+Mongod is the primary daemon process for the MongoDB system. It handles data requests, manages data access, and performs background management operations.
+
+---
+
+####What's a daemon?
+
+In multitasking computer operating systems, a daemon (/ˈdiːmən/ or /ˈdeɪmən/) is a computer program that runs as a background process, rather than being under the direct control of an interactive user.
+
+
+----
