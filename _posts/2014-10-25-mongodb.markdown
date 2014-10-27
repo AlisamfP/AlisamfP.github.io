@@ -53,30 +53,64 @@ This debate is really centered around the concept that relational databases are 
 ####Mongo DB
 [Mongo DB](http://www.mongodb.org/about/introduction/) is an open source, document based, NoSQL database.
 
----
 
-####DOWNLOAD TIME
-> [OSX](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/) 
-> 
-> [Ubuntu](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
->
-> [Red Hat](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat-centos-or-fedora-linux/)
->
-> [Debian](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-debian-linux/)
->
-> [Windows](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/)
+
+<table class="table">
+    <tr><h4>DOWNLOAD</h4></tr>
+    <th>
+        <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">[OSX]</a>
+    </th>
+    <th>
+        <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/">[Ubuntu]</a>
+    </th>
+    <th>
+        <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat-centos-or-fedora-linux/">[Red Hat]</a>
+    </th> 
+    <th>    
+        <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-debian-linux/">[Debian]</a> 
+    </th> 
+    <th>    
+        <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/">[Windows]</a>
+    </th> 
+</table>
 
 ---
 
 ####What's Mongod?
 
-Mongod is the primary daemon process for the MongoDB system. It handles data requests, manages data access, and performs background management operations.
+Mongod is the primary daemon process for the MongoDB system. It handles data requests, manages data access, and performs background management operations. It runs in the background, and is what mongo needs to connect to.
 
 ---
 
 ####What's a daemon?
 
-In multitasking computer operating systems, a daemon (/ˈdiːmən/ or /ˈdeɪmən/) is a computer program that runs as a background process, rather than being under the direct control of an interactive user.
+In multitasking computer operating systems, a daemon is a computer program that runs as a background process, rather than being under the direct control of an interactive user.
+
+---
+
+###Mongo Basics
+
+Start up an instance on mongo. If you followed the download tutorial, you should have a mongod service running
+
+*mongod defaults to running on port 27017 and dbpath <kbd> /data/db </kbd>*
+
+<kbd> ~$ > mongo </kbd>
+
+To see all of your databases, simple show dbs.
+
+<kbd> show dbs </kbd>
+
+and to use a database, simple use dbName. When booting up mongo, you have to specify which database you want to work in. Luckily, mongo will create the database if you try to use one that isn't yet made.
+
+<kbd> use test </kbd>
+
+And to show which database you're currently working in...
+
+<kbd> db </kbd>
+
+From within the mongo shell, you can do any of the 4 CRUD operations.
+
+####Create
 
 
-----
+
