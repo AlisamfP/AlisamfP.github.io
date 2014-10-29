@@ -90,27 +90,63 @@ In multitasking computer operating systems, a daemon is a computer program that 
 
 ###Mongo Basics
 
-Start up an instance on mongo. If you followed the download tutorial, you should have a mongod service running
+Start up an instance on mongo. If you followed the download tutorial, you should have a mongod service already running
 
-*mongod defaults to running on port 27017 and dbpath <kbd> /data/db </kbd>*
+*mongod defaults to running on port 27017 and dbpath*
+```
+ /data/db 
+```
 
-<kbd> ~$ > mongo </kbd>
+```
+ ~$ mongo 
+```
 
-To see all of your databases, simple show dbs.
+To see all of your databases run 
+```
+ > show dbs 
+``` 
 
-<kbd> show dbs </kbd>
+To switch to working with a database, run 'use dbName'. 
+When booting up mongo, you have to specify which database you want to work in either by setting it when you run mongo or running use once mongo has started.
 
-and to use a database, simple use dbName. When booting up mongo, you have to specify which database you want to work in. Luckily, mongo will create the database if you try to use one that isn't yet made.
+Mongo will also create the database if you try to use one that isn't yet made.
 
-<kbd> use test </kbd>
+```
+> use test
+```
 
 And to show which database you're currently working in...
 
-<kbd> db </kbd>
+```
+> db
+```
+
 
 From within the mongo shell, you can do any of the 4 CRUD operations.
 
 ####Create
+Within each database, you can have collections (groupings of documents). They're the equivalent to tables in RDBMS.
+Let's start by creating a collection and inserting documents into it.
 
+```
+> me = { name: "Alisa", age: 23, dob: 09/06/1991 }
+```
+
+Then, insert the data into the collection by using 
+```
+db.collectionName.insert(dataToInsert)
+```
+
+*Just like with databases, Mongo will create the collection when you insert data into it if it doesn't exist yet*
+
+So, to create the collection and insert your object.
+```
+> db.testData.insert(me)
+```
+
+Check that the collection was created
+```
+> show collections
+```
 
 
