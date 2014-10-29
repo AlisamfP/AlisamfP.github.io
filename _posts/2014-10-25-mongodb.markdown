@@ -129,24 +129,71 @@ Within each database, you can have collections (groupings of documents). They're
 Let's start by creating a collection and inserting documents into it.
 
 ```
-> me = { name: "Alisa", age: 23, dob: 09/06/1991 }
+> me = { name: "Alisa", age: 23, dob: "09/06/1991" }
 ```
 
 Then, insert the data into the collection by using 
+
 ```
 db.collectionName.insert(dataToInsert)
 ```
 
 *Just like with databases, Mongo will create the collection when you insert data into it if it doesn't exist yet*
 
-So, to create the collection and insert your object.
+So, to create the collection and insert your object run
+
 ```
 > db.testData.insert(me)
 ```
 
-Check that the collection was created
+####Read
+First, check that the collection was created
+
 ```
 > show collections
 ```
 
+Then, check to see that your document was added correctly
 
+```
+> db.testData.find()
+```
+
+Mongo adds in a unique id if you don't specify one when adding the document.
+
+```
+{ "_id" : ObjectId("54502a3ddd9031dc7b0dbbb2"), "name" : "Alisa", "age" : 23, "dob" : "09/06/1991" }
+```
+
+Add some extra documents into your testData collection.
+To iterate over the documents in your collection, you can use a cursor object.
+
+{% highlight javascript %}
+var c = db.testData.find()
+while ( c.hasNext() ) printjson( c.next() )
+{% endhighlight %}
+
+You can also use array operations with the cursor object
+
+```
+> printJson( c[4] )
+```
+
+You can also also search for documents matching certain criteria.
+
+```
+> db.testData.find({ age: 23 })
+```
+
+To return a single document from a collection use findOne
+
+```
+> db.testData.findOne()
+```
+
+Or you can limit the amount of documents you query by adding limit and the amount after
+
+```
+> db.testData.find().limit(3)
+```
+####Update
