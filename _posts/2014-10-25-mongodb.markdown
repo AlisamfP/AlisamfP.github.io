@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mongo Intro."
-date:   2014-10-21
+date:   2014-10-25
 ---
 
 
@@ -124,6 +124,8 @@ And to show which database you're currently working in...
 
 From within the mongo shell, you can do any of the 4 CRUD operations.
 
+---
+
 ####Create
 Within each database, you can have collections (groupings of documents). They're the equivalent to tables in RDBMS.
 Let's start by creating a collection and inserting documents into it.
@@ -145,6 +147,8 @@ So, to create the collection and insert your object run
 ```
 > db.testData.insert(me)
 ```
+
+---
 
 ####Read
 First, check that the collection was created
@@ -196,4 +200,45 @@ Or you can limit the amount of documents you query by adding limit and the amoun
 ```
 > db.testData.find().limit(3)
 ```
+
+---
+
 ####Update
+To update simply call update instead of insert.
+
+```
+db.testData.update({name: "Alisa"}, {name: "Uh-Lee-Suh"})
+```
+
+The update takes a query parameter first, in the same way find does. Then the update you want to make, and some extra options.
+
+{% highlight javascript %}
+db.collection.update(
+   <query>,
+   <update>,
+   {
+     upsert: <boolean>,
+     multi: <boolean>,
+     writeConcern: <document>
+   }
+)
+{% endhighlight %} 
+
+1. Upsert, when true, will create a new document with the data if nothing matches the query.
+2. Multi, when true, will update all requests that match the query.
+3. [writeConcern](http://docs.mongodb.org/manual/core/write-concern/) is a document describing the guarentee Mongo will make upon completion of the update
+
+---
+
+####Delete
+Removing follows suit with the other CRUD operations, to remove documents from a collection just call remove and pass in a query to select what data to remove.
+
+```
+db.testData.remove({age:23})
+```
+
+Or to remove everything from a collection, pass in an empty object as the query
+
+```
+db.testData.remove({})
+```

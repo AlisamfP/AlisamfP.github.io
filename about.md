@@ -11,7 +11,7 @@ permalink: /about/
 
     <p>I think code should be free, scalable, and beautiful. Intellectually curious and self-driven, I and strive to learn as much as possible everyday. Data is wonderful. Everything is better with data, and data is better when it's beautiful.</p>
 
-    <p>I'm currently working towards becoming a software engineer specializing in data visualization.</p>
+    <p>I'm currently working at Octoblu as a software engineer.</p>
     
     <p>Born and raised in Phoenix, AZ. I've helped run HeatSync Labs, a hackerspace in Mesa, AZ, since 2012. I help maintain the space, hold open hours, host different events bringing tech into the community(Coffee&Code, HackPHX), and teach classes on different topics(soldering, piano, DNS, musical theory, 3D printing). In the summer of 2013, I was accepted to Hacker School and spent 3 months in New York becoming a better programmer.
     </p>
