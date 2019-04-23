@@ -26,16 +26,11 @@ permalink: /about/
 <div class='col-sm-4'>
     <h3>Projects</h3>
     <ul class="list-group navbar-inverse">
-        <li class="list-group-item"><a href="http://visualize-fm.herokuapp.com/">Last.FM Music Visualization</a>
-        </li>
-
         <li class="list-group-item"><a href="http://hackphx-html5games.github.io/team7/">HTML5 Game Hackathon submission</a></li>
     </ul>
     <h3>Oh look, neat!</h3>
     <ul class="list-group">
-        <li class="list-group-item"><a href="http://registry.jsonresume.org/alisamfp">JSON Resume</a></li>
         <li class="list-group-item"><a href='http://resume.github.io/?AlisamfP'>Github Resume</a></li>
-        <li class="list-group-item"><a href="https://osrc.dfm.io/alisamfp/">Open Source Report Card</a></li>
     </ul>
 </div>
 <br>
