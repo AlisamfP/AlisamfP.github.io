@@ -11,7 +11,7 @@ permalink: /about/
 
     <p>Intellectually curious and self-driven, I and strive to learn as much as possible everyday.</p>
 
-    <p>I'm currently disabled with fibromyalgia, arthritis, and PTSD.</p>
+    <p>I'm currently pursuing a Bachelor's in Graphic Information Technology with a focus in full-stack web development at ASU.</p>
     
     <p>Born and raised in Phoenix, AZ. Previously, I've helped run HeatSync Labs, a hackerspace in Mesa, AZ, since 2012. I helped maintain the space, hold open hours, host different events bringing tech into the community(Coffee&Code, HackPHX), and taught classes on different topics(soldering, piano, DNS, musical theory, 3D printing). In the summer of 2013, I was accepted to Recurse Center and spent 3 months in New York becoming a better programmer.
     </p>
