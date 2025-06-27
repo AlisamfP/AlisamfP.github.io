@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f8f0e8;
+  color: #1a1a1a;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 0;
+}
+
+.app.active .main-content {
+  margin-left: 300px; /* align with fixed header */
+}
+
+/* Container layout */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Default UL behavior */
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* SPLASH layout: stacked, logo right */
+.header.splash .nav-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.header.spash .nav-item {
+  grid-column: 2/3;
+}
+
+.header.splash .logo-container {
+  grid-column: 1/2;
+  grid-row: 1/4;
+  margin-left: 3rem;
+}
+
+/* ACTIVE layout: logo centered, nav split */
+.header.active .nav-list {
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  position: fixed;
+  width: 300px;
+  top: 0;
+  left: 0;
+}
+
+/* Place items visually above the logo */
+.header.active .nav-item {
+  order: 2; /* default order for non-active items */
+}
+
+.header.active .nav-item.active-item {
+  order: 0; /* move the active item to the top */
+}
+
+/* Keep the logo in the middle */
+.header.active .logo-container {
+  order: 1;
+}
+
+/* Link styles */
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.1rem;
+}
+
+.nav-link[aria-current="page"] {
+  font-weight: bold;
+  border-bottom: 2px solid currentColor;
+  position: absolute;
+  top: 1em;
+  right: -1em;
+}
+
+/* Logo */
+.logo {
+  width: 200px;
+  height: auto;
+}
