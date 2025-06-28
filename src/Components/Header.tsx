@@ -1,46 +1,45 @@
 import React from "react";
 import logo from "/wordmark-color-no-background.svg"; 
-import "../App.css";
-import "../index.css"
+// import "../App.css";
+// import "../index.css"
 
-type Section = "splash" | "about" | "work" | "contact";
+type Section = "splash" | "about" | "projects" | "contact";
 
 interface Props {
   activeSection: Section;
   onNavigate: (section: Section) => void;
 }
 
-const navItems: Section[] = ["about", "work", "contact"];
+const navItems: Section[] = ["about", "projects", "contact"];
 
 const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
   const isSplash = activeSection === "splash";
 
   return (
-    <header className={`header ${isSplash ? "splash" : "active"}`}>
+    <header className={`header ${isSplash ? "splash" : "active  h-full"} flex flex-col items-center`}>
       <nav aria-label="Main navigation">
-        <ul className={`nav-list ${isSplash ? "splash" : "active"}`}>
+        <ul className={`nav-list gap-6 p-0 m-0 list-none
+            ${isSplash 
+              ? "grid grid-cols-2 justify-center items-center" 
+              : "flex flex-col items-end justify-center h-screen relative"}`}>
           {navItems.map((item) => (
-            <li
-              key={item}
-              className={`nav-item ${item === activeSection ? "active-item" : ""}`}
+            <li key={item} className={`nav-item ${item === activeSection ? "active-item" : ""} ${isSplash ? "col-span-1" : "order-2"}`}
             >
               <a
                 href={`#${item}`}
-                aria-current={item === activeSection ? "page" : undefined}
-                className="nav-link"
+                className={`nav-link ${item === activeSection ? "font-extrabold border-b-2 border-current absolute top-[1em] -right-[1em]" : "no-underline text-inherit text-[1.1rem]"}`}
                 onClick={(e) => {
                   e.preventDefault();
                   onNavigate(item);
                 }}
-              >
+                >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </a>
             </li>
           ))}
 
-          {/* Logo in the flow — not absolutely positioned */}
-          <li className="logo-container">
-            <img src={logo} alt="Alisa Palson Wordmark" className="logo" />
+          <li className={`logo-container ${isSplash ? "col-start-1 col-end-2 row-start-1 row-end-4 ml-12" : "order-1"}`}>
+            <img src={logo} alt="Alisa Palson Wordmark" className="w-[200px] h-auto ml-12" />
           </li>
         </ul>
       </nav>

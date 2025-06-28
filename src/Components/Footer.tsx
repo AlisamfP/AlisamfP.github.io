@@ -5,8 +5,8 @@ import "../App.css";
 const Header: React.FC = () => {
 
   return (
-    <footer>
-        This is a footer
+    <footer className="justify-self-center">
+        Peekaboo
     </footer>
   );
 };

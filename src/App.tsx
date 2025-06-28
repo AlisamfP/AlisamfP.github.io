@@ -26,11 +26,19 @@ function App() {
     }
   };
 
+
   return (
-    <div className={`app ${activeSection !== "splash" ? "active" : "splash"}`}>
-      <Header activeSection={activeSection} onNavigate={setActiveSection} />
+    <div className={`app  h-screen items-center grid
+      ${activeSection !== "splash"
+        ? "active grid-rows-[min-content_auto_min-content] justify-items-end grid-cols-[1fr_2fr]"
+        : "splash grid-rows-[auto_min-content]"}`}>
+      <Header
+        activeSection={activeSection}
+        onNavigate={setActiveSection}
+      />
       <main
-        className={`main-content ${activeSection === "splash" ? "hidden" : ""}`}
+        className={`main-content position
+           ${activeSection === "splash" ? "hidden" : "p-2 justify-self-start"}`}
         aria-hidden={activeSection === "splash"}
       >
         {activeSection !== "splash" && (

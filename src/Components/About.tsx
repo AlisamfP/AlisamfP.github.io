@@ -1,4 +1,5 @@
 import React from 'react';
+import portrait from '../assets/meow-wolf-portrait.jpg'
 import { 
     TbBrandGithub, 
     TbFolderHeart, 
@@ -32,6 +33,7 @@ const About: React.FC = () => {
                 <p>I’m a loud mouthed lover of cats, code, and creativity. I’m passionate about intuitive design, free and open source software and accessibility.</p>
                 <p>In my free time I love playing video games and being out in nature. If it’s raining, I’m outside.</p>
             </section>
+            <img src={portrait} alt="" className="w-80" />
             <section className='about-experience'>
                 <h2>Experience</h2>
                 <p>I previously worked at <a href="https://octoblu.com">Octoblu</a> as a software engineer for 3 years writing full stack JavaScript. Prior to that I have experience as a senior game advisor at GameStop an on-air personality with Geekssocciated Press and volunteering with HeatSync Labs.</p>
