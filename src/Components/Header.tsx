@@ -16,18 +16,18 @@ const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
   const isSplash = activeSection === "splash";
 
   return (
-    <header className={`header ${isSplash ? "splash" : "active  h-full"} flex flex-col items-center`}>
+    <header className={`header ${isSplash ? "splash grow justify-center" : "active md:h-full"} flex flex-col items-center`}>
       <nav aria-label="Main navigation">
-        <ul className={`nav-list gap-6 p-0 m-0 list-none
+        <ul className={`nav-list gap-6 p-0 m-0 list-none items-center
             ${isSplash 
-              ? "grid grid-cols-2 justify-center items-center" 
-              : "flex flex-col items-end justify-center h-screen relative"}`}>
+              ? "grid grid-cols-2 justify-center" 
+              : "grid grid-cols-2 md:flex md:flex-col md:items-end md:justify-center md:h-screen md:relative"}`}>
           {navItems.map((item) => (
-            <li key={item} className={`nav-item ${item === activeSection ? "active-item" : ""} ${isSplash ? "col-span-1" : "order-2"}`}
+            <li key={item} className={`nav-item ${item === activeSection ? "active-item order-1" : ""} ${isSplash ? "col-span-1" : "md:order-2"}`}
             >
               <a
                 href={`#${item}`}
-                className={`nav-link ${item === activeSection ? "font-extrabold border-b-2 border-current absolute top-[1em] -right-[1em]" : "no-underline text-inherit text-[1.1rem]"}`}
+                className={`nav-link ${item === activeSection ? "font-extrabold border-b-2 border-current md:absolute md:top-[1em] md:-right-[1em]" : "no-underline text-inherit text-[1.1rem]"}`}
                 onClick={(e) => {
                   e.preventDefault();
                   onNavigate(item);
@@ -38,8 +38,8 @@ const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
             </li>
           ))}
 
-          <li className={`logo-container ${isSplash ? "col-start-1 col-end-2 row-start-1 row-end-4 ml-12" : "order-1"}`}>
-            <img src={logo} alt="Alisa Palson Wordmark" className="w-[200px] h-auto ml-12" />
+          <li className={`logo-container ${isSplash ? "col-start-1 col-end-2 row-start-1 row-end-4 ml-12" : "col-[1/2] row-[1/4] md:order-1"}`}>
+            <img src={logo} alt="Alisa Palson Wordmark" className="w-full md:w-[200px] h-auto" />
           </li>
         </ul>
       </nav>

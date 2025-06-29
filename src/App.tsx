@@ -28,9 +28,9 @@ function App() {
 
 
   return (
-    <div className={`app  h-screen items-center grid
+    <div className={`app h-screen items-center flex flex-col md:justify-center md:grid
       ${activeSection !== "splash"
-        ? "active grid-rows-[min-content_auto_min-content] justify-items-end grid-cols-[1fr_2fr]"
+        ? "active grid-cols-1 md:grid-rows-[min-content_auto_min-content] justify-items-end md:grid-cols-[1fr_2fr]"
         : "splash grid-rows-[auto_min-content]"}`}>
       <Header
         activeSection={activeSection}
@@ -43,7 +43,7 @@ function App() {
       >
         {activeSection !== "splash" && (
           <>
-            <div className="page-content">{renderContent()}</div>
+            <div className="page-content md:border-l-2 md:border-[#003333] md:pl-2">{renderContent()}</div>
           </>
         )}
       </main>

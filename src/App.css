@@ -7,68 +7,8 @@ body {
   color: #1a1a1a;
 }
 
-/* .app {
-  display: flex;
-  flex-direction: column;
-} */
 
 .main-content {
   padding: 2rem;
   margin-left: 0;
-}
-
-.app.active .main-content {
-  /* margin-left: 300px;  */
-}
-
-
-/* .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
-/* Default UL behavior */
-/* .nav-list {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 1.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-} */
-
-/* SPLASH layout: stacked, logo right */
-/* .header.splash .nav-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-} */
-
-
-/* ACTIVE layout: logo centered, nav split */
-/* .header.active .nav-list {
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  position: fixed;
-  width: 300px;
-  top: 0;
-  left: 0;
-} */
-
-/* Place items visually above the logo */
-.header.active .nav-item {
-  order: 2; /* default order for non-active items */
-}
-
-.header.active .nav-item.active-item {
-  order: 0; /* move the active item to the top */
-}
-
-/* Keep the logo in the middle */
-.header.active .logo-container {
-  order: 1;
 }
