@@ -37,13 +37,13 @@ function App() {
         onNavigate={setActiveSection}
       />
       <main
-        className={`main-content position
-           ${activeSection === "splash" ? "hidden" : "p-2 justify-self-start"}`}
+        className={`main-content
+           ${activeSection === "splash" ? "hidden" : "p-2 justify-self-start h-screen overflow-scroll md:overflow-auto md:h-full md:pl-0"}`}
         aria-hidden={activeSection === "splash"}
       >
         {activeSection !== "splash" && (
           <>
-            <div className="page-content md:border-l-2 md:border-[#003333] md:pl-2">{renderContent()}</div>
+            <div className="page-content h-full md:border-l-2 md:border-[#003333] md:pl-2">{renderContent()}</div>
           </>
         )}
       </main>
