@@ -2,23 +2,24 @@ import { Field, Label, Select } from "@headlessui/react";
 import { TbChevronDown } from "react-icons/tb";
 
 
-function ProjectSelect() {
+function ProjectSelect({ value, onChange, options }) {
   return (
-    <div className="w-full max-w-md px-4">
+    <div className="w-full max-w-md px-4 bg-[#B0BCBF] self-center">
       <Field>
-        <Label className="text-sm/6 font-medium text-white">Project list</Label>
+        <Label className="text-sm/6 font-medium sr-only">Project list</Label>
         <div className="relative">
           <Select name="projects"
-            className=
-              "mt-3 block w-full appearance-none rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25"
-              aria-label="Project list"
+            className="block w-full appearance-none rounded-lg border-none bg-white/5 p-3 text-sm/6 focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25"
+            aria-label="Project list"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
           >
-            <option value="react">React Rally Conference Collateral</option>
-            <option value="pokedex">PokeDex Web App</option>
-            <option value="cats">The Cats' Website</option>
+            {options.map((project) => (
+              <option key={project.id} value={project.id}>{project.title}</option>
+            ))}
           </Select>
           <TbChevronDown
-            className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"
+            className="group pointer-events-none absolute top-4 right-2.5 size-4"
             aria-hidden="true"
           />
         </div>

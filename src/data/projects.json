@@ -1,0 +1,59 @@
+{
+    "projects": [
+        {
+            "id": "react-rally",
+            "title": "React Rally Conference Collateral",
+            "subtitle": "Capturing the spirit of a developer community",
+            "github": "",
+            "projectLink": "",
+            "background": "React Rally is a two-day developer conference held in Park City, Utah, centered around the React ecosystem. It places a strong emphasis on community, inclusivity, and creating a friendly atmosphere. The event features engaging talks from both first-time and experienced speakers, and encourages meaningful connections between attendees.",
+            "problem": "The conference needed printed and digital collateral that reflected its friendly, community-driven tone while remaining clear, professional, and easy for attendees to navigate. The challenge was to balance personality with practicality across a variety of formats.",
+            "process": "I started by gathering all the information needed and determining the color scheme of the project. After that I began sketching out layouts for the booklet, badge, and table tent sign. Then I started working in Adobe InDesign to lay out the event program booklet. After the booklet was done, I began working on the badge and table tent. Finally, I made the web ad for next year’s event.",
+            "results": "Although this was a speculative project, it successfully met my goal of designing a complete and cohesive visual system for an event. It gave me the chance to practice organizing large amounts of content into a clear, readable, and visually engaging layout. I completed it on time, got positive feedback from peers, and was proud of how it strengthened my skills in layout and brand consistency.",
+            "images": [
+                {
+                    "linkName": "badge-front-and-back.jpg",
+                    "alt": ""
+                },
+                {
+                    "linkName": "event-program-front-and-back.jpg"
+                },
+                {
+                    "linkName": "schedule-page-mockup.jpg"
+                },
+                {
+                    "linkName": "table-tent-mockup-copy"
+                },
+                {
+                    "linkName": "talk-summary-and-workshop-mockup.jpg"
+                }
+            ]
+        },
+        {
+            "id": "pokedex",
+            "title": "PokeDex Web App",
+            "subtitle": "GOTTA CATCH EM ALL",
+            "github": "",
+            "projectLink": "",
+            "background": "",
+            "problem": "",
+            "process": "",
+            "results": "",
+            "images": [
+                {
+                    "linkName": "weedle-searchbynum-dualtype1000x850.png",
+                    "alt": ""
+                },
+                {
+                    "linkName": "remove-from-team1000x850.png"
+                },
+                {
+                    "linkName": "psyduck1000x850.png"
+                },
+                {
+                    "linkName": "pokedex-error-screenshot1000x850.png"
+                }
+            ]
+        }
+    ]
+}

@@ -22,6 +22,7 @@ const About: React.FC = () => {
           <TbBrandGithub className="text-3xl" />
           View My Github
         </Button>
+        <div class="inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333]"></div>
         <Button className="flex items-center flex-row-reverse rounded gap-1 py-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
           <TbFolderHeart className="text-3xl" />
           View My Portfolio
