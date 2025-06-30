@@ -38,12 +38,12 @@ function App() {
       />
       <main
         className={`main-content
-           ${activeSection === "splash" ? "hidden" : "p-2 justify-self-start h-screen overflow-scroll md:overflow-auto md:h-full md:pl-0"}`}
+           ${activeSection === "splash" ? "hidden" : "p-1 md:p-2 justify-self-start md:overflow-auto md:h-full md:pl-0"}`}
         aria-hidden={activeSection === "splash"}
       >
         {activeSection !== "splash" && (
           <>
-            <div className="page-content h-full md:border-l-2 md:border-[#003333] md:pl-2">{renderContent()}</div>
+            <div className="page-content flex flex-col justify-center h-full md:border-l-2 md:border-[#003333] md:p-4">{renderContent()}</div>
           </>
         )}
       </main>
