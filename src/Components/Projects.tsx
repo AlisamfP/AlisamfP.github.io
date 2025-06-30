@@ -3,32 +3,33 @@ import ProjectSelect from "./ProjectSelect";
 import { Button } from "@headlessui/react";
 import { TbBrandGithub, TbExternalLink } from "react-icons/tb";
 import { useState } from "react";
-import projects from "../data/projects.json"
+import projectData from "../data/projects.json"
+
+const projects = projectData.projects;
 
 const Projects: React.FC = () => {
-  const [selectedId, setSelectedId] = useState(projects.projects[0].id);
-  const selectedProject = projects.projects.find((p) => p.id === selectedId)
+  const [selectedProject, setSelectedProject] = useState(projects[0]);
 
   return (
     <>
-      <div className="flex justify-between p-4 gap-4">
-        <Button className="flex flex-col md:flex-row items-center rounded gap-1 py-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
-          <TbBrandGithub className="text-3xl" />
+      <div className="flex justify-evenly sm:justify-between gap-4 py-2">
+        <Button className="flex flex-col text-xs sm:text-sm sm:flex-row items-center rounded gap-1 p-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
+          <TbBrandGithub className="text-2xl md:text-3xl" />
           View The Code
         </Button>
           <div class="inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333]"></div>
-        <Button className="flex flex-col md:flex-row items-center md:flex-row-reverse rounded gap-1 py-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
-          <TbExternalLink className="text-3xl" />
+        <Button className="flex flex-col text-xs sm:text-sm items-center sm:flex-row-reverse rounded gap-1 p-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
+          <TbExternalLink className="text-2xl md:text-3xl" />
           View The Project
         </Button>
       </div>
       <ProjectSelect
-        value={selectedId}
-        onChange={setSelectedId}
-        options={projects.projects}
+        value={selectedProject}
+        onChange={setSelectedProject}
+        options={projects}
       />
       {selectedProject && (
-        <div className="projects flex flex-col gap-4 p-4">
+        <div className="projects flex flex-col gap-4 p-4 grow">
           <section>
             <h2>Background</h2>
             <p>{selectedProject.background || "TBD"}</p>
