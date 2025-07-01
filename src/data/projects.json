@@ -16,16 +16,20 @@
                     "alt": ""
                 },
                 {
-                    "linkName": "event-program-front-and-back.jpg"
+                    "linkName": "event-program-front-and-back.jpg",
+                    "alt": ""
                 },
                 {
-                    "linkName": "schedule-page-mockup.jpg"
+                    "linkName": "schedule-page-mockup.jpg",
+                    "alt": ""
                 },
                 {
-                    "linkName": "table-tent-mockup-copy"
+                    "linkName": "table-tent-mockup-copy",
+                    "alt": ""
                 },
                 {
-                    "linkName": "talk-summary-and-workshop-mockup.jpg"
+                    "linkName": "talk-summary-and-workshop-mockup.jpg",
+                    "alt": ""
                 }
             ]
         },
@@ -35,23 +39,26 @@
             "subtitle": "GOTTA CATCH EM ALL",
             "github": "",
             "projectLink": "",
-            "background": "",
-            "problem": "",
-            "process": "",
-            "results": "",
+            "background": "Inspired by the iconic Pokédex from the Pokémon games, I set out to build a web app that lets users explore, search, and save Pokémon to their personal team. The goal was to combine nostalgic design with modern functionality, creating an interactive site that feels like a digital Pokédex brought to life.",
+            "problem": "With over 1,000 Pokémon, navigating such a large dataset can be overwhelming. I needed to design a clean, user-friendly interface that made browsing and searching intuitive, while staying true to the look and feel of the original Pokédex.",
+            "process": "I researched various Pokédex styles and the PokéAPI, then created mockups to guide the layout and aesthetic. I built the site structure using HTML and CSS, then integrated the API to pull real-time Pokémon data. Using jQuery, I added features like sprite slideshows, stat tabs, autocomplete search, and team-saving functionality. Much of my focus went into polishing the visuals to make the site feel dynamic and engaging.",
+            "results": "The final site closely matched my original vision. Users responded positively, noting how easy and fun it was to explore and build teams. I was proud of how well it balanced design and function, and how smoothly the development stayed on track.",
             "images": [
                 {
                     "linkName": "weedle-searchbynum-dualtype1000x850.png",
                     "alt": ""
                 },
                 {
-                    "linkName": "remove-from-team1000x850.png"
+                    "linkName": "remove-from-team1000x850.png",
+                    "alt": ""
                 },
                 {
-                    "linkName": "psyduck1000x850.png"
+                    "linkName": "psyduck1000x850.png",
+                    "alt": ""
                 },
                 {
-                    "linkName": "pokedex-error-screenshot1000x850.png"
+                    "linkName": "pokedex-error-screenshot1000x850.png",
+                    "alt": ""
                 }
             ]
         }

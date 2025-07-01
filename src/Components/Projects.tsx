@@ -17,7 +17,7 @@ const Projects: React.FC = () => {
           <TbBrandGithub className="text-2xl md:text-3xl" />
           View The Code
         </Button>
-          <div class="inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333]"></div>
+          <div className="inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333]"></div>
         <Button className="flex flex-col text-xs sm:text-sm items-center sm:flex-row-reverse rounded gap-1 p-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
           <TbExternalLink className="text-2xl md:text-3xl" />
           View The Project
@@ -31,19 +31,19 @@ const Projects: React.FC = () => {
       {selectedProject && (
         <div className="projects flex flex-col gap-4 p-4 grow">
           <section>
-            <h2>Background</h2>
+            <h2 className="font-bold">Background</h2>
             <p>{selectedProject.background || "TBD"}</p>
           </section>
           <section>
-            <h2>Problem</h2>
+            <h2 className="font-bold">Problem</h2>
             <p>{selectedProject.problem || "TBD"}</p>
           </section>
           <section>
-            <h2>Process</h2>
+            <h2 className="font-bold">Process</h2>
             <p>{selectedProject.process || "TBD"}</p>
           </section>
           <section>
-            <h2>Results</h2>
+            <h2 className="font-bold">Results</h2>
             <p>{selectedProject.results || "TBD"}</p>
           </section>
         </div>
