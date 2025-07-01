@@ -20,7 +20,7 @@ const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
       <nav aria-label="Main navigation" className="w-full">
         <ul className={`nav-list gap-6 p-0 m-0 list-none items-center
             ${isSplash 
-              ? "grid grid-cols-2 justify-center" 
+              ? "grid grid-cols-[1fr_min-content_1fr] justify-center" 
               : "w-full grid grid-cols-2 md:flex md:flex-col md:items-end md:justify-center md:h-screen md:relative"}`}>
           {navItems.map((item) => (
             <li key={item} className={`nav-item ${item === activeSection ? "active-item order-1 md:absolute md:top-1 md:-right-4" : ""} ${isSplash ? "col-span-1" : "md:order-2"}`}
@@ -37,9 +37,10 @@ const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
               </a>
             </li>
           ))}
+          <div className={`${isSplash ? "col-[2/3] row-start-1 row-end-4 inline-block h-[250px] min-h-[1em] w-[2px] self-stretch bg-[#003333]" : "hidden"}`}></div>
 
           <li className={`logo-container ${isSplash ? "col-start-1 col-end-2 row-start-1 row-end-4 ml-12" : "col-[1/2] row-[1/4] md:order-1"}`}>
-            <img src={logo} alt="Alisa Palson Wordmark" className="w-full md:w-[200px] h-auto" />
+            <img src={logo} alt="Alisa Palson Wordmark" className="w-full md:max-w-full h-auto" />
           </li>
         </ul>
       </nav>
