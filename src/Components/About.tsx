@@ -1,5 +1,4 @@
 import React from "react";
-import portrait from "../assets/meow-wolf-portrait.jpg";
 import { Button } from "@headlessui/react";
 
 import {
@@ -32,7 +31,7 @@ const About: React.FC = () => {
         <h2 className="font-bold text-3xl">Hello There!</h2>
         <p className="text-2xl">The name's Alisa <span className="text-xs inline-block">(pronounced&nbsp;uh-lee-suh)</span></p>
         <img
-          src={portrait}
+          src="/meow-wolf-portrait.jpg"
           alt=""
           className="w-80 self-center justify-self-center md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-6 md:pr-4"
         />

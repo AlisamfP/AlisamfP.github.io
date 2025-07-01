@@ -46,12 +46,12 @@ const Projects: React.FC = () => {
             <h2 className="font-bold">Results</h2>
             <p>{selectedProject.results || "TBD"}</p>
           </section>
-          <section className="grid grid-cols-1 md:grid-cols-2 md:gap-2">
+          <section className="grid grid-cols-1 md:grid-cols-2 md:gap-2 justify-items-center">
             <h2 className="sr-only">Project Images</h2>
           {selectedProject.images.map((image) => (
-            <figure key={image.link}>
-              <img src={image.link} alt={image.alt} />
-              <figcaption>{image.description}</figcaption>
+            <figure className="mb-4 inline-block max-w-sm" key={image.link}>
+              <img className="mb-4 h-auto max-w-full align-middle leading-none" src={image.link} alt={image.alt} />
+              <figcaption className="text-sm text-neutral-600 dark:text-neutral-400">{image.description}</figcaption>
             </figure>
           ))}
           </section>
