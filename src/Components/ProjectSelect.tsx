@@ -1,6 +1,7 @@
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/react";
 import { TbChevronDown, TbCheck } from "react-icons/tb";
 
+
 type Project = {
   id: string;
   title: string;
@@ -11,7 +12,7 @@ type Project = {
   problem: string;
   process: string;
   results: string;
-  images: Array<{ linkName: string; alt: string }>;
+  images: Array<{ link: string; alt: string; description: string}>;
 };
 
 type ProjectSelectProps = {

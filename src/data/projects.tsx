@@ -1,4 +1,27 @@
-{
+export interface Root {
+  projects: Project[]
+}
+
+export interface Project {
+  id: string
+  title: string
+  subtitle: string
+  github: string
+  projectLink: string
+  background: string
+  problem: string
+  process: string
+  results: string
+  images: Image[]
+}
+
+export interface Image {
+  link: string
+  alt: string
+  description: string
+}
+
+export const projectData = {
     "projects": [
         {
             "id": "react-rally",
@@ -12,24 +35,35 @@
             "results": "Although this was a speculative project, it successfully met my goal of designing a complete and cohesive visual system for an event. It gave me the chance to practice organizing large amounts of content into a clear, readable, and visually engaging layout. I completed it on time, got positive feedback from peers, and was proud of how it strengthened my skills in layout and brand consistency.",
             "images": [
                 {
-                    "linkName": "badge-front-and-back.jpg",
-                    "alt": ""
+                    "link": "/badge-front-and-back.jpg",
+                    "alt": "",
+                    "description": "Mockup of the badge design"
                 },
                 {
-                    "linkName": "event-program-front-and-back.jpg",
-                    "alt": ""
+                    "link": "/event-program-front-and-back.jpg",
+                    "alt": "",
+                    "description": "Mockup for the event program's front and back design"
                 },
                 {
-                    "linkName": "schedule-page-mockup.jpg",
-                    "alt": ""
+                    "link": "/schedule-page-mockup.jpg",
+                    "alt": "",
+                    "description": "Mockup of one of the schedule pages in the event program"
                 },
                 {
-                    "linkName": "table-tent-mockup-copy",
-                    "alt": ""
+                    "link": "/table-tent-mockup.jpg",
+                    "alt": "",
+                    "description": "Mockup of the table tent design"
                 },
                 {
-                    "linkName": "talk-summary-and-workshop-mockup.jpg",
-                    "alt": ""
+                    "link": "/talk-summary-and-workshop-mockup.jpg",
+                    "alt": "",
+                    "description": "Mockup of a spread in the event program showing the talk summaries and workshop description pages"
+                },
+                {
+                
+                    "link": "/speakers-page-mockup.jpg",
+                    "alt": "",
+                    "description": "Mockup showing the speakers page in the event program"
                 }
             ]
         },
@@ -45,20 +79,24 @@
             "results": "The final site closely matched my original vision. Users responded positively, noting how easy and fun it was to explore and build teams. I was proud of how well it balanced design and function, and how smoothly the development stayed on track.",
             "images": [
                 {
-                    "linkName": "weedle-searchbynum-dualtype1000x850.png",
-                    "alt": ""
+                    "link": "/weedle-searchbynum-dualtype1000x850.png",
+                    "alt": "",
+                    "description": "Screenshot highlighting search by id number functionality"
                 },
                 {
-                    "linkName": "remove-from-team1000x850.png",
-                    "alt": ""
+                    "link": "/remove-from-team1000x850.png",
+                    "alt": "",
+                    "description": "Screenshot showing remove from team dialog box"
                 },
                 {
-                    "linkName": "psyduck1000x850.png",
-                    "alt": ""
+                    "link": "/psyduck1000x850.png",
+                    "alt": "",
+                    "description": "Screenshot showing pokemon name search"
                 },
                 {
-                    "linkName": "pokedex-error-screenshot1000x850.png",
-                    "alt": ""
+                    "link": "/pokedex-error-screenshot1000x850.png",
+                    "alt": "",
+                    "description": "Screenshot of the error page"
                 }
             ]
         }

@@ -3,7 +3,7 @@ import ProjectSelect from "./ProjectSelect";
 import { Button } from "@headlessui/react";
 import { TbBrandGithub, TbExternalLink } from "react-icons/tb";
 import { useState } from "react";
-import projectData from "../data/projects.json"
+import { projectData } from "../data/projects";
 
 const projects = projectData.projects;
 
@@ -45,6 +45,15 @@ const Projects: React.FC = () => {
           <section>
             <h2 className="font-bold">Results</h2>
             <p>{selectedProject.results || "TBD"}</p>
+          </section>
+          <section className="grid grid-cols-1 md:grid-cols-2 md:gap-2">
+            <h2 className="sr-only">Project Images</h2>
+          {selectedProject.images.map((image) => (
+            <figure key={image.link}>
+              <img src={image.link} alt={image.alt} />
+              <figcaption>{image.description}</figcaption>
+            </figure>
+          ))}
           </section>
         </div>
       )}
