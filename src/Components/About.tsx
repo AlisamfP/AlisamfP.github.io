@@ -48,7 +48,7 @@ const About: React.FC = () => {
       <section className="about-experience rounded-md md:border md:border-gray-300 p-4 mb-4">
         <h2 className="font-bold text-2xl">Experience</h2>
         <p>
-          I previously worked at <a href="https://octoblu.com">Octoblu</a> as a
+          I previously worked at <a className="no-underline text-[#003333] border-b-2 border-transparent hover:border-[#003333]" href="https://octoblu.com">Octoblu</a> as a
           software engineer for 3 years writing full stack JavaScript. Prior to
           that I have experience as a senior game advisor at GameStop an on-air
           personality with Geekssocciated Press and volunteering with HeatSync

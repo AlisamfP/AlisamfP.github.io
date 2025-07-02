@@ -24,14 +24,6 @@
   display: none;
 }
 
-a {
-  color: #003333;
-  text-decoration: inherit;
-  border-bottom: 3px solid transparent;
-}
-a:hover {
-  border-color: #003333;
-}
 
 body {
   margin: 0;
@@ -48,28 +40,3 @@ h1 {
 }
 
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* tablet size */
-@media screen and (min-width: 700px) {
-  body{
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  body {
-    margin: 0 auto;
-    place-items: center;
-  }
-}
