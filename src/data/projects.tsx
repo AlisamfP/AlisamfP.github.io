@@ -35,33 +35,33 @@ export const projectData = {
             "results": "Although this was a speculative project, it successfully met my goal of designing a complete and cohesive visual system for an event. It gave me the chance to practice organizing large amounts of content into a clear, readable, and visually engaging layout. I completed it on time, got positive feedback from peers, and was proud of how it strengthened my skills in layout and brand consistency.",
             "images": [
                 {
-                    "link": "/badge-front-and-back.jpg",
+                    "link": "./images/badge-front-and-back.jpg",
                     "alt": "",
                     "description": "Mockup of the badge design"
                 },
                 {
-                    "link": "/event-program-front-and-back.jpg",
+                    "link": "./images/event-program-front-and-back.jpg",
                     "alt": "",
                     "description": "Mockup for the event program's front and back design"
                 },
                 {
-                    "link": "/schedule-page-mockup.jpg",
+                    "link": "./images/schedule-page-mockup.jpg",
                     "alt": "",
                     "description": "Mockup of one of the schedule pages in the event program"
                 },
                 {
-                    "link": "/table-tent-mockup.jpg",
+                    "link": "./images/table-tent-mockup.jpg",
                     "alt": "",
                     "description": "Mockup of the table tent design"
                 },
                 {
-                    "link": "/talk-summary-and-workshop-mockup.jpg",
+                    "link": "./images/talk-summary-and-workshop-mockup.jpg",
                     "alt": "",
                     "description": "Mockup of a spread in the event program showing the talk summaries and workshop description pages"
                 },
                 {
                 
-                    "link": "/speakers-page-mockup.jpg",
+                    "link": "./images/speakers-page-mockup.jpg",
                     "alt": "",
                     "description": "Mockup showing the speakers page in the event program"
                 }
@@ -79,22 +79,22 @@ export const projectData = {
             "results": "The final site closely matched my original vision. Users responded positively, noting how easy and fun it was to explore and build teams. I was proud of how well it balanced design and function, and how smoothly the development stayed on track.",
             "images": [
                 {
-                    "link": "/weedle-searchbynum-dualtype1000x850.png",
+                    "link": "./images/weedle-searchbynum-dualtype1000x850.png",
                     "alt": "",
                     "description": "Screenshot highlighting search by id number functionality"
                 },
                 {
-                    "link": "/remove-from-team1000x850.png",
+                    "link": "./images/remove-from-team1000x850.png",
                     "alt": "",
                     "description": "Screenshot showing remove from team dialog box"
                 },
                 {
-                    "link": "/psyduck1000x850.png",
+                    "link": "./images/psyduck1000x850.png",
                     "alt": "",
                     "description": "Screenshot showing pokemon name search"
                 },
                 {
-                    "link": "/pokedex-error-screenshot1000x850.png",
+                    "link": "./images/pokedex-error-screenshot1000x850.png",
                     "alt": "",
                     "description": "Screenshot of the error page"
                 }

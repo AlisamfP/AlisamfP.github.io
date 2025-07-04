@@ -21,7 +21,7 @@ const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
               ? "grid grid-cols-[1fr_min-content_1fr] justify-center" 
               : "w-full grid grid-cols-2 md:flex md:flex-col md:items-end md:justify-center md:h-screen md:relative"}`}>
           {navItems.map((item) => (
-            <li key={item} className={`nav-item ${item === activeSection ? "active-item order-1 md:absolute md:top-1 md:-right-4" : ""} ${isSplash ? "col-span-1" : "md:order-2"}`}
+            <li key={item} className={`nav-item ${item === activeSection ? "active-item order-1 md:absolute md:top-1 md:-right-2" : ""} ${isSplash ? "col-span-1" : "md:order-2"}`}
             >
               <a
                 href={`#${item}`}
