@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -17,13 +17,21 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 const Contact: React.FC = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const popupTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  useEffect(() => {
+    return () => {
+      if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current)
+    }
+  }, []);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    reset
+    reset,
+    formState: { errors, isSubmitting }
   } = useForm<FormData>({
     resolver: yupResolver(schema)
   })
@@ -47,19 +55,24 @@ const Contact: React.FC = () => {
       console.warn("Bot submission blocked");
       return;
     }
-    console.log("Sending this to EmailJS:", { ...data, time: new Date().toLocaleTimeString(), "g-recaptcha-response": token });
     try {
       await emailjs.send(
         import.meta.env.VITE_EJS_SERVICE_ID,
         import.meta.env.VITE_EJS_TEMPLATE_ID,
-        { ...data, 
+        {
+          ...data,
           time: new Date().toLocaleTimeString(),
-          'g-recaptcha-response': token },
+          'g-recaptcha-response': token
+        },
         import.meta.env.VITE_EJS_PUBLIC_KEY
       );
 
       console.log("SUCCESS!");
       recaptchaRef.current.reset();
+      reset();
+
+      setShowPopup(true);
+      popupTimeoutRef.current = setTimeout(() => setShowPopup(false), 3000);
 
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -191,11 +204,20 @@ const Contact: React.FC = () => {
 
           <Button
             type="submit"
+            disabled={isSubmitting}
             className="max-w-full min-w-36 min-h-16 text-[1.15rem] rounded-md p-2 text-stone-900 border-3 border-[#006666] data-hover:bg-[#003333] data-hover:text-stone-200">
             {isSubmitting ? "Sending" : "Submit"}
           </Button>
         </form>
-
+        {showPopup && (
+          <div
+          role="alert"
+          aria-live="assertive"
+          className="fixed bottom-4 left-4 z-50 rounded-md bg-[#006666] p-4 text-white shadow-lg"
+          >
+            Email sent successfully!
+          </div>
+          )}
       </section>
 
     </>
