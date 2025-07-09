@@ -16,7 +16,7 @@ function App() {
   const renderContent = () => {
     switch (activeSection) {
       case "about":
-        return <About />;
+        return <About onNavigate={setActiveSection} />;
       case "projects":
         return <Projects />;
       case "contact":

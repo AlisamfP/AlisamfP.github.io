@@ -13,16 +13,28 @@ import {
   TbBrandVite,
 } from "react-icons/tb";
 
-const About: React.FC = () => {
+type AboutProps = {
+  onNavigate: (section: "about" | "projects" | "contact" | "splash") => void;
+};
+
+const About: React.FC<AboutProps> = ({ onNavigate }) => {
   return (
     <div className="about-page h-full grow">
       <div className="flex justify-between py-2">
-        <Button className="flex items-center rounded p-2 gap-1 md:gap-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
+        <a
+          href="https://github.com/alisamfp"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100"
+        >
           <TbBrandGithub className="text-3xl" />
-          View My Github
-        </Button>
+          View My GitHub
+        </a>
         <div className="inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333]"></div>
-        <Button className="flex items-center flex-row-reverse rounded p-2 gap-1 md:gap-2 text-stone-900 data-hover:bg-[#006666] data-hover:text-stone-100">
+        <Button
+          onClick={() => onNavigate("projects")}
+          className="flex items-center flex-row-reverse rounded p-2 gap-1 md:gap-2 text-stone-900 
+        data-hover:bg-[#006666] data-hover:text-stone-100">
           <TbFolderHeart className="text-3xl" />
           View My Portfolio
         </Button>
