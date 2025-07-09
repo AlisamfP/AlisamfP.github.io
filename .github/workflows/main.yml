@@ -39,6 +39,11 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          VITE_EJS_PUBLIC_KEY: ${{ secrets.VITE_EJS_PUBLIC_KEY }}
+          VITE_EJS_TEMPLATE_ID: ${{ secrets.VITE_EJS_TEMPLATE_ID }}
+          VITE_EJS_SERVICE_ID: ${{ secrets.VITE_EJS_SERVICE_ID }}
+          VITE_GREC_SITE_KEY: ${{ secrets.VITE_GREC_SITE_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
