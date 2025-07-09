@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Raleway", sans-serif;
   background: #f5eae0;
   color: #1a1a1a;
+}
+
+.projects a {
+  color: #006666;
+  border-bottom: 2px solid transparent;
+}
+
+.projects a:hover {
+  border-bottom: 2px solid #003333;
 }

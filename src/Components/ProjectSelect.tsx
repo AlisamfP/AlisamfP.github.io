@@ -26,8 +26,9 @@ export default function ProjectSelect({ value, onChange, options }: ProjectSelec
     <Listbox value={value} onChange={onChange}>
       <div className="relative mt-2">
         <ListboxButton className="grid w-full cursor-default grid-cols-1 rounded-md bg-[#B0BCBF] py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-[#003333 ] sm:text-sm/6">
-          <span className="col-start-1 row-start-1 flex items-center gap-3 pr-6">
-            <span className="block truncate">{value.title}</span>
+          <span className="col-start-1 row-start-1 flex flex-col pr-6">
+            <span className="block font-bold truncate text-lg md:text-2xl">{value.title}</span>
+            <span className="text-xs text-[#003333] group-data-focus:text-white group-data-selected:text-gray-600 group-data-focus:group-data-selected:text-white">{value.subtitle}</span>
           </span>
           <TbChevronDown
             aria-hidden="true"
@@ -45,8 +46,10 @@ export default function ProjectSelect({ value, onChange, options }: ProjectSelec
               value={project}
               className="group relative cursor-default py-2 pr-9 pl-3 text-gray-900 select-none data-focus:bg-[#003333] data-focus:text-white data-focus:outline-hidden"
             >
-              <div className="flex items-center">
-                <span className="ml-3 block truncate font-normal group-data-selected:font-semibold">{project.title}</span>
+              <div className="flex flex-col">
+                <p className="font-normal group-data-selected:font-bold">{project.title}</p>
+                <p className="text-xs text-[#003333] group-data-focus:text-white group-data-selected:text-gray-600 group-data-focus:group-data-selected:text-white">{project.subtitle}</p>
+                {/* <span className="ml-3 block truncate font-normal group-data-selected:font-semibold">{project.title}</span> */}
               </div>
 
               <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#003333] group-not-data-selected:hidden group-data-focus:text-white">

@@ -47,7 +47,7 @@ function App() {
           </>
         )}
       </main>
-      <Footer />
+      <Footer isSplash={activeSection === "splash"} />
     </div>
   );
 }

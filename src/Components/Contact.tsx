@@ -18,7 +18,7 @@ type FormData = yup.InferType<typeof schema>;
 
 const Contact: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const popupTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const popupTimeoutRef = useRef<number | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   useEffect(() => {
@@ -92,14 +92,14 @@ const Contact: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-items-center gap-2 md:justify-evenly">
           <a className="no-underline" href="https://github.com/AlisamfP">
             <Button className="max-w-full min-w-36 min-h-16 text-[1.15rem]
-              flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333]">
+              flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 border-2 border-[#003333] text-[#003333] data-hover:bg-[#003333] data-hover:text-stone-300">
               <TbBrandGithub className="text-3xl" />
               Github
             </Button>
           </a>
           <a className="no-underline" href="https://www.linkedin.com/in/alisamfp/">
             <Button className="max-w-full min-w-36 min-h-16 text-[1.15rem]
-             flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333]">
+             flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 border-2 border-[#003333] text-[#003333] data-hover:bg-[#003333] data-hover:text-stone-300">
               <TbBrandLinkedin className="text-3xl" />
               LinkedIn
             </Button>
@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
 
           <a className="no-underline" href="mailto:alisa@palson.info">
             <Button className="max-w-full min-w-36 min-h-16 text-[1.15rem]
-             flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333]">
+             flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 border-2 border-[#003333] text-[#003333] data-hover:bg-[#003333] data-hover:text-stone-300">
               <TbAt className="text-3xl" />
               Email
             </Button>
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
               {...register("first_name")}
               aria-invalid={!!errors.first_name}
               aria-describedby="error-first_name"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-blue-500 focus:border-blue-500 focus:outline-none ${errors.first_name ? "border-red-500" : ""}`}
+              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.first_name ? "border-red-500" : ""}`}
             />
             {errors.first_name && (
               <p role="alert" id="error-first_name" className="text-red-600 text-sm mt-1">
@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
               {...register("last_name")}
               aria-invalid={!!errors.last_name}
               aria-describedby="error-last_name"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-blue-500 focus:border-blue-500 focus:outline-none ${errors.last_name ? "border-red-500" : ""}`}
+              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.last_name ? "border-red-500" : ""}`}
             />
             {errors.last_name && (
               <p role="alert" id="error-last_name" className="text-red-600 text-sm mt-1">
@@ -168,7 +168,7 @@ const Contact: React.FC = () => {
               {...register("email")}
               aria-invalid={!!errors.email}
               aria-describedby="error-email"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-blue-500 focus:border-blue-500 focus:outline-none ${errors.email ? "border-red-500" : ""}`}
+              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.email ? "border-red-500" : ""}`}
             />
             {errors.email && (
               <p role="alert" id="error-email" className="text-red-600 text-sm mt-1">
@@ -185,7 +185,7 @@ const Contact: React.FC = () => {
                 id="message"
                 {...register("message")}
                 rows={3}
-                className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-blue-500 focus:border-blue-500 focus:outline-none ${errors.message ? "border-red-500" : ""}`}
+                className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.message ? "border-red-500" : ""}`}
               ></Textarea>
               {errors.message && (
                 <p role="alert" id="error-message" className="text-red-600 text-sm mt-1">
@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="max-w-full min-w-36 min-h-16 text-[1.15rem] rounded-md p-2 text-stone-900 border-3 border-[#006666] data-hover:bg-[#003333] data-hover:text-stone-200">
+            className="max-w-full min-w-36 min-h-16 text-[1.15rem] rounded-md p-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333] data-hover:shadow-lg">
             {isSubmitting ? "Sending" : "Submit"}
           </Button>
         </form>
