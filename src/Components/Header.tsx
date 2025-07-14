@@ -38,7 +38,7 @@ const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
           <div className={`${isSplash ? "col-[2/3] row-start-1 row-end-4 inline-block h-[250px] min-h-[1em] w-[2px] self-stretch bg-[#003333]" : "hidden"}`}></div>
 
           <li className={`logo-container flex justify-end ${isSplash ? "col-start-1 col-end-2 row-start-1 row-end-4 ml-4" : "col-[1/2] row-[1/4] md:order-1"}`}>
-            <img src={logo} alt="Alisa Palson Wordmark" className="w-full max-w-[300px] md:min-w-52 md:max-w-full h-auto" />
+            <img src={logo} alt="Alisa Palson Wordmark" className="w-full min-w-40 max-w-[300px] md:min-w-52 md:max-w-full h-auto" />
           </li>
         </ul>
       </nav>

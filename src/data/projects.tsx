@@ -57,18 +57,18 @@ export const projectData = {
                 },
                 {
                     link: "./images/table-tent-mockup.jpg",
-                    alt: "",
+                    alt: "mockup showing both sides of a table tent with one side having an illustrated mountain with bikers and the text 'Start your day enjoying nature' above and 'Join us everyday at 6am for a morning bike ride, hike, or trail run.' as text below. The other side of the table tent is mainly white with a large 'Join the Slack!' call to action, and a qr code inside of a large React icon.",
                     description: "Mockup of the table tent design",
                 },
                 {
                     link: "./images/talk-summary-and-workshop-mockup.jpg",
-                    alt: "",
+                    alt: "Mockup of an event program against a blank white background showing an open page with light green/teal top and bottom borders and a talk summaries page on the left, and workshops page on the right",
                     description:
                         'Mockup of the "Talk Summaries" and "Workshops" spread',
                 },
                 {
                     link: "./images/speakers-page-mockup.jpg",
-                    alt: "",
+                    alt: "Mockup of an event program against a blank white background showing an open page with a red border around the entire spread and images of the various speakers shown along with their name and title",
                     description: 'Mockup of the "Speakers" spread',
                 },
             ],
@@ -90,22 +90,22 @@ export const projectData = {
             images: [
                 {
                     link: "./images/weedle-searchbynum-dualtype1000x850.png",
-                    alt: "",
+                    alt: "Screenshot of the pokedex website showing the number 13 entered into the search bar and Weedle as the pokemon in the viewer",
                     description: "Screenshot highlighting search by id number functionality",
                 },
                 {
                     link: "./images/remove-from-team1000x850.png",
-                    alt: "",
+                    alt: "Screenshot of the pokedex website showing a 'Remove From Team' dialog popup with a confirm or cancel option",
                     description: "Screenshot showing remove from team dialog box",
                 },
                 {
                     link: "./images/psyduck1000x850.png",
-                    alt: "",
+                    alt: "Screenshot of the pokedex website showing Psyduck being searched in the search bar and also being visible in the pokedex viewer",
                     description: "Screenshot showing pokemon name search",
                 },
                 {
                     link: "./images/pokedex-error-screenshot1000x850.png",
-                    alt: "",
+                    alt: "Screenshot of the error page showing a 404 status code in the sprite viewer, looking like the 404 is a pokemon, and the viewer showing a pokemon with the text 'Uh oh! No pokemon found.'",
                     description: "Screenshot of the error page",
                 },
             ],
@@ -127,7 +127,7 @@ export const projectData = {
             images: [
                 {
                     link: "./images/baselayer-screenshot.png",
-                    alt: "",
+                    alt: "Screenshot of the finished baselayer webpage",
                     description: "Screenshot of the finished baselayer webpage",
                 },
             ],

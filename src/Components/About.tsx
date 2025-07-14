@@ -11,6 +11,8 @@ import {
   TbBrandCss3,
   TbBrandReact,
   TbBrandVite,
+  TbBrandTypescript,
+  TbBrandFigma
 } from "react-icons/tb";
 
 type AboutProps = {
@@ -73,9 +75,9 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           <h3 className="col-span-full font-semibold">re: Design</h3>
           <p>
             I’m proficient in the Adobe suite of products, especially InDesign
-            and Illustrator.
+            and Illustrator. I also use Figma quite a bit.
           </p>
-          <dl className="flex flex-col md:grid md:grid-cols-2 gap-4 md:col-[2/3] md:justify-self-center text-3xl p-1">
+          <dl className="flex flex-col md:grid md:grid-cols-3 gap-4 md:col-[2/3] md:justify-self-center text-3xl p-1">
             <div className="flex flex-col items-center text-center">
               <dt className="sr-only">Adobe InDesign</dt>
               <dd>
@@ -88,14 +90,20 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <TbBrandAdobeIllustrator aria-label="Adobe Illustrator" />
               </dd>
             </div>
+            <div className="flex flex-col items-center text-center">
+              <dt className="sr-only">Figma</dt>
+              <dd>
+                <TbBrandFigma aria-label="Figma" />
+              </dd>
+            </div>
 
           </dl>
         </section>
         <section className="grid grid-cols-[2fr_1fr]">
           <h3 className="col-span-full font-semibold">re: Development</h3>
           <p>
-            I prefer front-end and work with HTML, CSS, and JavaScript. This
-            website was made with React, Tailwind, and Vite.
+            I prefer front-end and working with HTML, CSS, and JavaScript.
+            This website was made in TypeScript with React, Tailwind, and Vite.
           </p>
 
           <dl className="grid grid-cols-2 md:grid-cols-3 gap-4 md:col-[2/3] md:justify-self-center text-3xl p-1">
@@ -103,6 +111,12 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
               <dt className="sr-only">JavaScript</dt>
               <dd className="">
                 <TbBrandJavascript aria-label="JavaScript" />
+              </dd>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <dt className="sr-only">TypeScript</dt>
+              <dd className="">
+                <TbBrandTypescript aria-label="Typescript" />
               </dd>
             </div>
             <div className="flex flex-col items-center text-center">
