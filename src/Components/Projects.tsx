@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectSelect from "./ProjectSelect";
-import { TbBrandGithub, TbCornerRightUp, TbExternalLink } from "react-icons/tb";
+import { TbBrandGithub, TbCornerLeftUp, TbExternalLink } from "react-icons/tb";
 import { useState } from "react";
 import { projectData } from "../data/projects";
 
@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
               View The Code
             </a>
           )}
-          <div className={`inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333] ${selectedProject.github === "" ? "hidden" : ""}`}></div>
+          <div className={`${selectedProject.github === "" ? "hidden" : "inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333] "}`}></div>
           <a
             href={selectedProject.projectLink}
             target="_blank"
@@ -53,9 +53,9 @@ const Projects: React.FC = () => {
       {selectedProject && (
         <div className="projects px-2 flex flex-col gap-2 md:gap-4 grow">
           <section className="py-2 flex flex-col md:flex-row mt-4 -mb-4 md:items-center">
-            <h2 className="font-bold text-xl text-[#003333]">Project Name</h2>
-            <hr className="mb-2 text-[#003333] visible md:collapse" />
-            <span className="collapse md:visible text-2xl pl-0.5 font-semibold">: </span>
+            <h2 className="font-bold text-xl text-[#003333] min-w-[11ch]">Project Name</h2>
+            <hr className="mb-2 text-[#003333] flex md:hidden" />
+            <span className="hidden md:inline text-2xl -pl-1 font-semibold">: </span>
             {selectedProject.title ? (
               <div className="ml-2 text-xl font-medium">{selectedProject.title}</div>
             ) : (<p>TBD</p>)}
@@ -95,11 +95,11 @@ const Projects: React.FC = () => {
             <hr className="mb-2 w-full h-px text-[#003333] bg-[#003333] col-span-full" />
             {/* loop through images in project */}
             {selectedProject.images.map((image) => (
-              <figure className="mb-4 inline-block max-w-2xl" key={image.link}>
-                <img className="mb-4 h-auto max-w-full align-middle leading-none" src={image.link} alt={image.alt} />
-                <figcaption className="text-sm text-neutral-600 dark:text-neutral-400 flex items-baseline italic">
+              <figure className="mb-4 max-w-2xl flex flex-col" key={image.link}>
+                <img className="mb-1 h-auto max-w-full align-middle leading-none" src={image.link} alt={image.alt} />
+                <figcaption className="text-xs text-neutral-600 dark:text-neutral-400 italic text-center">
+                  <TbCornerLeftUp className="text-lg inline mb-4" />
                   {image.description}
-                  <TbCornerRightUp className="text-lg" />
                 </figcaption>
               </figure>
             ))}
