@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectSelect from "./ProjectSelect";
-import { TbBrandGithub, TbExternalLink } from "react-icons/tb";
+import { TbBrandGithub, TbCornerRightUp, TbExternalLink } from "react-icons/tb";
 import { useState } from "react";
 import { projectData } from "../data/projects";
 
@@ -43,38 +43,64 @@ const Projects: React.FC = () => {
         onChange={setSelectedProject}
         options={projects}
       />
+      {/* horizontal divider
+      <div class="inline-flex items-center justify-center w-full px-2 mt-2 -mb-2">
+          <hr class="w-full h-px my-8 border-0 bg-[#003333]" />
+          <span class="absolute px-4 right-9 font-medium text-base text-[#003333] bg-[#f5eae0]">Project Information</span>
+      </div> */}
+
+      {/* the project info */}
       {selectedProject && (
-        <div className="projects flex flex-col gap-2 md:gap-4 p-2 md:p-4 grow">
-          <section>
-            <h2 className="font-bold">Background</h2>
+        <div className="projects px-2 flex flex-col gap-2 md:gap-4 grow">
+          <section className="py-2 flex flex-col md:flex-row items-center mt-4 -mb-4">
+            <h2 className="font-bold text-xl text-[#003333]">Project Name</h2>
+            <hr className="mb-2 md:mb-0 text-[#003333] md:hidden" />
+            <span className="sm:hidden md:flex text-2xl pl-0.5 font-semibold">: </span>
+            {selectedProject.title ? (
+              <div className="ml-2 text-xl font-medium">{selectedProject.title}</div>
+            ) : (<p>TBD</p>)}
+          </section>
+          <section className="py-2 flex flex-col">
+            <h2 className="font-bold text-lg text-[#003333]">Background Info</h2>
+            {/* using dangerously set to have anchor tags be rendered */}
+            <hr className="mb-2 text-[#003333]" />
             {selectedProject.background ? (
-              <div dangerouslySetInnerHTML={{__html: selectedProject.background}} />
+              <div className="ml-2" dangerouslySetInnerHTML={{__html: selectedProject.background}} />
             ) : (<p>TBD</p>)}
           </section>
-          <section>
-            <h2 className="font-bold">Problem</h2>
+          <section className="py-2 flex flex-col">
+            <h2 className="font-bold text-lg text-[#003333]">Problem To Solve</h2>
+            <hr className="mb-2 text-[#003333]" />
             {selectedProject.problem ? (
-              <div dangerouslySetInnerHTML={{__html: selectedProject.problem}} />
+              <div className="ml-2" dangerouslySetInnerHTML={{__html: selectedProject.problem}} />
             ) : (<p>TBD</p>)}
           </section>
-          <section>
-            <h2 className="font-bold">Process</h2>
+          <section className="py-2 flex flex-col">
+            <h2 className="font-bold text-lg text-[#003333]">My Process</h2>
+            <hr className="mb-2 text-[#003333]" />
             {selectedProject.process ? (
-              <div dangerouslySetInnerHTML={{__html: selectedProject.process}} />
+              <div className="ml-2" dangerouslySetInnerHTML={{__html: selectedProject.process}} />
             ) : (<p>TBD</p>)}
           </section>
-          <section>
-            <h2 className="font-bold">Results</h2>
+          <section className="py-2 flex flex-col">
+            <h2 className="font-bold text-lg text-[#003333]">The End Result</h2>
+            <hr className="mb-2 text-[#003333]" />
             {selectedProject.results ? (
-              <div dangerouslySetInnerHTML={{__html: selectedProject.results}} />
+              <div className="ml-2" dangerouslySetInnerHTML={{__html: selectedProject.results}} />
             ) : (<p>TBD</p>)}
           </section>
-          <section className="grid grid-cols-1 md:grid-cols-2 md:gap-2 justify-items-center">
-            <h2 className="sr-only">Project Images</h2>
+          {/* images section */}
+          <section className={`grid grid-cols-1 ${selectedProject.images.length > 1 ? "md:grid-cols-2 md:gap-2" : ""} justify-items-center`}>
+            <h2 className="font-bold text-lg justify-self-start col-span-full text-[#003333]">Project Images</h2>
+            <hr className="mb-2 w-full h-px text-[#003333] bg-[#003333] col-span-full" />
+            {/* loop through images in project */}
             {selectedProject.images.map((image) => (
-              <figure className="mb-4 inline-block max-w-sm" key={image.link}>
+              <figure className="mb-4 inline-block max-w-2xl" key={image.link}>
                 <img className="mb-4 h-auto max-w-full align-middle leading-none" src={image.link} alt={image.alt} />
-                <figcaption className="text-sm text-neutral-600 dark:text-neutral-400">{image.description}</figcaption>
+                <figcaption className="text-sm text-neutral-600 dark:text-neutral-400 flex items-baseline italic">
+                  {image.description}
+                  <TbCornerRightUp className="text-lg"/>
+                </figcaption>
               </figure>
             ))}
           </section>

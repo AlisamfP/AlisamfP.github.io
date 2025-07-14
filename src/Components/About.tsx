@@ -49,7 +49,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         />
         <p>
           I’m a loud mouthed lover of cats, code, and creativity. I’m passionate
-          about intuitive design, free and open source software and
+          about intuitive design, free and open source software, and
           accessibility.
         </p>
         <p className="md:col-span-full lg:col-start-2">

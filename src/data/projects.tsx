@@ -41,19 +41,19 @@ export const projectData = {
             images: [
                 {
                     link: "./images/badge-front-and-back.jpg",
-                    alt: "",
+                    alt: "Two badge mockups, one of the front and one of the back. The badge  is an illustration of a mountain range with green and grey hues for the mountain, and a orange sun peaking over the edge. There are trees in the foreground. The front of the badge says React Rally 2024 near the top, with the name, job title, employer, and social media handle underneath. The back of the badge shows a qr code in the bottom right corner with a call to view the schedule above it",
                     description: "Mockup of the badge design",
                 },
                 {
                     link: "./images/event-program-front-and-back.jpg",
-                    alt: "",
+                    alt: "Mockup of the outside of the event program, showing a booklet opened face down showing an illustrated mountain with trees in the foreground and React Rally 2024 on the right side",
                     description: "Mockup for the event program's front and back design",
                 },
                 {
                     link: "./images/schedule-page-mockup.jpg",
-                    alt: "",
+                    alt: "Mockup of an event program against a blank white background showing an open page with dark green top and bottom borders, showing a schedule for August 12th with events next to their respective time slots and names under talk names",
                     description:
-                        "Mockup of one of the schedule pages in the event program",
+                        "Mockup of one of the days' schedule in the event program",
                 },
                 {
                     link: "./images/table-tent-mockup.jpg",
@@ -64,12 +64,12 @@ export const projectData = {
                     link: "./images/talk-summary-and-workshop-mockup.jpg",
                     alt: "",
                     description:
-                        "Mockup of a spread in the event program showing the talk summaries and workshop description pages",
+                        'Mockup of the "Talk Summaries" and "Workshops" spread',
                 },
                 {
                     link: "./images/speakers-page-mockup.jpg",
                     alt: "",
-                    description: "Mockup showing the speakers page in the event program",
+                    description: 'Mockup of the "Speakers" spread',
                 },
             ],
         },
