@@ -21,15 +21,6 @@
 }
 
 
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 h1 {
   line-height: 1.1;
   font-size: 3.2rem;

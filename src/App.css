@@ -6,6 +6,11 @@ body {
   font-family: "Raleway", sans-serif;
   background: #f5eae0;
   color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 .projects a {
