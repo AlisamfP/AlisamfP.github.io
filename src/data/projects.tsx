@@ -21,8 +21,26 @@ export interface Image {
     description: string;
 }
 
-export const projectData = {
-    projects: [
+export const projectData = () => (
+     [
+        {
+            id: "open-flow",
+            title: "Open Flow",
+            subtitle: "Open-source AAC Communication Card Web App",
+            github: "https://github.com/AlisamfP/openflow",
+            projectLink: "https://alisa.palson.info/OpenFlow/",
+            background:
+                "AAC, or Augmentative and Alternative Communication, refers to all the ways people communicate without speaking. Many who have trouble communicating use AAC tools like picture boards with images and words to help express themselves. Open Flow is a digital version of an AAC tool I personally use: communication cards. It's a web app where users can click on cards to speak phrases out loud using text-to-speech. Users can favorite commonly used cards, create their own cards, adjust voice settings, or switch to an audio off mode where the cards display full screen instead. As an autistic adult, this project is personal to me, and that perspective influenced the design's focus on comfort, clarity, and reducing sensory overload.",
+            problem:
+                "Many AAC apps either lean heavily towards childlike design, or are on the opposite end of the spectrum, with designs that feel clinical and are lacking any personality whatsoever. Many are also expensive, restricted by proprietary systems, or limited in functionality. This makes it hard for autistic teens and adults to find tools that feel good to use and meet their needs. I set out to create an open source, low-stimulation AAC app that feels accessible, flexible, and designed with autistic users in mind.",
+            process:
+                "I started by researching existing AAC devices and apps to understand what common phrases and features users need most. The research I did into autistic design best practices helped influence the soft color palette, layout conventions, and font choice. After sketching a few different wireframe options, I chose a layout and created a mockup.<br>For the initial version, submitted as my senior project, the app was built using HTML, CSS, and JavaScript, and development focused on building core functionality first before moving on to styling. To simplify functionality for dropdowns, tabs, and menus, I utilized multiple jQuery plugins and widgets. I also used localStorage to save user preferences and custom cards. I selected OpenMoji, an open source emoji set, for card icons as its open nature aligned with the project's ethos. Due to the project's short timeline, I opted for a simpler tech stack, though I always believed the app would benefit from a component based framework.<br>So, after completing the initial version, I started on version 2 which I rebuilt in React with TypeScript and Vite. I initially used Tailwind CSS to manage styling but later switched to Material UI for ease of use and to maintain consistency with familiar design patterns that create a predictable and calming experience. I also replaced ResponsiveVoice, which I had used for text-to-speech, with the built-in JavaScript Web Speech API. Throughout development, I took an iterative, modular approach, focusing on one feature at a time and making sure each part was fully functional before moving on.",
+            results:
+                "The Open Flow project has been a rewarding learning experience that allowed me to deepen my skills with React, TypeScript, and Material UI, as well as explore Vite as a modern build tool. The app functions well and meets the goals I set out at the start, with positive feedback from users reinforcing its accessibility and design approach. Development is ongoing as I continue to refine and expand its capabilities. I am proud of how the project reflects both my personal experience and technical growth, and I look forward to building on it in the future.",
+            images: [
+
+            ],
+        },
         {
             id: "react-rally",
             title: "React Rally Conference Collateral",
@@ -63,8 +81,7 @@ export const projectData = {
                 {
                     link: "./images/talk-summary-and-workshop-mockup.jpg",
                     alt: "Mockup of an event program against a blank white background showing an open page with light green/teal top and bottom borders and a talk summaries page on the left, and workshops page on the right",
-                    description:
-                        'Mockup of the "Talk Summaries" and "Workshops" spread',
+                    description: 'Mockup of the "Talk Summaries" and "Workshops" spread',
                 },
                 {
                     link: "./images/speakers-page-mockup.jpg",
@@ -91,7 +108,8 @@ export const projectData = {
                 {
                     link: "./images/weedle-searchbynum-dualtype1000x850.png",
                     alt: "Screenshot of the pokedex website showing the number 13 entered into the search bar and Weedle as the pokemon in the viewer",
-                    description: "Screenshot highlighting search by id number functionality",
+                    description:
+                        "Screenshot highlighting search by id number functionality",
                 },
                 {
                     link: "./images/remove-from-team1000x850.png",
@@ -132,5 +150,5 @@ export const projectData = {
                 },
             ],
         },
-    ],
-};
+    ] as Project[]
+)
