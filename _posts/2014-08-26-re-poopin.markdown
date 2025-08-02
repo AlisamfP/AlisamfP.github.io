@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Re:Poopin."
+date:   2014-08-26
+---
+
+I made a bot that retweets #poopin
+
+
+#How Did I Do It
+I did it in python, using the [tweepy](https://www.tweepy.org/) library.
+It was the first project in which I used oAuth and the first time I'd ever deployed anything on Heroku. 
+
+I create a standard output listener class passing in tweepy's Streamlistener. When it receieves any kind of data (ie: when someone tweets #poopin), it first checks if the tweet didn't come from [@hashtagpoopin](https://twitter.com/hashtagpoopin) (#poopin back and forth forever), then it retweets using the tweet ID.
+
+
+{% highlight python %}
+class StdOutListener(tweepy.StreamListener):
+    def on_data(self, data):
+        # Twitter returns data in JSON format - we need to decode it first
+        decoded = json.loads(data)
+        #check to make sure I don't retweet my own tweets
+        if (decoded['user']['screen_name'] != 'hashtagpoopin'):
+            api = tweepy.API(auth)
+            api.retweet(decoded['id'])
+            return True
+        else:
+            return True
+    def on_error(self, status):
+        print status
+{% endhighlight %}
+
+Then, I just create a variable for the listener and pass that in to the stream along with my oAuth details. Since I was filtering a public stream, I didn't have to specify anything other than the term that I wanted my stream to [filter](https://dev.twitter.com/docs/api/1.1/post/statuses/filter) by
+
+{% highlight python%}
+l = StdOutListener()
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+print "Twitter Stream Listening for #poopin..."
+stream = tweepy.Stream(auth, l)
+stream.filter(track=['#poopin'])
+{% endhighlight %}
+
+#Why Did I Do It
+
+First, I should explain the origin of #poopin.
+
+At HeatSync, whenever someone would walk away from their computer leaving it unlocked and vulnerable, we would navigate to their twitter and post #poopin. It was hilarious, and acted as a friendly reminder to lock your devices. If I had wanted, I could have done something much more malicious to the unprotected computer. We are all on our computers daily, filling them with every aspect of our lives, and every scrap of private lives without concern for protection in the same way we have with physical objects. Much like locking your house to protect the items inside, you should lock your computer when you're away.
+
+tldr; Lock your fucking computer.

@@ -1,0 +1,147 @@
+---
+layout: post
+title:  "Adafruit Gemma."
+date:   2014-10-09
+---
+
+Getting started with Gemma
+
+----
+The [adafruit gemma](http://www.adafruit.com/product/1222) is an small arduino made for wearable electronics.
+
+
+Unfortunately, it is not supported in the Arduino IDE currently, but you can [download](https://learn.adafruit.com/introducing-gemma/setting-up-with-arduino-ide) a standalone IDE to work with or modify you're current Arduino IDE.
+
+---
+
+I wanted to make a skirt that lights up with movement, so I used an Adafruit Gemma, 7 neo-pixels, a ton of conductive thread, a 9v coin cell battery, and a piezo film sensor.
+
+----
+
+####FIRST
+If you don't have the Arduino IDE, you can download it [here](http://arduino.cc/en/Main/Software)
+
+I'd also recommend reading about the [basics](https://learn.adafruit.com/introducing-gemma/guided-tour) and the [pinouts](https://learn.adafruit.com/introducing-gemma/pinouts) of the Gemma.
+
+----
+
+
+##Lights
+Connect the neopixels together using alligator clips (or if you have a strip they're already connected). Each neopixel needs a connection to power, ground, and the previous/next neo pixel.
+
+When you're connecting the neo-pixels to each other, make sure you're following the arrows. Those show what direction your data is traveling. 
+
+The neopixels have [example code](https://github.com/adafruit/Adafruit_NeoPixel) you can use to test your lights.
+
+----
+
+##Sensor
+To set up the sensor, you just have to instantiate the variable, set that varible to read the analog data outputed by the sensor
+
+{% highlight c++ %}
+
+//puts sensor into global scope
+int sensor;
+
+void setup(){
+    
+}
+
+void loop(){
+    //sets sensor equal to value of sensor
+    sensor = analogRead(1);
+}
+
+{% endhighlight %}
+
+You don't have any serial output with the gemma, so I used an Arduino Uno to quickly test the sensor, and to figure out what the range of values are.
+
+
+{% highlight c++ %}
+int sensor;
+
+void setup(){
+    //open serial communication
+    Serial.begin(9600);
+}
+
+void loop(){
+    sensor = analogRead(1);
+
+    //print the sensor value to serial
+    Serial.println(sensor);
+}
+
+{% endhighlight %}
+
+Doing this, I found out that the sensors output was a range between 0 to 1023. In order to get the values of that range to correlate to the 0 to 255 for the neopixels I used Arduino's map function.
+
+{% highlight c++ %}
+
+#include <Adafruit_NeoPixel.h>
+
+#define PIN 1
+#define PIXELS 6
+
+// Parameter 1 = number of pixels in strip
+// Parameter 2 = pin number (most are valid)
+// Parameter 3 = pixel type flags, add together as needed:
+//   NEO_KHZ800  800 KHz bitstream (most NeoPixel products w/WS2812 LEDs)
+//   NEO_KHZ400  400 KHz (classic 'v1' (not v2) FLORA pixels, WS2811 drivers)
+//   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
+//   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+int sensor;
+
+void setup() {
+  strip.begin();
+  strip.show(); // Initialize all pixels to 'off'
+}
+
+void loop() {
+  sensor = analogRead(1);
+  sensor = map(sensor, 0, 1023, 0, 255);
+
+  colorWipe(strip.Color(random(sensor), random(sensor), random(sensor)), 50);
+}
+
+// Fill the dots one after the other with a color
+void colorWipe(uint32_t c, uint8_t wait) {
+  for(uint16_t i=0; i< strip.numPixels(); i++) {
+      strip.setPixelColor(i, c);
+      strip.show();
+      delay(wait);
+  }
+}
+
+// Input a value 0 to 255 to get a color value.
+// The colours are a transition r - g - b - back to r.
+uint32_t Wheel(byte WheelPos) {
+  if(WheelPos < 85) {
+   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+  } else if(WheelPos < 170) {
+   WheelPos -= 85;
+   return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+  } else {
+   WheelPos -= 170;
+   return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+  }
+}
+
+
+{% endhighlight %}
+
+And that's all there is to the programming part.
+
+Now, time to connect things!
+
+##ACTION!
+
+I personally followed [this tutorial](https://learn.adafruit.com/sparkle-skirt/overview) to sew the neopixels into the skirt.
+
+Some problems I ran into:
+
+1. The Embroidery hoop is completely necessary. I tried sewing without it and it was a mess.
+2. When sewing the neo-pixels, the input & output of each pixel shouldn't touch each other.
+3. The power/ground bus thread should be reaaaallllyyy long, for my project, it was about 1.5 ft long, and I was running short near the end.

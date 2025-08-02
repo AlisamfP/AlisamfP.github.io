@@ -1,0 +1,109 @@
+---
+layout: post
+title: "Making an IRC Bot."
+date:  2014-09-23
+---
+
+I spent the last few days exploring IRC and building a few bots.
+
+IRC stands for Internet Relay Chat. It's an application protocol layer that facilitates the transfer of text. I wrote an emoticon bot that serves emoticons on demand, and a gif bot that searches the giphy api to provide gifs when given a certain search tag (otherwise it just returns a random gif.)
+
+I'll be walking through how to set up a bot using Node.
+
+First, make the directory where your project will live. 
+
+
+I named mine, ircBots, so I'll refer to the directory as that from now on.
+
+<kbd>~$ mkdir ircBots<kbd>
+
+<kbd>~$ cd ircBots/<kbd>
+
+###Install Dependencies
+I used the [IRC Node Module](https://www.npmjs.org/package/irc).
+It's lightweight, and does what you need it to
+
+
+<kbd>~/ircBots$ npm install irc</kbd>
+
+*if you already have a package.json file, add '--save' to the end to automatically update your file with the dependency*
+
+Okay, that's all we'll need for right now!
+
+###Let's make a bot!
+First, define the irc module in your code.
+{% highlight js %}
+var irc = require('irc');
+{% endhighlight %}
+
+Next, let's create a way to access some of the variables that will be used.
+
+{% highlight js %}
+var config = {
+  server: 'irc.freenode.net',
+  name: 'testBot',
+  channels: '#testRoom'
+}
+{% endhighlight %}
+*you don't actually have to seperate these out, I find it just makes it a little easier to control*
+
+Then, create the instance of the bot!
+
+{% highlight js %}
+var bot = new irc.Client(config.server, config.name, {channels: [config.channels]});
+{% endhighlight %}
+*the third parameter is an options object. [Docs](https://node-irc.readthedocs.org/en/latest/API.html#client)*
+
+
+This creates the bot, however in order for it to actually connect, you'll need to call the join function with the room you want to join as the first parameter, and an optional callback function as the second.
+
+
+{% highlight js %}
+bot.join(config.channels);
+{% endhighlight %}
+
+That will allow you to join the channel.
+If you want the bot to say something when it joins the room (which I personally like), you can add it in the callback function. The first parameter will be who you want to send the message to, the second will be the text to send.
+
+
+{% highlight js %}
+bot.join(config.channels, function(){
+  bot.say(config.channels, 'Hello!');
+})
+{% endhighlight %}
+
+*This will send a message to the channel upon the bot joining. If you'd like to send a private message to a user, just pass the user name instead of the channel name*
+
+If you save and run this, your bot will connect to the irc channel and say 'Hello!' upon joining!
+
+
+###Event Listeners
+Most people who make a bot, don't just want it to say something when it enters a room, they want it to respond to a person when asked a certain question or when hearing a certain phrase.
+
+You can do this by adding event listeners to your bot.
+
+{% highlight js %}
+bot.addListener(listener, callback)
+{% endhighlight %}
+
+*[Here's](https://node-irc.readthedocs.org/en/latest/API.html#events) a list of the events you can use*
+
+First, let's add the error event listener.
+
+{% highlight js %}
+bot.addListener('error', function(err){ console.log('error: ' + err); })
+{% endhighlight %}
+
+Now, the one you'll probably want to use is the message event listener. This listens for messages in the channel you're in, and will call your callback function when it's triggered. For now, let's just make it console.log all of the messages.
+
+{% highlight js %}
+bot.addListener('message', function(to, from, msg){
+  console.log(from + ': ' + message);
+})
+{% endhighlight %}
+
+If you save and run this, you'll see that anytime someone posts a message in the channel, it gets console.log'd.
+
+So, that's it! The rest of making the bot do cool stuff includes the callback function within the message listener.
+
+The example code from this post is [here](https://gist.github.com/AlisamfP/5c65286e641b7ff768c2)
