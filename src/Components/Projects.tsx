@@ -50,11 +50,7 @@ const Projects: React.FC = () => {
         onChange={setSelectedProject}
         options={projects}
       />
-      {/* horizontal divider
-      <div class="inline-flex items-center justify-center w-full px-2 mt-2 -mb-2">
-          <hr class="w-full h-px my-8 border-0 bg-[#003333]" />
-          <span class="absolute px-4 right-9 font-medium text-base text-[#003333] bg-[#f5eae0]">Project Information</span>
-      </div> */}
+
 
       {/* the project info */}
       {selectedProject && (

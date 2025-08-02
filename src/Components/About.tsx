@@ -12,7 +12,7 @@ import {
   TbBrandReact,
   TbBrandVite,
   TbBrandTypescript,
-  TbBrandFigma
+  TbBrandFigma,
 } from "react-icons/tb";
 
 type AboutProps = {
@@ -22,12 +22,12 @@ type AboutProps = {
 const About: React.FC<AboutProps> = ({ onNavigate }) => {
   return (
     <div className="about-page h-full grow">
-      <div className="flex justify-between py-2">
+      <div className="flex justify-between md:py-2">
         <a
           href="https://github.com/alisamfp"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100"
+          className="flex flex-col md:flex-row text-center items-center rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100"
         >
           <TbBrandGithub className="text-3xl" />
           View My GitHub
@@ -35,15 +35,20 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         <div className="inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333]"></div>
         <Button
           onClick={() => onNavigate("projects")}
-          className="flex items-center flex-row-reverse rounded p-2 gap-1 md:gap-2 text-stone-900 
-        data-hover:bg-[#006666] data-hover:text-stone-100">
+          className={`flex flex-col md:flex-row-reverse text-center items-center justify-end rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100`}
+        >
           <TbFolderHeart className="text-3xl" />
           View My Portfolio
         </Button>
       </div>
       <section className="about-me grid grid-cols-1 md:grid-cols-2 mb-4 gap-y-2 p-4">
         <h2 className="font-bold text-3xl">Hello There!</h2>
-        <p className="text-2xl">The name's Alisa <span className="text-xs inline-block">(pronounced&nbsp;uh-lee-suh)</span></p>
+        <p className="text-2xl">
+          The name's Alisa{" "}
+          <span className="text-xs inline-block">
+            (pronounced&nbsp;uh-lee-suh)
+          </span>
+        </p>
         <img
           src="./images/meow-wolf-portrait.jpg"
           alt=""
@@ -59,17 +64,24 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           it’s raining, I’m outside.
         </p>
       </section>
-      <section className="about-experience rounded-md md:border md:border-gray-300 p-4 mb-4">
+      <section className="about-experience rounded-md p-4 mb-4">
         <h2 className="font-bold text-2xl">Experience</h2>
         <p>
-          I previously worked at <a className="no-underline text-[#003333] border-b-2 border-transparent hover:border-[#003333]" href="https://octoblu.com">Octoblu</a> as a
-          software engineer for 3 years writing full stack JavaScript. Prior to
-          that I have experience as a senior game advisor at GameStop an on-air
-          personality with Geekssocciated Press and volunteering with HeatSync
-          Labs. In 2013, I was accepted into Recurse Center for their Summer batch.
+          I previously worked at{" "}
+          <a
+            className="no-underline text-[#003333] border-b-2 border-transparent hover:border-[#003333]"
+            href="https://octoblu.com"
+          >
+            Octoblu
+          </a>{" "}
+          as a software engineer for 3 years writing full stack JavaScript.
+          Prior to that I have experience as a senior game advisor at GameStop
+          an on-air personality with Geekssocciated Press and volunteering with
+          HeatSync Labs. In 2013, I was accepted into Recurse Center for their
+          Summer batch.
         </p>
       </section>
-      <section className="about-skills flex flex-col gap-4 rounded-md md:border md:border-gray-300 p-4">
+      <section className="about-skills flex flex-col gap-4 rounded-md p-4">
         <h2 className="font-bold text-2xl">Skills and Technologies</h2>
         <section className="grid grid-cols-[2fr_1fr]">
           <h3 className="col-span-full font-semibold">re: Design</h3>
@@ -96,14 +108,13 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <TbBrandFigma aria-label="Figma" />
               </dd>
             </div>
-
           </dl>
         </section>
         <section className="grid grid-cols-[2fr_1fr]">
           <h3 className="col-span-full font-semibold">re: Development</h3>
           <p>
-            I prefer front-end and working with HTML, CSS, and JavaScript.
-            This website was made in TypeScript with React, Tailwind, and Vite.
+            I prefer front-end and working with HTML, CSS, and JavaScript. This
+            website was made in TypeScript with React, Tailwind, and Vite.
           </p>
 
           <dl className="grid grid-cols-2 md:grid-cols-3 gap-4 md:col-[2/3] md:justify-self-center text-3xl p-1">

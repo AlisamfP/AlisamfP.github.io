@@ -38,7 +38,21 @@ export const projectData = () => (
             results:
                 "The Open Flow project has been a rewarding learning experience that allowed me to deepen my skills with React, TypeScript, and Material UI, as well as explore Vite as a modern build tool. The app functions well and meets the goals I set out at the start, with positive feedback from users reinforcing its accessibility and design approach. Development is ongoing as I continue to refine and expand its capabilities. I am proud of how the project reflects both my personal experience and technical growth, and I look forward to building on it in the future.",
             images: [
-
+                {
+                    link: "./images/openflow-desktop-light-v1.png",
+                    alt: "Screenshot of the Open Flow version 1.0 web app home page in light mode showing a grid of cards.",
+                    description: "Screenshot of the Open Flow home page in light mode",
+                },
+                {
+                    link: "./images/openflow-desktop-dark-v1.png",
+                    alt: "Screenshot of the Open Flow version 1.0 web app home page in dark mode showing a grid of cards",
+                    description: "Screenshot of the Open Flow home page in dark mode",
+                },
+                {
+                    link: "./images/customCard-light-desktop.png",
+                    alt: "Screenshot of the Open Flow web app custom card creation page in light mode showing a form to create a custom card with fields for text, icon, and color",
+                    description: "Screenshot of the Custom Card creation page in light mode",
+                }
             ],
         },
         {

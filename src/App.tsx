@@ -4,6 +4,7 @@ import About from "./Components/About";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import BackToTop from "./Components/BackToTop";
 
 import "./App.css";
 import "./index.css";
@@ -46,6 +47,7 @@ function App() {
             <div className="page-content flex flex-col justify-center h-full md:border-l-2 md:border-[#003333] p-2">{renderContent()}</div>
           </>
         )}
+        <BackToTop />
       </main>
       <Footer isSplash={activeSection === "splash"} />
     </div>
