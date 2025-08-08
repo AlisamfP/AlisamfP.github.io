@@ -1,34 +1,19 @@
-export interface Root {
-    projects: Project[];
-}
+import type { Project } from "../types/project-types"
 
-export interface Project {
-    id: string;
-    title: string;
-    subtitle: string;
-    github: string;
-    projectLink: string;
-    background: string;
-    problem: string;
-    process: string;
-    results: string;
-    images: Image[];
-}
-
-export interface Image {
-    link: string;
-    alt: string;
-    description: string;
-}
-
-export const projectData = () => (
-     [
+export const projectData = (): Project[] => (
+    [
         {
             id: "open-flow",
             title: "Open Flow",
             subtitle: "Open-source AAC Communication Card Web App",
+            description: "Open Flow is a free, open-source communication tool for people with speech or language challenges. Originally developed as my senior project, it was inspired by my own use of physical communication cards and how often I lose them. The app offers a digital version with customizable cards and text-to-speech support. It’s built with React and TypeScript, and designed with autistic users in mind.",
             github: "https://github.com/AlisamfP/openflow",
             projectLink: "https://alisa.palson.info/OpenFlow/",
+            heroImage: {
+                link: "./images/openflow-desktop-light-v2-hero.png",
+                alt: "screen shot of Open Flow home page with muted green accents, navigation bar at top with custom cards, settings, and about links, along with an volume icon button to toggle audio mode and a sun to toggle dark mode and indicate its in light mode. cards are shown beneath the corresponding category.",
+                description: ""
+            },
             background:
                 "AAC, or Augmentative and Alternative Communication, refers to all the ways people communicate without speaking. Many who have trouble communicating use AAC tools like picture boards with images and words to help express themselves. Open Flow is a digital version of an AAC tool I personally use: communication cards. It's a web app where users can click on cards to speak phrases out loud using text-to-speech. Users can favorite commonly used cards, create their own cards, adjust voice settings, or switch to an audio off mode where the cards display full screen instead. As an autistic adult, this project is personal to me, and that perspective influenced the design's focus on comfort, clarity, and reducing sensory overload.",
             problem:
@@ -59,9 +44,15 @@ export const projectData = () => (
             id: "react-rally",
             title: "React Rally Conference Collateral",
             subtitle: "Capturing the spirit of a developer community",
+            description: "This speculative project involved designing a cohesive set of print and digital materials for React Rally, a community-focused developer conference. I created an event program, attendee badge, table tent signage, and a web ad for future promotion. The goal was to balance a friendly, inclusive tone with professional clarity across all formats. Working primarily in Adobe InDesign, I focused on strong layout design, brand consistency, and organizing complex content in an accessible way. The project was completed on time and well-received by peers.",
             github: "",
             projectLink:
                 "https://indd.adobe.com/view/e1d0711c-0a2c-4f40-8c1a-08e5b57c4af8",
+            heroImage: {
+                link: "./images/badge-front-and-back.jpg",
+                alt: "Two badge mockups, one of the front and one of the back. The badge  is an illustration of a mountain range with green and grey hues for the mountain, and a orange sun peaking over the edge. There are trees in the foreground. The front of the badge says React Rally 2024 near the top, with the name, job title, employer, and social media handle underneath. The back of the badge shows a qr code in the bottom right corner with a call to view the schedule above it",
+                description: "Mockup of the badge design",
+            },
             background:
                 "React Rally is a two-day developer conference held in Park City, Utah, centered around the React ecosystem. It places a strong emphasis on community, inclusivity, and creating a friendly atmosphere. The event features engaging talks from both first-time and experienced speakers, and encourages meaningful connections between attendees.",
             problem:
@@ -108,6 +99,7 @@ export const projectData = () => (
             id: "pokedex",
             title: "PokeDex Web App",
             subtitle: "GOTTA CATCH EM ALL",
+            description: "A fan-made digital Pokédex that lets users browse, search, and save Pokémon to their own team. Originally built with HTML, CSS, and jQuery, it uses the PokéAPI to pull real-time data and includes features like autocomplete search, sprite slideshows, and stat tabs. Inspired by the classic game interface, the project combines nostalgic design with smooth, modern functionality.",
             github: "https://github.com/AlisamfP/pokedex",
             projectLink: "http://alisa.palson.info/pokedex/",
             background:
@@ -146,6 +138,7 @@ export const projectData = () => (
             id: "baselayer",
             title: "Baselayer Static Site Build",
             subtitle: "Contributing to a thoughtful, design-forward company",
+            description: "Contracted to build a responsive static page from a Figma design for Nopal Build, a company focused on sustainable architecture. I wrote clean, semantic HTML and CSS that matched the design and was ready for integration into their React app. This project was a great opportunity to support a mission I care about while honing my front-end build skills.",
             github: "https://github.com/AlisamfP/baselayer",
             projectLink: "https://alisa.palson.info/baselayer",
             background:

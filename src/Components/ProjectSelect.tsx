@@ -1,39 +1,47 @@
-import { Label, Listbox, ListboxButton, ListboxOptions, ListboxOption, Field } from "@headlessui/react";
-import { TbChevronDown, TbCheck, TbCornerRightDownDouble } from "react-icons/tb";
+import {
+  Label,
+  Listbox,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption,
+  Field 
+} from "@headlessui/react";
 
+import {
+  TbChevronDown,
+  TbCheck,
+  TbCornerRightDownDouble,
+} from "react-icons/tb";
 
-type Project = {
-  id: string;
-  title: string;
-  subtitle: string;
-  github: string;
-  projectLink: string;
-  background: string;
-  problem: string;
-  process: string;
-  results: string;
-  images: Array<{ link: string; alt: string; description: string }>;
-};
+import type { Project } from "../types/project-types";
 
 type ProjectSelectProps = {
-  value: Project,
+  value: Project;
   onChange: (project: Project) => void;
-  options: Project[]
-}
+  options: Project[];
+};
 
-export default function ProjectSelect({ value, onChange, options }: ProjectSelectProps) {
+export default function ProjectSelect({
+  value,
+  onChange,
+  options,
+}: ProjectSelectProps) {
   return (
     <Field className="flex flex-col p-2 gap-2">
       <Label className="-mb-2 -ml-2 text-xs font-medium uppercase flex">
-        Choose a project 
+        Choose a project
         <TbCornerRightDownDouble className="text-2xl my-0.5 text-[#003333]" />
       </Label>
       <Listbox value={value} onChange={onChange}>
         <div className="relative">
           <ListboxButton className="grid w-full cursor-default grid-cols-1 rounded-md bg-[#B0BCBF] py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-[#003333 ] sm:text-sm/6">
             <span className="col-start-1 row-start-1 flex flex-col pr-6">
-              <span className="block font-bold truncate text-lg md:text-2xl">{value.title}</span>
-              <span className="text-xs text-[#003333] group-data-focus:text-white group-data-selected:text-gray-600 group-data-focus:group-data-selected:text-white">{value.subtitle}</span>
+              <span className="block font-bold truncate text-lg md:text-2xl">
+                {value.title}
+              </span>
+              <span className="text-xs text-[#003333] group-data-focus:text-white group-data-selected:text-gray-600 group-data-focus:group-data-selected:text-white">
+                {value.subtitle}
+              </span>
             </span>
             <TbChevronDown
               aria-hidden="true"
@@ -52,8 +60,12 @@ export default function ProjectSelect({ value, onChange, options }: ProjectSelec
                 className="group relative cursor-default py-2 pr-9 pl-3 text-gray-900 select-none data-focus:bg-[#003333] data-focus:text-white data-focus:outline-hidden"
               >
                 <div className="flex flex-col">
-                  <p className="font-normal group-data-selected:font-bold">{project.title}</p>
-                  <p className="text-xs text-[#003333] group-data-focus:text-white group-data-selected:text-gray-600 group-data-focus:group-data-selected:text-white">{project.subtitle}</p>
+                  <p className="font-normal group-data-selected:font-bold">
+                    {project.title}
+                  </p>
+                  <p className="text-xs text-[#003333] group-data-focus:text-white group-data-selected:text-gray-600 group-data-focus:group-data-selected:text-white">
+                    {project.subtitle}
+                  </p>
                   {/* <span className="ml-3 block truncate font-normal group-data-selected:font-semibold">{project.title}</span> */}
                 </div>
 

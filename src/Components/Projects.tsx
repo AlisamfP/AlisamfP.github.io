@@ -3,115 +3,101 @@ import ProjectSelect from "./ProjectSelect";
 import { TbBrandGithub, TbCornerLeftUp, TbExternalLink } from "react-icons/tb";
 import { useState } from "react";
 import { projectData } from "../data/projects";
+import TopActionButtons from "./TopActionButtons";
 
 const projects = projectData();
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState(projects[0]);
+  const githubButton = {
+    text: "View The Code",
+    name: "github",
+    link: selectedProject.github,
+  };
+  const externalLink = {
+    name: "link",
+    text: "View The Project",
+    link: selectedProject.projectLink,
+  };
   return (
     <>
-      {selectedProject && (
-        <div
-          className={`flex gap-4 py-2 ${selectedProject.github === ""
-              ? "justify-end"
-              : "justify-evenly sm:justify-between"
-            }`}
-        >
-          {selectedProject.github && (
-            <a
-              href={selectedProject.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col md:flex-row items-center rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100"
-            >
-              <TbBrandGithub className="text-2xl md:text-3xl" />
-              View The Code
-            </a>
-          )}
-          <div
-            className={`${selectedProject.github === ""
-                ? "hidden"
-                : "inline-block min-h-[1em] w-0.5 self-stretch bg-[#003333] "
-              }`}
-          ></div>
-          <a
-            href={selectedProject.projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex flex-col md:flex-row-reverse items-center justify-end rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100`}
-          >
-            <TbExternalLink className="text-2xl md:text-3xl" />
-            View The Project
-          </a>
-        </div>
+      {selectedProject.github ? (
+        <TopActionButtons button1={externalLink} button2={githubButton} />
+      ) : (
+        <TopActionButtons button1={externalLink} />
       )}
+
       <ProjectSelect
         value={selectedProject}
         onChange={setSelectedProject}
         options={projects}
       />
 
-
       {/* the project info */}
       {selectedProject && (
         <div className="projects px-2 flex flex-col gap-2 md:gap-4 grow">
-          <section className="py-2 flex flex-col md:flex-row mt-4 -mb-4 md:items-center">
-            <h2 className="font-bold text-xl text-[#003333] min-w-[11ch]">
-              Project Name
-            </h2>
-            <hr className="mb-2 text-[#003333] flex md:hidden" />
-            <span className="hidden md:inline text-2xl -pl-1 font-semibold">
-              :{" "}
-            </span>
+          <section className="-mb-4 py-2 flex flex-col">
             {selectedProject.title ? (
-              <div className="ml-2 text-xl font-medium">
-                {selectedProject.title}
+              <div className="flex flex-col md:flex-row md:items-center">
+                <h2 className="font-bold text-xl text-[#003333] min-w-[11ch]">
+                  Project Name:{" "}
+                  <span className="text-xl font-medium">
+                    {selectedProject.title}
+                  </span>
+                </h2>
               </div>
-            ) : (
-              <p>TBD</p>
-            )}
-          </section>
-          <section className="py-2 flex flex-col">
-            <h2 className="font-bold text-lg text-[#003333]">
-              Background Info
-            </h2>
-            {/* using dangerously set to have anchor tags be rendered */}
+            ) : null}
+
             <hr className="mb-2 text-[#003333]" />
-            {selectedProject.background ? (
+            {selectedProject.description ? (
+              <div className="ml-2">{selectedProject.description}</div>
+            ) : null}
+          </section>
+          {selectedProject.heroImage ? (
+            <div className="py-2">
+              <img
+                className="object-cover"
+                src={selectedProject.heroImage.link}
+                alt={selectedProject.heroImage.alt}
+              />
+            </div>
+          ) : null}
+
+          {selectedProject.background ? (
+            <section className="py-2 flex flex-col">
+              <h2 className="font-bold text-lg text-[#003333]">
+                Background Info
+              </h2>
+              {/* using dangerously set to have anchor tags be rendered */}
+              <hr className="mb-2 text-[#003333]" />
               <div
                 className="ml-2"
                 dangerouslySetInnerHTML={{ __html: selectedProject.background }}
               />
-            ) : (
-              <p>TBD</p>
-            )}
-          </section>
-          <section className="py-2 flex flex-col">
-            <h2 className="font-bold text-lg text-[#003333]">
-              Problem To Solve
-            </h2>
-            <hr className="mb-2 text-[#003333]" />
-            {selectedProject.problem ? (
+            </section>
+          ) : null}
+          {selectedProject.problem ? (
+            <section className="py-2 flex flex-col">
+              <h2 className="font-bold text-lg text-[#003333]">
+                Problem To Solve
+              </h2>
+              <hr className="mb-2 text-[#003333]" />
               <div
                 className="ml-2"
                 dangerouslySetInnerHTML={{ __html: selectedProject.problem }}
               />
-            ) : (
-              <p>TBD</p>
-            )}
-          </section>
-          <section className="py-2 flex flex-col">
-            <h2 className="font-bold text-lg text-[#003333]">My Process</h2>
-            <hr className="mb-2 text-[#003333]" />
-            {selectedProject.process ? (
+            </section>
+          ) : null}
+          {selectedProject.process ? (
+            <section className="py-2 flex flex-col">
+              <h2 className="font-bold text-lg text-[#003333]">My Process</h2>
+              <hr className="mb-2 text-[#003333]" />
               <div
                 className="ml-2"
                 dangerouslySetInnerHTML={{ __html: selectedProject.process }}
               />
-            ) : (
-              <p>TBD</p>
-            )}
-          </section>
+            </section>
+          ) : null}
           <section className="py-2 flex flex-col">
             <h2 className="font-bold text-lg text-[#003333]">The End Result</h2>
             <hr className="mb-2 text-[#003333]" />
@@ -126,8 +112,9 @@ const Projects: React.FC = () => {
           </section>
           {/* images section */}
           <section
-            className={`grid grid-cols-1 ${selectedProject.images.length > 1 ? "md:grid-cols-2 md:gap-2" : ""
-              } justify-items-center`}
+            className={`grid grid-cols-1 ${
+              selectedProject.images.length > 1 ? "md:grid-cols-2 md:gap-2" : ""
+            } justify-items-center`}
           >
             <h2 className="font-bold text-lg justify-self-start col-span-full text-[#003333]">
               Project Images
