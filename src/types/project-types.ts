@@ -17,4 +17,5 @@ export interface Image {
     link: string;
     alt: string;
     description: string;
+    isHeroImage?: boolean;
 }

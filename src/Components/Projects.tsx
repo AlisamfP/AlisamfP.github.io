@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectSelect from "./ProjectSelect";
-import { TbBrandGithub, TbCornerLeftUp, TbExternalLink } from "react-icons/tb";
+import { TbCornerLeftUp } from "react-icons/tb";
 import { useState } from "react";
 import { projectData } from "../data/projects";
 import TopActionButtons from "./TopActionButtons";
@@ -19,6 +19,7 @@ const Projects: React.FC = () => {
     text: "View The Project",
     link: selectedProject.projectLink,
   };
+  const heroImage = selectedProject.images.filter((p) => p.isHeroImage)
   return (
     <>
       {selectedProject.github ? (
@@ -53,12 +54,12 @@ const Projects: React.FC = () => {
               <div className="ml-2">{selectedProject.description}</div>
             ) : null}
           </section>
-          {selectedProject.heroImage ? (
+          {heroImage.length > 0 ? (
             <div className="py-2">
               <img
                 className="object-cover"
-                src={selectedProject.heroImage.link}
-                alt={selectedProject.heroImage.alt}
+                src={heroImage[0].link}
+                alt={heroImage[0].alt}
               />
             </div>
           ) : null}

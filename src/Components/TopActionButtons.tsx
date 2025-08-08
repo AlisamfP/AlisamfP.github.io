@@ -22,25 +22,24 @@ const TopActionButtons = ({
     button1.name == "github"
       ? button1
       : button2?.name === "github"
-      ? button2
-      : null;
+        ? button2
+        : null;
   const portfolio =
     button1.name == "portfolio"
       ? button1
       : button2?.name === "portfolio"
-      ? button2
-      : null;
+        ? button2
+        : null;
   const link =
     button1.name == "link"
       ? button1
       : button2?.name === "link"
-      ? button2
-      : null;
+        ? button2
+        : null;
   return (
     <div
-      className={`flex gap-2 md:gap-4 md:py-2 ${
-        !button2 ? "justify-end" : "justify-evenly sm:justify-between"
-      }`}
+      className={`flex gap-2 md:gap-4 md:py-2 ${!button2 ? "justify-end" : "justify-evenly sm:justify-between"
+        }`}
     >
       {github && (
         <a
