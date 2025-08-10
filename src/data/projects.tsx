@@ -23,24 +23,39 @@ export const projectData = (): Project[] =>
                     link: "./images/openflow-desktop-light-v2-hero.png",
                     alt: "screen shot of Open Flow home page with muted green accents, navigation bar at top with custom cards, settings, and about links, along with an volume icon button to toggle audio mode and a sun to toggle dark mode and indicate its in light mode. cards are shown beneath the corresponding category.",
                     description:
-                        "Screenshot of the version 2 Open Flow home page in light mode",
+                        "v2 home page in light mode",
                     isHeroImage: true,
+                },
+                {
+                    link: "./images/openflow-desktop-custom-v2.png",
+                    alt: "Screenshot of the Open Flow version 2 custom card creation page",
+                    description: "v2 custom card creation page"
+                },
+                {
+                    link: './images/openflow-mobile-dark-v2.png',
+                    alt: "screenshot showing the mobile version of the open flow web app in dark mode",
+                    description: "v2 mobile dark mode"
+                },
+                {
+                    link: "./images/openflow-settings-desktop-v2-dark.png",
+                    alt: "screenshot of the open flow version 2 settings page in dark mode",
+                    description: "v2 settings dark mode"
                 },
                 {
                     link: "./images/openflow-desktop-light-v1.png",
                     alt: "Screenshot of the Open Flow version 1.0 web app home page in light mode showing a grid of cards.",
-                    description: "Screenshot of the Open Flow home page in light mode",
+                    description: "v1 home page in light mode",
                 },
                 {
                     link: "./images/openflow-desktop-dark-v1.png",
                     alt: "Screenshot of the Open Flow version 1.0 web app home page in dark mode showing a grid of cards",
-                    description: "Screenshot of the Open Flow home page in dark mode",
+                    description: "v1 home page in dark mode",
                 },
                 {
                     link: "./images/customCard-light-desktop.png",
                     alt: "Screenshot of the Open Flow web app custom card creation page in light mode showing a form to create a custom card with fields for text, icon, and color",
                     description:
-                        "Screenshot of the Custom Card creation page in light mode",
+                        "v1 Custom Card creation page in light mode",
                 },
             ],
         },
@@ -71,6 +86,8 @@ export const projectData = (): Project[] =>
                     link: "./images/event-program-front-and-back.jpg",
                     alt: "Mockup of the outside of the event program, showing a booklet opened face down showing an illustrated mountain with trees in the foreground and React Rally 2024 on the right side",
                     description: "Mockup for the event program's front and back design",
+                    isHeroImage: true,
+
                 },
                 {
                     link: "./images/schedule-page-mockup.jpg",
@@ -82,7 +99,6 @@ export const projectData = (): Project[] =>
                     link: "./images/table-tent-mockup.jpg",
                     alt: "mockup showing both sides of a table tent with one side having an illustrated mountain with bikers and the text 'Start your day enjoying nature' above and 'Join us everyday at 6am for a morning bike ride, hike, or trail run.' as text below. The other side of the table tent is mainly white with a large 'Join the Slack!' call to action, and a qr code inside of a large React icon.",
                     description: "Mockup of the table tent design",
-                    isHeroImage: true,
                 },
                 {
                     link: "./images/talk-summary-and-workshop-mockup.jpg",
