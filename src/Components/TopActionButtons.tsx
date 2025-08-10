@@ -56,7 +56,7 @@ const TopActionButtons = ({
       {portfolio && onNavigate && (
         <Button
           onClick={() => onNavigate("projects")}
-          className={`flex flex-col cursor-pointer md:flex-row-reverse text-center items-center justify-end rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100`}
+          className={`flex flex-col cursor-pointer sm:flex-row-reverse text-center items-center justify-end rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100`}
         >
           <TbFolderHeart className="text-2xl md:text-3xl" />
           {portfolio.text}
