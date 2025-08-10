@@ -4,12 +4,15 @@ import About from "./Components/About";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import Resume from "./Components/Resume";
 import BackToTop from "./Components/BackToTop";
+
+import type { Section } from "./types/section-types";
 
 import "./App.css";
 import "./index.css";
 
-type Section =  "about" | "projects" | "contact";
+
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>("about");
@@ -23,7 +26,7 @@ function App() {
       case "contact":
         return <Contact />;
       default:
-        return null;
+        return <Resume />;
     }
   };
 

@@ -1,14 +1,14 @@
 import React from "react";
 import logo from "/wordmark-color-no-background.svg"; 
 
-type Section = "about" | "projects" | "contact";
+import type { Section } from "../types/section-types";
 
 interface Props {
   activeSection: Section;
   onNavigate: (section: Section) => void;
 }
 
-const navItems: Section[] = ["about", "projects", "contact"];
+const navItems: Section[] = ["about", "projects", "contact", "resume"];
 
 const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
 
@@ -32,7 +32,7 @@ const Header: React.FC<Props> = ({ activeSection, onNavigate }) => {
             </li>
           ))}
 
-          <li className="logo-container flex justify-end col-[1/2] row-[1/4] md:order-1">
+          <li className="logo-container flex justify-end col-[1/2] row-[1/5] md:order-1">
             <img src={logo} alt="Alisa Palson Wordmark" className="w-full min-w-40 max-w-[300px] md:min-w-52 md:max-w-full h-auto" />
           </li>
         </ul>
