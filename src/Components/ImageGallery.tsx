@@ -29,7 +29,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                   key={image.link}
                 >
                   <img
-                    className="mb-1 h-auto max-w-full align-middle leading-none"
+                    className="mb-1 h-auto max-w-full align-middle leading-none rounded-md"
                     src={image.link}
                     alt={image.alt}
                   />

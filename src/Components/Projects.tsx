@@ -57,7 +57,7 @@ const Projects: React.FC = () => {
           {heroImage.length > 0 ? (
             <div className="py-2">
               <img
-                className="object-cover h-52 w-full object-center"
+                className="object-cover h-52 w-full object-center rounded-md"
                 src={heroImage[0].link}
                 alt={heroImage[0].alt}
               />
