@@ -117,11 +117,11 @@ export const projectData = (): Project[] =>
             title: "PokeDex Web App",
             subtitle: "GOTTA CATCH EM ALL",
             description:
-                "A fan-made digital Pokédex that lets users browse, search, and save Pokémon to their own team. Originally built with HTML, CSS, and jQuery, it uses the PokéAPI to pull real-time data and includes features like autocomplete search, sprite slideshows, and stat tabs. Inspired by the classic game interface, the project combines nostalgic design with smooth, modern functionality.",
+                "A digital Pokédex that lets users browse, search, and save Pokémon to their own team. Built with vanilla HTML, CSS, and jQuery, it uses the PokéAPI to pull real-time data and includes features like autocomplete search, sprite slideshows, and stat tabs. Inspired by the classic game interface, the project combines nostalgic design with smooth, modern functionality.",
             github: "https://github.com/AlisamfP/pokedex",
             projectLink: "http://alisa.palson.info/pokedex/",
             background:
-                "Inspired by the iconic Pokédex from the Pokémon games, I set out to build a web app that lets users explore, search, and save Pokémon to their personal team. The goal was to combine nostalgic design with modern functionality, creating an interactive site that feels like a digital Pokédex brought to life.",
+                "Inspired by the iconic Pokédex from the Pokémon games, I set out to build a web app that lets users explore, search, and save Pokémon to their personal team. The goal was to create an interactive site that feels like a digital Pokédex brought to life.",
             problem:
                 "With over 1,000 Pokémon, navigating such a large dataset can be overwhelming. I needed to design a clean, user-friendly interface that made browsing and searching intuitive, while staying true to the look and feel of the original Pokédex.",
             process:
@@ -153,30 +153,30 @@ export const projectData = (): Project[] =>
                 },
             ],
         },
-        {
-            id: "baselayer",
-            title: "Baselayer Static Site Build",
-            subtitle: "Contributing to a thoughtful, design-forward company",
-            description:
-                "Contracted to build a responsive static page from a Figma design for Nopal Build, a company focused on sustainable architecture. I wrote clean, semantic HTML and CSS that matched the design and was ready for integration into their React app. This project was a great opportunity to support a mission I care about while honing my front-end build skills.",
-            github: "https://github.com/AlisamfP/baselayer",
-            projectLink: "https://alisa.palson.info/baselayer",
-            background:
-                "This project came through a small contract with <a href='https://nopal.build/' taget='_blank'>Nopal Build</a>, a company focused on sustainable building practices. I was brought on to turn a Figma file into a working HTML/CSS page. Even though it was just a single static page, I was excited to help out. Nopal’s focus on sustainability and thoughtful design really resonates with me. I’m always drawn to projects that try to make the world (and the web) a little better, and this was one of them.",
-            problem:
-                "The team at Nopal Build needed a static webpage built from a Figma design that could later be integrated into their React application as individual components. Because it would become part of a larger layout, the page didn’t include global elements like a header or footer, just the core content structure. The goal was to create clean, modular HTML and CSS that closely matched the design while being easy for the development team to reuse and extend within their component-based system.",
-            process:
-                "I started by breaking the layout into sections and figuring out how to handle spacing and hierarchy based on the visual design. I used semantic HTML and vanilla CSS to keep the code clean and easy to integrate. Along the way, I made sure things looked good on different screen sizes, and added a few small touches to keep the site feeling smooth and polished. I also kept accessibility in mind as I built it out.",
-            results:
-                "The final site matches the overall intent of the design and works well across devices. I learned a lot about interpreting design files and navigating the gray areas between visual design and code. It was a great chance to practice working from a real-world handoff and contribute to a project that aligns with my values.",
-            images: [
-                {
-                    link: "./images/baselayer-screenshot.png",
-                    alt: "Screenshot of the finished baselayer webpage",
-                    description: "Screenshot of the finished baselayer webpage",
-                },
-            ],
-        },
+        // {
+        //     id: "baselayer",
+        //     title: "Baselayer Static Site Build",
+        //     subtitle: "Contributing to a thoughtful, design-forward company",
+        //     description:
+        //         "Contracted to build a responsive static page from a Figma design for Nopal Build, a company focused on sustainable architecture. I wrote clean, semantic HTML and CSS that matched the design and was ready for integration into their React app. This project was a great opportunity to support a mission I care about while honing my front-end build skills.",
+        //     github: "https://github.com/AlisamfP/baselayer",
+        //     projectLink: "https://alisa.palson.info/baselayer",
+        //     background:
+        //         "This project came through a small contract with <a href='https://nopal.build/' taget='_blank'>Nopal Build</a>, a company focused on sustainable building practices. I was brought on to turn a Figma file into a working HTML/CSS page. Even though it was just a single static page, I was excited to help out. Nopal’s focus on sustainability and thoughtful design really resonates with me. I’m always drawn to projects that try to make the world (and the web) a little better, and this was one of them.",
+        //     problem:
+        //         "The team at Nopal Build needed a static webpage built from a Figma design that could later be integrated into their React application as individual components. Because it would become part of a larger layout, the page didn’t include global elements like a header or footer, just the core content structure. The goal was to create clean, modular HTML and CSS that closely matched the design while being easy for the development team to reuse and extend within their component-based system.",
+        //     process:
+        //         "I started by breaking the layout into sections and figuring out how to handle spacing and hierarchy based on the visual design. I used semantic HTML and vanilla CSS to keep the code clean and easy to integrate. Along the way, I made sure things looked good on different screen sizes, and added a few small touches to keep the site feeling smooth and polished. I also kept accessibility in mind as I built it out.",
+        //     results:
+        //         "The final site matches the overall intent of the design and works well across devices. I learned a lot about interpreting design files and navigating the gray areas between visual design and code. It was a great chance to practice working from a real-world handoff and contribute to a project that aligns with my values.",
+        //     images: [
+        //         {
+        //             link: "./images/baselayer-screenshot.png",
+        //             alt: "Screenshot of the finished baselayer webpage",
+        //             description: "Screenshot of the finished baselayer webpage",
+        //         },
+        //     ],
+        // },
     {
   id: "javascript-logo-animation",
   title: "JavaScript Logo Animation",

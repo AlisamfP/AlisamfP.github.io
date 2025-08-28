@@ -7,10 +7,10 @@ const Resume = () => {
         <p className="text-sm text-gray-600 text-center">
           (602) 784-6433 |{" "}
           <a
-            href="mailto:alisa.palson@gmail.com"
+            href="mailto:alisa@palson.info"
             className="text-teal-600 hover:underline"
           >
-            alisa.palson@gmail.com
+            alisa (at) palson (dot) info
           </a>{" "}
           |{" "}
           <a
@@ -88,12 +88,6 @@ const Resume = () => {
           <h3 className="text-xl font-semibold">Octoblu</h3>
           <p className="italic text-sm mb-1">Oct 2014 - Jul 2017 | Tempe, AZ</p>
           <p className="mb-2">Full-Stack Software Engineer</p>
-          <p className="mb-2">
-            Worked as a full-stack JavaScript developer at an IoT startup acquired
-            by Citrix shortly after my arrival. Collaborated closely with a
-            cross-functional agile team to build scalable, secure, and maintainable
-            solutions across various projects.
-          </p>
           <ul className="list-disc list-inside space-y-1">
             <li>
               Developed and maintained REST APIs and authentication flows,
@@ -118,12 +112,7 @@ const Resume = () => {
         <article>
           <h3 className="text-xl font-semibold">A Small Orange</h3>
           <p className="italic text-sm mb-1">Mar 2014 - May 2014 | Austin, TX</p>
-          <p className="mb-2">Live Support Ninja (tier 1)</p>
-          <p className="mb-2">
-            Provided remote technical support specializing in domains, cPanel, and
-            DNS for a web hosting company. Delivered fast, accurate assistance to
-            clients, contributing to high customer satisfaction and retention.
-          </p>
+          <p className="mb-2">Live Technical Support (tier 1)</p>
           <ul className="list-disc list-inside space-y-1">
             <li>
               Delivered remote tech support for domains, cPanel, and DNS, ensuring

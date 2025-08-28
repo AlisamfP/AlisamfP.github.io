@@ -5,7 +5,6 @@ const BackToTop = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    console.log("adding scroll listener");
     const toggleVisible = () => {
       const scrolled =
         window.pageYOffset ||
