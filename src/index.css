@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@theme {
+
+  --color-text-dark-grey: "#333";
+  --color-text-dark-cyan: "#003333";
+  --color-text-light: "";
+  --color-background-light: "#f5eae0";
+
+  /* cyan */
+     --color-cyan-50: "#c2e6e6";
+      --color-cyan-100: "#89cccc";
+      --color-cyan-200: "#57b1b1";
+      --color-cyan-300: "#2d9494";
+      --color-cyan-400: "#0d7777";
+      --color-cyan-500: "#005a5a";
+      --color-cyan-600: "#003e3e";
+      --color-cyan-700: "#002424";
+
+
+  }
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,5 +45,3 @@ h1 {
   line-height: 1.1;
   font-size: 3.2rem;
 }
-
-

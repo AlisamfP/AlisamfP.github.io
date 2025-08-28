@@ -1,5 +1,7 @@
 import { TbBrandGithub, TbFolderHeart, TbExternalLink } from "react-icons/tb";
-import { Button } from "@headlessui/react";
+
+import type { Section } from "../types/section-types";
+import Button from "./Button";
 
 type button = {
   name: string;
@@ -10,8 +12,9 @@ type button = {
 type TopActionButtonProps = {
   button1: button;
   button2?: button;
-  onNavigate?: (section: "about" | "projects" | "contact") => void;
+  onNavigate?: (section: Section) => void;
 };
+
 
 const TopActionButtons = ({
   button1,
@@ -42,36 +45,16 @@ const TopActionButtons = ({
         }`}
     >
       {github && (
-        <a
-          href={github.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col sm:flex-row items-center text-center rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100"
-        >
-          <TbBrandGithub className="text-2xl md:text-3xl" />
-          {github.text}
-        </a>
+        <Button rowReverse={false} text={github.text} href={github.link} icon={TbBrandGithub} />
+
       )}
       {/* {button1 && button2 && (<div className="inline-block min-h-[1em] w-px md:hidden self-stretch bg-[#003333]"></div>)} */}
       {portfolio && onNavigate && (
-        <Button
-          onClick={() => onNavigate("projects")}
-          className={`flex flex-col cursor-pointer sm:flex-row-reverse text-center items-center justify-end rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100`}
-        >
-          <TbFolderHeart className="text-2xl md:text-3xl" />
-          {portfolio.text}
-        </Button>
+        <Button rowReverse onClick={() => onNavigate("projects")} icon={TbFolderHeart} text={portfolio.text} />
+
       )}
       {link && (
-        <a
-          href={link.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex flex-col sm:flex-row-reverse items-center text-center justify-end rounded p-2 gap-1 md:gap-2 text-stone-900 hover:bg-[#006666] hover:text-stone-100`}
-        >
-          <TbExternalLink className="text-2xl md:text-3xl" />
-          {link.text}
-        </a>
+        <Button rowReverse href={link.link} icon={TbExternalLink} text={link.text} />
       )}
     </div>
   );

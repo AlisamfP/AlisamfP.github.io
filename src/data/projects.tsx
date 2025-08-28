@@ -20,39 +20,39 @@ export const projectData = (): Project[] =>
                 "The Open Flow project has been a rewarding learning experience that allowed me to deepen my skills with React, TypeScript, and Material UI, as well as explore Vite as a modern build tool. The app functions well and meets the goals I set out at the start, with positive feedback from users reinforcing its accessibility and design approach. Development is ongoing as I continue to refine and expand its capabilities. I am proud of how the project reflects both my personal experience and technical growth, and I look forward to building on it in the future.",
             images: [
                 {
-                    link: "./images/openflow-desktop-light-v2-hero.png",
+                    link: "./images/openFlow/openflow-desktop-light-v2-hero.png",
                     alt: "screen shot of Open Flow home page with muted green accents, navigation bar at top with custom cards, settings, and about links, along with an volume icon button to toggle audio mode and a sun to toggle dark mode and indicate its in light mode. cards are shown beneath the corresponding category.",
                     description:
                         "v2 home page in light mode",
                     isHeroImage: true,
                 },
                 {
-                    link: "./images/openflow-desktop-custom-v2.png",
+                    link: "./images/openFlow/openflow-desktop-custom-v2.png",
                     alt: "Screenshot of the Open Flow version 2 custom card creation page",
                     description: "v2 custom card creation page"
                 },
                 {
-                    link: './images/openflow-mobile-dark-v2.png',
+                    link: './images/openFlow/openflow-mobile-dark-v2.png',
                     alt: "screenshot showing the mobile version of the open flow web app in dark mode",
                     description: "v2 mobile dark mode"
                 },
                 {
-                    link: "./images/openflow-settings-desktop-v2-dark.png",
+                    link: "./images/openFlow/openflow-settings-desktop-v2-dark.png",
                     alt: "screenshot of the open flow version 2 settings page in dark mode",
                     description: "v2 settings dark mode"
                 },
                 {
-                    link: "./images/openflow-desktop-light-v1.png",
+                    link: "./images/openFlow/openflow-desktop-light-v1.png",
                     alt: "Screenshot of the Open Flow version 1.0 web app home page in light mode showing a grid of cards.",
                     description: "v1 home page in light mode",
                 },
                 {
-                    link: "./images/openflow-desktop-dark-v1.png",
+                    link: "./images/openFlow/openflow-desktop-dark-v1.png",
                     alt: "Screenshot of the Open Flow version 1.0 web app home page in dark mode showing a grid of cards",
                     description: "v1 home page in dark mode",
                 },
                 {
-                    link: "./images/customCard-light-desktop.png",
+                    link: "./images/openFlow/customCard-light-desktop.png",
                     alt: "Screenshot of the Open Flow web app custom card creation page in light mode showing a form to create a custom card with fields for text, icon, and color",
                     description:
                         "v1 Custom Card creation page in light mode",
@@ -78,35 +78,35 @@ export const projectData = (): Project[] =>
                 "Although this was a speculative project, it successfully met my goal of designing a complete and cohesive visual system for an event. It gave me the chance to practice organizing large amounts of content into a clear, readable, and visually engaging layout. I completed it on time, got positive feedback from peers, and was proud of how it strengthened my skills in layout and brand consistency.",
             images: [
                 {
-                    link: "./images/badge-front-and-back.jpg",
+                    link: "./images/reactRally/badge-front-and-back.jpg",
                     alt: "Two badge mockups, one of the front and one of the back. The badge  is an illustration of a mountain range with green and grey hues for the mountain, and a orange sun peaking over the edge. There are trees in the foreground. The front of the badge says React Rally 2024 near the top, with the name, job title, employer, and social media handle underneath. The back of the badge shows a qr code in the bottom right corner with a call to view the schedule above it",
                     description: "Mockup of the badge design",
                 },
                 {
-                    link: "./images/event-program-front-and-back.jpg",
+                    link: "./images/reactRally/event-program-front-and-back.jpg",
                     alt: "Mockup of the outside of the event program, showing a booklet opened face down showing an illustrated mountain with trees in the foreground and React Rally 2024 on the right side",
                     description: "Mockup for the event program's front and back design",
                     isHeroImage: true,
 
                 },
                 {
-                    link: "./images/schedule-page-mockup.jpg",
+                    link: "./images/reactRally/schedule-page-mockup.jpg",
                     alt: "Mockup of an event program against a blank white background showing an open page with dark green top and bottom borders, showing a schedule for August 12th with events next to their respective time slots and names under talk names",
                     description:
                         "Mockup of one of the days' schedule in the event program",
                 },
                 {
-                    link: "./images/table-tent-mockup.jpg",
+                    link: "./images/reactRally/table-tent-mockup.jpg",
                     alt: "mockup showing both sides of a table tent with one side having an illustrated mountain with bikers and the text 'Start your day enjoying nature' above and 'Join us everyday at 6am for a morning bike ride, hike, or trail run.' as text below. The other side of the table tent is mainly white with a large 'Join the Slack!' call to action, and a qr code inside of a large React icon.",
                     description: "Mockup of the table tent design",
                 },
                 {
-                    link: "./images/talk-summary-and-workshop-mockup.jpg",
+                    link: "./images/reactRally/talk-summary-and-workshop-mockup.jpg",
                     alt: "Mockup of an event program against a blank white background showing an open page with light green/teal top and bottom borders and a talk summaries page on the left, and workshops page on the right",
                     description: 'Mockup of the "Talk Summaries" and "Workshops" spread',
                 },
                 {
-                    link: "./images/speakers-page-mockup.jpg",
+                    link: "./images/reactRally/speakers-page-mockup.jpg",
                     alt: "Mockup of an event program against a blank white background showing an open page with a red border around the entire spread and images of the various speakers shown along with their name and title",
                     description: 'Mockup of the "Speakers" spread',
                 },
@@ -130,24 +130,24 @@ export const projectData = (): Project[] =>
                 "This was such a fun project. The final site closely matched my original vision. Users responded positively, noting how easy and fun it was to explore and build teams. I was proud of how well it balanced design and function, and how smoothly the development stayed on track.",
             images: [
                 {
-                    link: "./images/weedle-searchbynum-dualtype1000x850.png",
+                    link: "./images/pokedex/weedle-searchbynum-dualtype1000x850.png",
                     alt: "Screenshot of the pokedex website showing the number 13 entered into the search bar and Weedle as the pokemon in the viewer",
                     description:
                         "Screenshot highlighting search by id number functionality",
                     isHeroImage: true,
                 },
                 {
-                    link: "./images/remove-from-team1000x850.png",
+                    link: "./images/pokedex/remove-from-team1000x850.png",
                     alt: "Screenshot of the pokedex website showing a 'Remove From Team' dialog popup with a confirm or cancel option",
                     description: "Screenshot showing remove from team dialog box",
                 },
                 {
-                    link: "./images/psyduck1000x850.png",
+                    link: "./images/pokedex/psyduck1000x850.png",
                     alt: "Screenshot of the pokedex website showing Psyduck being searched in the search bar and also being visible in the pokedex viewer",
                     description: "Screenshot showing pokemon name search",
                 },
                 {
-                    link: "./images/pokedex-error-screenshot1000x850.png",
+                    link: "./images/pokedex/pokedex-error-screenshot1000x850.png",
                     alt: "Screenshot of the error page showing a 404 status code in the sprite viewer, looking like the 404 is a pokemon, and the viewer showing a pokemon with the text 'Uh oh! No pokemon found.'",
                     description: "Screenshot of the error page",
                 },
@@ -177,4 +177,54 @@ export const projectData = (): Project[] =>
                 },
             ],
         },
+    {
+  id: "javascript-logo-animation",
+  title: "JavaScript Logo Animation",
+  subtitle: "Motion Graphic Project",
+  description:
+    "A 10-second motion graphic animation showing the creation of the JavaScript logo inside a graphic editor. Designed as a class project for GIT 314 at Arizona State University, the animation is a visual 'love letter' to the JavaScript community, blending iterative design concepts with the collaborative spirit of open source.",
+  github: "https://github.com/AlisamfP/js-logo-animation", 
+  projectLink: "https://alisa.palson.info/js-logo-animation/", 
+  background:
+    "Created for GIT 314: Multimedia Design, Planning, and Storyboarding at ASU, this project focused on motion graphics and storytelling through animation. The JavaScript logo used in the animation is an open-source design gifted to the community by JSConf. The color palette features bright yellow and dark grey, mirroring the original logo.",
+  problem:
+    "The goal was to produce a 10-second animation of the JavaScript logo being created in a graphic editor, visually representing the iterative and experimental nature of JavaScript development. The animation needed to be engaging, on-brand, and conceptually tied to the open-source spirit of the community.",
+  process:
+    "I began by conceptualizing the animation as a simulation of building the JavaScript logo in an editing program. I storyboarded the sequence: drawing a rectangle, filling it with yellow, adding the 'JS' text, and applying subtle cursor interactions to reflect user input. Assets were created in Adobe Photoshop (background) and Illustrator (cursors: pointer, crosshair, and paint bucket). The first animation pass revealed uneven timing, so I adjusted transition pacing, refined cursor click animations, and improved text alignment. The iterative adjustments mirrored JavaScript's own process of refinement and experimentation.",
+  results:
+    "The final animation delivers a clean, engaging visual narrative that reflects JavaScript’s culture of collaboration and iteration. Timing improvements and cursor animations enhanced the realism and flow. This project deepened my skills in motion graphics, asset creation, and animation timing. In the future, I plan to recreate this animation entirely in JavaScript to push the concept even further.",
+  images: [
+    {
+        link: './images/jsLogo/jslogo.png',
+        alt: 'Yellow square logo with black bold "JS" in its bottom right corner',
+        description: "The JavaScript logo gifted to the community by JSConf"
+    },
+    {
+        link: "./images/jsLogo/storyboard.JPG",
+        alt: "photo of a paper with sketches on it",
+        description: "Animation storyboard"
+    },
+    {
+        link: './images/jsLogo/background.png',
+        alt: "illustration of a generic graphic editor program",
+        description: "background illustration"
+    },
+    {
+        link: './images/jsLogo/crosshair.webp',
+        alt: "crosshair logo illustration",
+        description: "crosshair illustration"
+    },
+    {
+        link: './images/jsLogo/cursor.webp',
+        alt: "cursor illustration",
+        description: "cursor illustration"
+    },
+    {
+        link: './images/jsLogo/fillBucket.webp',
+        alt: "fill bucket illustration",
+        description: "fill bucket illustration"
+    }
+  ]
+}
+
     ] as Project[];

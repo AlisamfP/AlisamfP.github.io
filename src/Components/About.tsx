@@ -13,9 +13,10 @@ import {
 } from "react-icons/tb";
 
 import TopActionButtons from "./TopActionButtons";
+import type { Section } from "../types/section-types";
 
 type AboutProps = {
-  onNavigate: (section: "about" | "projects" | "contact") => void;
+  onNavigate: (section: Section) => void;
 };
 
 const About: React.FC<AboutProps> = ({ onNavigate }) => {
@@ -54,7 +55,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         <p className="order-3 md:order-none pt-1">
           I’m a front-end developer and part time designer with a background in
           full-stack JavaScript and a B.S. in Graphic Information Technology. I
-          specialize in building accessible, inclusive user experiences with
+          specialize in building accessible, creative user experiences with
           modern tools like React, TypeScript, Tailwind CSS, and Material UI.
         </p>
         <p className="order-4 md:order-none">
@@ -65,7 +66,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
             Recurse Center
           </a>{" "}
           alum, magna cum laude graduate, and passionate advocate for open
-          source, intuitive design, and community-focused technology.
+          source, intuitive design, and accessibility online.
         </p>
         {/* <p className="md:col-span-full lg:col-start-2">
           In my free time I love playing video games and being out in nature. If
@@ -79,12 +80,11 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
             I spent three years at{" "}
             <a
               className="no-underline text-[#003333] border-b-2 border-transparent hover:border-[#003333]"
-              href="https://octoblu.com"
+              href="https://octoblu.github.io/"
             >
               Octoblu
             </a>{" "}
-            as a full-stack JavaScript engineer, building secure, scalable IoT
-            systems in an agile, test-driven environment. The company was
+            as a full-stack JavaScript engineer, working in an agile, test-driven, startup environment. The company was
             acquired by Citrix shortly after I joined. Our platform combined a
             proprietary drag-and-drop automation interface with an open source
             mesh communication network. I contributed across the stack, working

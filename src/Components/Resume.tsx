@@ -143,7 +143,7 @@ const Resume = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
         <h3 className="text-lg font-semibold mb-2">Development Tools</h3>
-        <ul className="list-disc list-inside space-y-1 grid grid-cols-2">
+        <ul className="list-none list-inside space-y-1">
           <li>JavaScript</li>
           <li>React</li>
           <li>TypeScript</li>
@@ -152,14 +152,13 @@ const Resume = () => {
           <li>Node.js</li>
           <li>Material UI</li>
           <li>Git/GitHub</li>
-          <li>npm</li>
           <li>REST APIs</li>
           <li>Vite</li>
         </ul>
         </div>
         <div>
         <h3 className="text-lg font-semibold mb-2">Design Tools</h3>
-        <ul className="list-disc list-inside space-y-1">
+        <ul className="list-none list-inside space-y-1">
           <li>Adobe Illustrator</li>
           <li>Adobe InDesign</li>
           <li>Adobe Photoshop</li>
@@ -168,7 +167,7 @@ const Resume = () => {
         </div>
         <div>
         <h3 className="text-lg font-semibold mb-2">Additional Skills</h3>
-        <ul className="list-disc list-inside space-y-1">
+        <ul className="list-none list-inside space-y-1">
           <li>Accessibility Standards (WCAG)</li>
           <li>Cross-Browser Testing</li>
           <li>Microsoft Word</li>
