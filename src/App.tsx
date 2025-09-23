@@ -12,8 +12,6 @@ import type { Section } from "./types/section-types";
 import "./App.css";
 import "./index.css";
 
-
-
 function App() {
   const [activeSection, setActiveSection] = useState<Section>("about");
 
@@ -30,18 +28,13 @@ function App() {
     }
   };
 
-
   return (
     <div className="app h-screen items-center flex flex-col md:justify-center md:grid active grid-cols-1 md:grid-rows-[min-content_auto_min-content] justify-items-end md:grid-cols-[1fr_2fr]">
-      <Header
-        activeSection={activeSection}
-        onNavigate={setActiveSection}
-      />
-      <main
-        className="w-full p-1 md:p-2 justify-self-start md:overflow-auto md:h-full md:pl-0"
-      >
-
-            <div className="page-content flex flex-col justify-center h-full md:border-l-2 md:border-[#003333] p-2">{renderContent()}</div>
+      <Header activeSection={activeSection} onNavigate={setActiveSection} />
+      <main className="w-full p-1 md:p-2 justify-self-start md:overflow-auto md:h-full md:pl-0">
+        <div className="page-content flex flex-col justify-center h-full md:border-l-2 md:border-[#003333] p-2">
+          {renderContent()}
+        </div>
 
         <BackToTop />
       </main>
