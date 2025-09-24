@@ -1,4 +1,13 @@
-export interface Experience {
+interface ContactInfo {
+    name: string;
+    email: string;
+    location: string;
+    openToRelocation: boolean;
+    linkedIn: string;
+    github: string;
+}
+
+interface Experience {
     company: string;
     role: string;
     location?: string;
@@ -8,7 +17,7 @@ export interface Experience {
     technologies?: string[];
 }
 
-export interface Education {
+interface Education {
     school: string;
     degree: string[];
     major?: string;
@@ -18,7 +27,7 @@ export interface Education {
     achievements?: string[];
 }
 
-export interface ProfessionalDevelopment {
+interface ProfessionalDevelopment {
     company: string;
     role: string;
     location: string;
@@ -27,15 +36,35 @@ export interface ProfessionalDevelopment {
     description: string[];
 }
 
-export interface ResumeData {
+interface skillsets {
+    development: string[];
+    design: string[];
+    additional: string[];
+}
+
+interface ResumeData {
+    contactInfo: ContactInfo;
+    skills: skillsets;
     summary: string;
     education: Education[];
     experience: Experience[];
     professionalDevelopment: ProfessionalDevelopment[];
-    // Add other sections as needed (education, skills, etc.)
 }
 
 const resumeData: ResumeData = {
+    contactInfo: {
+        name: "Alisa Palson",
+        email: "alisa@palson.info",
+        location: "Casa Grande, AZ",
+        openToRelocation: true,
+        linkedIn: "alisamfp",
+        github: "alisamfp"
+    },
+    skills: {
+        development: ["JavaScript", "TypeScript", "React", "Tailwind CSS", "Semantic HTML", "CSS3", "Node", "Material UI", "Git"],
+        design: ["Adobe InDesign", "Adobe Illustrator", "Figma"],
+        additional: ["Accessibility (a11y/WCAG)", "Cross-Browser Testing", "Agile/Scrum"]
+    },
     summary: "Front-end developer with a background in full-stack JavaScript and a B.S. in Graphic Information Technology. Recurse Center alum and magna cum laude graduate, dedicated to creating meaningful user experiences and supporting open source initiatives. Skilled in React, TypeScript, and Tailwind CSS with a strong foundation in graphic and UI design. Passionate about contributing to collaborative teams and building inclusive digital experiences.",
     education: [
         {
@@ -43,15 +72,15 @@ const resumeData: ResumeData = {
             degree: ["Bachelor of Science"],
             major: "Graphic Information Technology",
             focus: "Full-Stack Web Development",
-            startDate: "08/2022",
-            graduationDate: "08/2025",
+            startDate: "2022",
+            graduationDate: "2025",
             achievements: ["Magna Cum Laude"]
         },
         {
             school: "South Mountain Community College",
-            degree: ["Associate of Arts", "Associate of General Studies"],
-            startDate: "08/2010",
-            graduationDate: "08/2018"
+            degree: ["Associate in Arts", "Associate in General Studies"],
+            startDate: "2010",
+            graduationDate: "2018"
         }
     ],
     experience: [
@@ -59,8 +88,8 @@ const resumeData: ResumeData = {
             company: "Octoblu",
             role: "Software Engineer",
             location: "Tempe, AZ",
-            startDate: "10/2014",
-            endDate: "06/2017",
+            startDate: "2014",
+            endDate: "2017",
             description: [
                 "Developed and maintained REST APIs and authentication flows, improving system security and service interoperability",
                 "Collaborated in an agile environment using pair programming and test-driven development to ensure high-quality, maintainable code",
@@ -73,8 +102,8 @@ const resumeData: ResumeData = {
             company: "A Small Orange",
             role: "Tech Support - Web Hosting",
             location: "Remote",
-            startDate: "03/2014",
-            endDate: "05/2014",
+            startDate: "2014",
+            endDate: "2014",
             description: [
                 "Delivered remote tech support for domains, cPanel, and DNS, ensuring quick resolution of client issues and enhancing customer satisfaction",
                 "Mastered web hosting tools swiftly and resolved diverse client issues, contributing to improved service efficiency and client retention."
@@ -88,8 +117,8 @@ const resumeData: ResumeData = {
             company: "Recurse Center",
             role: "Software Engineering Resident",
             location: "New York, NY",
-            startDate: "06/2013",
-            endDate: "08/2013",
+            startDate: "2013",
+            endDate: "2013",
             description: [
                 "Selected for a competitive programming residency (70 accepted from 700+ applicants worldwide)",
                 "Explored game development and backend JavaScript with Node.js, building foundational development skills",

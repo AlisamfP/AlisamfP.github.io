@@ -2,11 +2,10 @@ import resumeData from "../data/resume";
 
 const Resume = () => {
   return (
-    <section className="max-w-4xl px-2 mx-auto text-gray-900">
+    <section className="px-2">
       <header className="mb-8">
         <h1 className="text-4xl font-bold mb-2 text-center">Alisa Palson</h1>
         <p className="text-sm text-gray-600 text-center">
-          (602) 784-6433 |{" "}
           <a
             href="mailto:alisa@palson.info"
             className="text-teal-600 hover:underline"
