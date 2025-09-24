@@ -39,24 +39,29 @@ const Resume = () => {
         </h2>
         {resumeData.education.map((edu, i) => (
           <article
-            itemProp="hasCredential"
+          itemProp="hasCredential"
             itemScope
             itemType="https://schema.org/EducationalOccupationalCredential"
             className="pb-2 grid grid-cols-[1fr_max-content]"
             key={i}
           >
-            <h3 className="text-lg leading-tight pr-2">
-              <span itemProp="credentialCategory">{edu.degree}</span>&nbsp;in{" "}
-              <span itemProp="name" className="inline-block">
-                {edu.major.length > 1 ? edu.major.join(" & ") : edu.major[0]}
-              </span>
+            <h3 className="text-lg leading-tight">
+              <meta itemProp="credentialCategory" content="degree" />
+              <meta itemProp="educationalLevel" content={edu.degree.charAt(0).toUpperCase() === "B" ? "bachelor degree" : "associates degree"} />
+                <span itemProp="name">
+
+                  {edu.degree}
+                &nbsp;in{" "}
+                
+                  {edu.major.length > 1 ? edu.major.join(" & ") : edu.major[0]}
+                </span>
             </h3>
             <div>
-              <time itemProp="startDate" dateTime={edu.startDate}>
+              <time dateTime={edu.startDate}>
                 {edu.startDate}
               </time>{" "}
               -{" "}
-              <time itemProp="endDate" dateTime={edu.graduationDate}>
+              <time dateTime={edu.graduationDate}>
                 {edu.graduationDate}
               </time>
             </div>
@@ -78,7 +83,12 @@ const Resume = () => {
         </h2>
 
         {resumeData.experience.map((job, i) => (
-          <article key={i} itemScope itemType="http://schema.org/OrganizationRole" className="pb-2">
+          <article 
+          key={i} 
+          itemScope 
+          itemProp="hasOccupation"
+          itemType="http://schema.org/OrganizationRole" 
+          className="pb-2">
             <div className="grid grid-cols-2 justify-between align-baseline">
               <h3 itemProp="roleName" className="text-xl font-semibold">{job.role}</h3>
               <p className="justify-self-end text-base italic">
@@ -87,7 +97,7 @@ const Resume = () => {
                 <time itemProp="endDate" dateTime={job.endDate}>{job.endDate}</time>
               </p>
             </div>
-            <div itemProp="memberOf" className="-mt-0.5">
+            <div itemProp="member" itemScope itemType="https://schema.org/Organization" className="-mt-0.5">
               <span itemProp="name">{job.company}</span>,{" "}
               <span itemProp="location">{job.location}</span>
             </div>
@@ -107,10 +117,10 @@ const Resume = () => {
         <h2 className="text-2xl font-semibold border-b border-teal-600 pb-1 mb-4">
           Skills
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <div id="skills-dev" className="row-span-2">
             <h3 className="text-lg font-semibold">Development Tools</h3>
-            <ul className="list-inside grid grid-cols-[max-content_1fr] gap-2 pb-2">
+            <ul className="list-inside grid grid-cols-[max-content_1fr] gap-2 pb-2" itemProp="skills">
               {resumeData.skills.development.map((skill, i) => (
                 <ListItem key={i} text={skill} />
               ))}
