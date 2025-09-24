@@ -19,8 +19,8 @@ interface Experience {
 
 interface Education {
     school: string;
-    degree: string[];
-    major?: string;
+    degree: string;
+    major: string[];
     focus?: string;
     startDate: string;
     graduationDate: string;
@@ -69,8 +69,8 @@ const resumeData: ResumeData = {
     education: [
         {
             school: "Arizona State University",
-            degree: ["Bachelor of Science"],
-            major: "Graphic Information Technology",
+            degree: "Bachelor of Science",
+            major: ["Graphic Information Technology"],
             focus: "Full-Stack Web Development",
             startDate: "2022",
             graduationDate: "2025",
@@ -78,7 +78,8 @@ const resumeData: ResumeData = {
         },
         {
             school: "South Mountain Community College",
-            degree: ["Associate in Arts", "Associate in General Studies"],
+            degree: "Associate",
+            major: ["Arts", "General Studies"],
             startDate: "2010",
             graduationDate: "2018"
         }
