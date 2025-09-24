@@ -1,5 +1,6 @@
 import resumeData from "../data/resume";
 import StyledLink from "./StyledLink";
+import ListItem from "./ListItem";
 
 const Resume = () => {
   return (
@@ -71,7 +72,7 @@ const Resume = () => {
         ))}
       </section>
 
-      <section className="mb-4">
+      <section id="experience" className="mb-4">
         <h2 className="text-2xl font-semibold border-b border-teal-600 pb-1 mb-4">
           Professional Experience
         </h2>
@@ -93,11 +94,7 @@ const Resume = () => {
 
             <ul className="list-inside grid grid-cols-[max-content_1fr] gap-2 pb-2">
               {job.description.map((description, i) => (
-                <>
-                  <span>&#8226;</span>
-
-                  <li key={i}>{" "}{description}</li>
-                </>
+                <ListItem key={i} text={description} />
               ))}
             </ul>
 
@@ -106,45 +103,38 @@ const Resume = () => {
 
       </section>
 
-      <h2 className="text-2xl font-semibold border-b border-teal-600 pb-1 mb-4">
-        Skills
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Development Tools</h3>
-          <ul className="list-none list-inside space-y-1">
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>TypeScript</li>
-            <li>Tailwind CSS</li>
-            <li>HTML5</li>
-            <li>Node.js</li>
-            <li>Material UI</li>
-            <li>Git/GitHub</li>
-            <li>REST APIs</li>
-            <li>Vite</li>
-          </ul>
+      <section id="skills">
+        <h2 className="text-2xl font-semibold border-b border-teal-600 pb-1 mb-4">
+          Skills
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div id="skills-dev" className="row-span-2">
+            <h3 className="text-lg font-semibold">Development Tools</h3>
+            <ul className="list-inside grid grid-cols-[max-content_1fr] gap-2 pb-2">
+              {resumeData.skills.development.map((skill, i) => (
+                <ListItem key={i} text={skill} />
+              ))}
+            </ul>
+          </div>
+          <div id="skills-design">
+            <h3 className="text-lg font-semibold">Design Tools</h3>
+            <ul className="list-inside grid grid-cols-[max-content_1fr] gap-2 pb-2">
+              {resumeData.skills.design.map((skill, i) => (
+                <ListItem key={i} text={skill} />
+              ))}
+            </ul>
+          </div>
+          <div id="skills-additional">
+            <h3 className="text-lg font-semibold">Additional Skills</h3>
+            <ul className="list-inside grid grid-cols-[max-content_1fr] gap-2 pb-2">
+              {resumeData.skills.additional.map((skill, i) => (
+                <ListItem key={i} text={skill} />
+              ))}
+            </ul>
+          </div>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Design Tools</h3>
-          <ul className="list-none list-inside space-y-1">
-            <li>Adobe Illustrator</li>
-            <li>Adobe InDesign</li>
-            <li>Adobe Photoshop</li>
-            <li>Figma</li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-2">Additional Skills</h3>
-          <ul className="list-none list-inside space-y-1">
-            <li>Accessibility Standards (WCAG)</li>
-            <li>Cross-Browser Testing</li>
-            <li>Microsoft Word</li>
-            <li>Microsoft Excel</li>
-            <li>Microsoft PowerPoint</li>
-          </ul>
-        </div>
-      </div>
+      </section>
+
     </div>
   );
 };
