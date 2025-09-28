@@ -114,18 +114,17 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
 
         <div className="intro-content">
           <h2 className="greeting">Hello There!</h2>
-          <div className="name-pronounciation">
+          <div className="name-pronunciation">
             <span className="name-text">The name's Alisa </span>
-            <span className="pronounciation-note">
+            <span className="pronunciation-note">
               (pronounced&nbsp;uh-lisa)
               <Button
-                ariaLabel="Play pronounciation of name Alisa"
-                className="-mt-0.5"
+                ariaLabel="Play pronunciation of name Alisa"
+                className="pronunciation-button"
                 variant="icon"
                 icon={TbVolume}
-                text="Play pronounciation"
                 onClick={handlePronounceName}
-                iconSize="text-lg"
+                size="lg"
               />
             </span>
           </div>

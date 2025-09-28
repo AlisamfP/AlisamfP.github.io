@@ -45,7 +45,7 @@
 }
 
 .section-title {
-  @apply font-bold text-lg text-[#003333];
+  @apply font-bold text-xl text-[#003333];
 }
 
 .section-divider {

@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/* Base Button Styles */
+.btn {
+  @apply font-medium px-4 py-2 rounded-lg border-2 transition-all duration-200;
+  @apply focus:outline-none focus:ring-4 focus:ring-offset-2;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply inline-flex items-center justify-center gap-2;
+  min-height: 44px; /* Minimum touch target size for accessibility */
+  text-decoration: none; /* Remove default link underlines */
+}
+
+/* Primary Button - High contrast, main action */
+.btn-primary {
+  @apply bg-[#003333] text-white border-[#003333];
+  @apply hover:bg-[#004d4d] hover:border-[#004d4d];
+  @apply focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
+  @apply active:bg-[#002626] active:border-[#002626];
+}
+
+/* Primary button on dark backgrounds */
+.btn-primary-light {
+  @apply bg-white text-[#003333] border-white;
+  @apply hover:bg-[#f8f8f8] hover:border-[#f8f8f8];
+  @apply focus:ring-[#00333380] focus:ring-offset-transparent;
+  @apply active:bg-[#e8e8e8] active:border-[#e8e8e8];
+}
+
+/* Secondary Button - Outlined style */
+.btn-secondary {
+  @apply bg-transparent text-[#003333] border-[#003333];
+  @apply hover:bg-[#003333] hover:text-white;
+  @apply focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
+  @apply active:bg-[#002626] active:text-white active:border-[#002626];
+}
+
+/* Secondary button with subtle background */
+.btn-secondary-soft {
+  @apply bg-[#00333308] text-[#003333] border-[#00333330];
+  @apply hover:bg-[#00333315] hover:border-[#003333];
+  @apply focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
+  @apply active:bg-[#00333325];
+}
+
+/* Tertiary Button - Text button with hover effects */
+.btn-tertiary {
+  @apply bg-transparent text-[#003333] border-transparent;
+  @apply hover:bg-[#00333308] hover:border-transparent;
+  @apply focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
+  @apply active:bg-[#00333315];
+  @apply relative;
+}
+
+/* Add bottom border animation to tertiary buttons */
+.btn-tertiary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #003333;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.btn-tertiary:hover::after {
+  width: 100%;
+}
+
+/* Link-style button (maintains your current link styling) */
+.btn-link {
+  @apply bg-transparent text-[#003333] border-transparent;
+  @apply hover:bg-transparent focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
+  @apply relative underline decoration-2 underline-offset-4;
+  min-height: auto;
+  padding: 0;
+}
+
+.btn-link:hover {
+  @apply no-underline;
+  border-bottom: 2px solid #003333;
+  padding-bottom: 2px;
+}
+
+/* Icon-only buttons */
+.btn-icon {
+  @apply w-11 h-11 p-2 justify-center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Size variants */
+.btn-sm {
+  @apply text-sm px-3 py-1.5 rounded-md;
+  min-height: 36px;
+}
+
+.btn-lg {
+  @apply text-lg px-6 py-3 rounded-xl;
+  min-height: 52px;
+}
+
+
+/* Button groups */
+.btn-group {
+  @apply inline-flex rounded-lg overflow-hidden;
+}
+
+.btn-group .btn {
+  @apply rounded-none border-r-0 focus:z-10;
+}
+
+.btn-group .btn:first-child {
+  @apply rounded-l-lg;
+}
+
+.btn-group .btn:last-child {
+  @apply rounded-r-lg border-r-2;
+}
+
+/* Loading state */
+.btn-loading {
+  @apply relative text-transparent pointer-events-none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: btn-spin 1s linear infinite;
+}
+
+@keyframes btn-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 3px;
+  }
+  
+  .btn-primary {
+    @apply bg-black text-white border-black;
+  }
+  
+  .btn-secondary {
+    @apply border-black text-black;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    @apply transition-none;
+  }
+  
+  .btn-tertiary::after {
+    transition: none;
+  }
+  
+  .btn-loading::after {
+    animation: none;
+  }
+}

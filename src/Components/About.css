@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./design-system.css";
 
 /* About Page Layout */
 .about-page {
@@ -67,7 +68,7 @@
 }
 
 .pronunciation-button {
-  @apply hover:bg-gray-100 rounded-sm p-1 transition-colors;
+  @apply rounded-2xl hover:bg-[#00333330] p-1 transition-colors;
 }
 
 /* Responsive pronunciation layout */
@@ -84,25 +85,14 @@
     @apply text-xs flex-nowrap;
   }
 }
-.section-container {
-  @apply rounded-md md:p-2 flex flex-col gap-2;
-}
 
-.section-title {
-  @apply font-bold text-2xl;
-}
-
-/* Experience Section */
+/* Experience Section - using shared styles */
 .experience-item {
   @apply pb-2;
 }
 
 .experience-header {
   @apply grid grid-cols-2 justify-between align-baseline;
-}
-
-.job-title {
-  @apply text-xl font-semibold;
 }
 
 .date-range {
@@ -122,9 +112,6 @@
   @apply pb-2 grid grid-cols-[1fr_max-content];
 }
 
-.degree-title {
-  @apply text-lg leading-tight;
-}
 
 
 /* Skills Section */
@@ -132,9 +119,7 @@
   @apply grid grid-cols-1 sm:grid-cols-2 gap-2;
 }
 
-.skills-title {
-  @apply text-lg font-semibold;
-}
+
 
 .skills-list {
   @apply list-inside pb-2;

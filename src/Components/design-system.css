@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* DESIGN SYSTEM */
+
+/* Typography Hierarchy */
+.page-title {
+    @apply font-bold text-4xl text-[#003333] mb-4;
+}
+
+.section-title {
+    @apply font-bold text-2xl text-[#003333] mb-2;
+}
+
+.subsection-title {
+    @apply font-bold text-xl text-[#003333] mb-1;
+}
+
+.job-title {
+    @apply text-lg font-semibold text-gray-900;
+}
+
+.skills-title {
+    @apply text-lg font-semibold text-[#003333];
+}
+
+.degree-title {
+    @apply text-lg leading-tight text-gray-900;
+}
+
+/* Common Layout Components */
+.section-container {
+    @apply rounded-md md:p-2 flex flex-col gap-2;
+}
+
+.section-divider {
+    @apply mb-2 border-[#003333];
+}
+
+.section-content {
+    @apply ml-2;
+}
+
+/* Button Variants */
+.btn-primary {
+    @apply bg-[#006666] hover:bg-[#004d4d] text-white font-medium px-4 py-2 rounded transition-colors;
+}
+
+.btn-secondary {
+    @apply border border-[#006666] text-[#006666] hover:bg-[#006666] hover:text-white font-medium px-4 py-2 rounded transition-colors;
+}
+
+/* Common Spacing */
+.content-gap {
+    @apply gap-4;
+}
+
+.content-gap-small {
+    @apply gap-2;
+}
+
+/* Text Colors */
+.text-primary {
+    @apply text-[#003333];
+}
+
+.text-secondary {
+    @apply text-gray-600;
+}
+
+.text-accent {
+    @apply text-[#006666];
+}
