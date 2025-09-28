@@ -33,23 +33,23 @@ const TopActionButtons = ({
   const buttons = [button1, button2].filter((button): button is ButtonConfig => button != undefined);
 
   const renderButton = (buttonConfig: ButtonConfig, key: string) => {
-    const {type, link, text} = buttonConfig;
+    const { type, link, text } = buttonConfig;
     const Icon = BUTTON_ICONS[type]
-    if(type === "portfolio" && onNavigate) {
+    if (type === "portfolio" && onNavigate) {
       return (
         <Button
           key={key}
           variant="default"
           text={text}
           icon={Icon}
-          onClick={()=> onNavigate("projects")}
+          onClick={() => onNavigate("projects")}
           ariaLabel={`Navigate to ${text}`}
         />
       )
     }
-    if(type === "github" || type === "link") {
+    if (type === "github" || type === "link") {
       return (
-        <Button 
+        <Button
           key={key}
           variant="link"
           text={text}
@@ -63,14 +63,14 @@ const TopActionButtons = ({
     return null;
   };
 
-  if( buttons.length === 0) {
+  if (buttons.length === 0) {
     console.log("NO BUTTONS")
     return null;
   }
 
   return (
     <div className="top-action-buttons">
-      {buttons.map((button, index) => 
+      {buttons.map((button, index) =>
         renderButton(button, `button-${index}-${button.type}`)
       )}
     </div>
@@ -78,44 +78,5 @@ const TopActionButtons = ({
 
 }
 
-//   return (
-//     <div
-//       className={`flex gap-2 md:gap-4 md:py-2 ${
-//         hasMultipleButtons ? "justify-between" : "justify-end"
-//       }`}
-//     >
-//       {github && (
-//         <Button
-//           variant="link"
-//           ariaLabel={`Open ${github.text} in new tab`}
-//           rowReverse={false}
-//           text={github.text}
-//           href={github.link}
-//           icon={TbBrandGithub}
-//         />
-//       )}
-//       {/* vertical bar seperator when there's two buttons */}
-//       {/* {button1 && button2 && (<div className="inline-block min-h-[1em] w-px md:hidden self-stretch bg-[#003333]"></div>)} */}
-//       {portfolio && onNavigate && (
-//         <Button
-//           variant="default"
-//           rowReverse
-//           onClick={() => onNavigate("projects")}
-//           icon={TbFolderHeart}
-//           text={portfolio.text}
-//         />
-//       )}
-//       {link && (
-//         <Button
-//           variant="link"
-//           rowReverse
-//           href={link.link}
-//           icon={TbExternalLink}
-//           text={link.text}
-//         />
-//       )}
-//     </div>
-//   );
-// };
 
 export default TopActionButtons;

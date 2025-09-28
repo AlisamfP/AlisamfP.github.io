@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* Projects Page Layout */
+.projects-page {
+  @apply flex flex-col gap-4;
+}
+
+.project-content {
+  @apply px-2 flex flex-col gap-2 md:gap-4 grow;
+}
+
+/* Project Header */
+.project-header {
+  @apply -mb-4 py-2 flex flex-col;
+}
+
+.project-title-container {
+  @apply flex flex-col md:flex-row md:items-center;
+}
+
+.project-title-label {
+  @apply font-bold text-xl text-[#003333] min-w-[11ch];
+}
+
+.project-title-value {
+  @apply text-xl font-medium;
+}
+
+.project-description {
+  @apply ml-2;
+}
+
+/* Hero Image Section */
+.hero-image-section {
+  @apply py-2;
+}
+
+.hero-image {
+  @apply object-cover h-52 w-full object-center rounded-md;
+}
+
+/* Project Sections */
+.project-section {
+  @apply py-2 flex flex-col;
+}
+
+.section-title {
+  @apply font-bold text-lg text-[#003333];
+}
+
+.section-divider {
+  @apply mb-2 text-[#003333];
+}
+
+.section-content {
+  @apply ml-2;
+}
+
+.section-fallback {
+  @apply ml-2 text-gray-500 italic;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .project-content {
+    @apply gap-4;
+  }
+}

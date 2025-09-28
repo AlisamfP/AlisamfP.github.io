@@ -1,32 +1,120 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import ProjectSelect from "./ProjectSelect";
-import { useState } from "react";
 import { projectData } from "../data/projects";
 import TopActionButtons from "./TopActionButtons";
 import ImageGallery from "./ImageGallery";
 
+import "./Projects.css";
+
+type Project = ReturnType<typeof projectData>[0];
+
+interface ProjectHeaderProps {
+  title: string;
+  description?: string;
+}
+
+interface HeroImageSectionProps {
+  image: { link: string; alt: string; };
+}
+
+interface ProjectSectionProps {
+  title: string;
+  children: React.ReactNode;
+}
+
 const projects = projectData();
+
+const PROJECT_SECTIONS = [
+  { key: 'background', title: 'Background Info', required: false, fallback: undefined },
+  { key: 'problem', title: 'Problem To Solve', required: false, fallback: undefined },
+  { key: 'process', title: 'My Process', required: false, fallback: undefined },
+  { key: 'results', title: 'The End Result', required: true, fallback: 'TBD' },
+] as const;
+
+const ProjectHeader: React.FC<ProjectHeaderProps> = ({ title, description }) => (
+  <section className="project-header">
+    <div className="project-title-container">
+      <h2>Project Name:{" "}
+        <span className="project-title-value">{title}</span>
+      </h2>
+    </div>
+    <hr className="section-divider" />
+    {description && (
+      <div className="project-description">{description}</div>
+    )}
+  </section>
+)
+
+const HeroImageSection: React.FC<HeroImageSectionProps> = ({ image }) => (
+  <section className="hero-image-section">
+    <img className="hero-image" src={image.link} alt={image.alt} loading="lazy" />
+  </section>
+)
+
+const ProjectSection: React.FC<ProjectSectionProps> = ({ title, children }) => (
+  <section className="project-section">
+    <h2 className="section-title">{title}</h2>
+    <hr className="section-divider" />
+    {children}
+  </section>
+);
+
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState(projects[0]);
-  const githubButton = {
-    text: "View The Code",
-    name: "github",
-    link: selectedProject.github,
-  };
-  const externalLink = {
-    name: "link",
-    text: "View The Project",
-    link: selectedProject.projectLink,
-  };
-  const heroImage = selectedProject.images.filter((p) => p.isHeroImage)
+
+  const actionButtons = useMemo(() => {
+    const githubButton = {
+      type: "github" as const,
+      text: "View The Code",
+      link: selectedProject.github,
+    };
+    const externalLink = {
+      type: "link" as const,
+      text: "View The Project",
+      link: selectedProject.projectLink,
+    };
+    return {
+      primary: externalLink,
+      secondary: selectedProject.github ? githubButton : undefined,
+    }
+  }, [selectedProject.github, selectedProject.projectLink])
+
+  const heroImage = useMemo(() =>
+    selectedProject.images.find(img => img.isHeroImage),
+    [selectedProject.images]
+  )
+
+  const renderSection = (
+    sectionKey: string,
+    title: string,
+    content: string | undefined,
+    isRequired: boolean = false,
+    fallback?: string
+  ) => {
+    if (!isRequired && !content) return null;
+    return (
+      <ProjectSection key={sectionKey} title={title}>
+        {content ? (
+          <div className="section-content" dangerouslySetInnerHTML={{ __html: content }} />
+        ) : (
+          <p className="section-fallback">{fallback}</p>
+        )}
+      </ProjectSection>
+    )
+  }
+
+  if (!selectedProject) {
+    return <div>No project selected</div>;
+  }
+
   return (
-    <>
-      {selectedProject.github ? (
-        <TopActionButtons button1={externalLink} button2={githubButton} />
-      ) : (
-        <TopActionButtons button1={externalLink} />
-      )}
+    <div className="projects-page">
+      <TopActionButtons
+        button1={actionButtons.primary}
+        button2={actionButtons.secondary}
+      />
+
 
       <ProjectSelect
         value={selectedProject}
@@ -35,87 +123,26 @@ const Projects: React.FC = () => {
       />
 
       {/* the project info */}
-      {selectedProject && (
-        <div className="projects px-2 flex flex-col gap-2 md:gap-4 grow">
-          <section className="-mb-4 py-2 flex flex-col">
-            {selectedProject.title ? (
-              <div className="flex flex-col md:flex-row md:items-center">
-                <h2 className="font-bold text-xl text-[#003333] min-w-[11ch]">
-                  Project Name:{" "}
-                  <span className="text-xl font-medium">
-                    {selectedProject.title}
-                  </span>
-                </h2>
-              </div>
-            ) : null}
+      <div className="project-content px-2 flex flex-col gap-2 md:gap-4 grow">
+        {selectedProject.title && (
+          <ProjectHeader title={selectedProject.title} description={selectedProject.description} />
+        )}
+        {heroImage && (
+          <HeroImageSection image={heroImage} />
+        )}
+        {PROJECT_SECTIONS.map(({ key, title, required, fallback }) =>
+          renderSection(
+            key, title, selectedProject[key as keyof Project] as string,
+            required,
+            fallback
+          )
+        )}
 
-            <hr className="mb-2 text-[#003333]" />
-            {selectedProject.description ? (
-              <div className="ml-2">{selectedProject.description}</div>
-            ) : null}
-          </section>
-          {heroImage.length > 0 ? (
-            <div className="py-2">
-              <img
-                className="object-cover h-52 w-full object-center rounded-md"
-                src={heroImage[0].link}
-                alt={heroImage[0].alt}
-              />
-            </div>
-          ) : null}
+        {/* images section */}
+        <ImageGallery images={selectedProject.images} />
+      </div>
 
-          {selectedProject.background ? (
-            <section className="py-2 flex flex-col">
-              <h2 className="font-bold text-lg text-[#003333]">
-                Background Info
-              </h2>
-              {/* using dangerously set to have anchor tags be rendered */}
-              <hr className="mb-2 text-[#003333]" />
-              <div
-                className="ml-2"
-                dangerouslySetInnerHTML={{ __html: selectedProject.background }}
-              />
-            </section>
-          ) : null}
-          {selectedProject.problem ? (
-            <section className="py-2 flex flex-col">
-              <h2 className="font-bold text-lg text-[#003333]">
-                Problem To Solve
-              </h2>
-              <hr className="mb-2 text-[#003333]" />
-              <div
-                className="ml-2"
-                dangerouslySetInnerHTML={{ __html: selectedProject.problem }}
-              />
-            </section>
-          ) : null}
-          {selectedProject.process ? (
-            <section className="py-2 flex flex-col">
-              <h2 className="font-bold text-lg text-[#003333]">My Process</h2>
-              <hr className="mb-2 text-[#003333]" />
-              <div
-                className="ml-2"
-                dangerouslySetInnerHTML={{ __html: selectedProject.process }}
-              />
-            </section>
-          ) : null}
-          <section className="py-2 flex flex-col">
-            <h2 className="font-bold text-lg text-[#003333]">The End Result</h2>
-            <hr className="mb-2 text-[#003333]" />
-            {selectedProject.results ? (
-              <div
-                className="ml-2"
-                dangerouslySetInnerHTML={{ __html: selectedProject.results }}
-              />
-            ) : (
-              <p>TBD</p>
-            )}
-          </section>
-          {/* images section */}
-          <ImageGallery images={selectedProject.images}/>
-        </div>
-      )}
-    </>
+    </div>
   );
 };
 

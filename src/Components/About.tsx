@@ -48,8 +48,8 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
 
   const renderExperience = useMemo(
     () => (
-      <section className="about-experience rounded-md md:p-2 flex flex-col gap-2">
-        <h2 className="font-bold text-2xl">Professional Experience</h2>
+      <section className="about-experience section-container">
+        <h2 className="section-title">Professional Experience</h2>
         {resumeData.experience.map((job, i) => (
           <ExperienceItem key={`experience-${i}`} job={job} />
         ))}
@@ -60,8 +60,8 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
 
   const renderEducation = useMemo(
     () => (
-      <section className="about-education rounded-md md:p-2 flex flex-col gap-2">
-        <h2 className="font-bold text-2xl">Education</h2>
+      <section className="about-education section-container">
+        <h2 className="section-title">Education</h2>
         {resumeData.education.map((edu, i) => (
           <EducationItem key={`education-${i}`} education={edu} />
         ))}
@@ -72,9 +72,9 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
 
   const renderSkills = useMemo(
     () => (
-      <section className="about-skills flex flex-col gap-2 rounded-md md:p-2">
-        <h2 className="font-bold text-2xl">Skills</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <section className="about-skills section-container">
+        <h2 className="section-title">Skills</h2>
+        <div className="skills-grid">
           <SkillsGroup
             id="skills-dev"
             title="re: Development"
@@ -138,40 +138,6 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
       {renderExperience}
       {renderEducation}
       {renderSkills}
-
-{/* <section className="about-skills flex flex-col gap-2 rounded-md md:p-2">
-        <h2 className="font-bold text-2xl">Skills</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <div id="skills-dev" className="row-span-2">
-            <h3 className="text-lg font-semibold">re: Development</h3>
-            <ul
-              className="list-inside grid grid-cols-1 sm:grid-cols-2 gap-2 pb-2"
-              itemProp="skills"
-            >
-              {resumeData.skills.development.map((skill, i) => (
-                <ListItem key={i} text={skill} />
-              ))}
-            </ul>
-          </div>
-          <div id="skills-design">
-            <h3 className="text-lg font-semibold">re: Design</h3>
-            <ul className="list-inside pb-2">
-              {resumeData.skills.design.map((skill, i) => (
-                <ListItem key={i} text={skill} />
-              ))}
-            </ul>
-          </div>
-          <div id="skills-additional">
-            <h3 className="text-lg font-semibold">re: Misc</h3>
-            <ul className="list-inside pb-2">
-              {resumeData.skills.additional.map((skill, i) => (
-                <ListItem key={i} text={skill} />
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section> */}
-
     </div>
   );
 };
