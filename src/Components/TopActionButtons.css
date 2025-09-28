@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Top Action Buttons Container */
+.top-action-buttons {
+  @apply flex gap-2 md:gap-4 md:py-2;
+}
+
+/* Single button - align to right */
+.top-action-buttons:has(:only-child) {
+  @apply justify-end;
+}
+
+/* Multiple buttons - space between */
+.top-action-buttons:has(:not(:only-child)) {
+  @apply justify-between;
+}
+
+/* Fallback for browsers that don't support :has() */
+@supports not selector(:has(*)) {
+  .top-action-buttons {
+    @apply justify-between;
+  }
+  
+  /* You can add a class-based approach if needed */
+  .top-action-buttons--single {
+    @apply justify-end;
+  }
+}

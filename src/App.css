@@ -13,11 +13,29 @@ body {
   min-height: 100vh;
 }
 
-.projects a {
+/* App Container */
+.app-container {
+  @apply h-screen items-center flex flex-col;
+  @apply md:justify-center md:grid md:grid-cols-1 md:grid-rows-[min-content_auto_min-content];
+  @apply md:justify-items-end md:grid-cols-[1fr_2fr];
+}
+
+/* Main Content */
+.main-content {
+  @apply w-full p-1 md:p-2 justify-self-start md:overflow-auto md:h-full md:pl-0;
+}
+
+/* Page Content */
+.page-content {
+  @apply flex flex-col justify-center h-full;
+  @apply md:border-l-2 md:border-[#003333] p-2;
+}
+
+/* .projects a {
   color: #006666;
   border-bottom: 2px solid transparent;
 }
 
 .projects a:hover {
   border-bottom: 2px solid #003333;
-}
+} */

@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Header from "./Components/Header";
 import About from "./Components/About";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
-import Resume from "./Components/Resume";
 import BackToTop from "./Components/BackToTop";
 
 import type { Section } from "./types/section-types";
@@ -12,28 +11,34 @@ import type { Section } from "./types/section-types";
 import "./App.css";
 import "./index.css";
 
+
 function App() {
   const [activeSection, setActiveSection] = useState<Section>("about");
 
-  const renderContent = () => {
+  const handleNavigation = useCallback((section: Section) => {
+    setActiveSection(section);
+  }, []);
+
+  const renderContent = useMemo(() => {
+
+
     switch (activeSection) {
-      case "about":
-        return <About onNavigate={setActiveSection} />;
       case "projects":
         return <Projects />;
       case "contact":
         return <Contact />;
       default:
-        return <Resume />;
+        return <About onNavigate={handleNavigation} />;
+
     }
-  };
+  }, [activeSection, handleNavigation]);
 
   return (
-    <div className="app h-screen items-center flex flex-col md:justify-center md:grid active grid-cols-1 md:grid-rows-[min-content_auto_min-content] justify-items-end md:grid-cols-[1fr_2fr]">
-      <Header activeSection={activeSection} onNavigate={setActiveSection} />
-      <main className="w-full p-1 md:p-2 justify-self-start md:overflow-auto md:h-full md:pl-0">
-        <div className="page-content flex flex-col justify-center h-full md:border-l-2 md:border-[#003333] p-2">
-          {renderContent()}
+    <div className="app-container">
+      <Header activeSection={activeSection} onNavigate={handleNavigation} />
+      <main className="main-content">
+        <div className="page-content">
+          {renderContent}
         </div>
 
         <BackToTop />

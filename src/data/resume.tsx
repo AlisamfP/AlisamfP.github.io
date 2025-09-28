@@ -61,7 +61,7 @@ const resumeData: ResumeData = {
         github: "alisamfp"
     },
     skills: {
-        development: ["JavaScript", "TypeScript", "React", "Tailwind CSS", "Semantic HTML", "CSS3", "Node", "Material UI", "Git"],
+        development: ["React", "JavaScript", "TypeScript", "CSS3", "Tailwind CSS", "Node", "Material UI", "Git", "Semantic HTML"],
         design: ["Adobe InDesign", "Adobe Illustrator", "Figma"],
         additional: ["Accessibility (a11y/WCAG)", "Cross-Browser Testing", "Agile/Scrum"]
     },

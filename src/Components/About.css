@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* About Page Layout */
+.about-page {
+  @apply h-full grow flex flex-col gap-4;
+}
+
+/* About Me Section */
+.about-me-section {
+  @apply flex flex-col gap-4;
+}
+
+/* Mobile-first: intro content comes first */
+.intro-content {
+  @apply flex flex-col gap-2 order-1;
+}
+
+.profile-image {
+  @apply w-full h-auto rounded-lg order-2;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.summary-text {
+  @apply leading-relaxed order-3;
+}
+
+/* Desktop: image floats left, content wraps */
+@media (min-width: 768px) {
+  .about-me-section {
+    @apply block; /* Switch from flex to block for floating */
+  }
+
+  .intro-content {
+    @apply mb-4; /* Add space after intro before image */
+  }
+
+  .profile-image {
+    @apply float-left mr-6 mb-4;
+    width: 280px;
+    max-width: 40%;
+    order: unset;
+  }
+
+  .summary-text {
+    @apply text-justify;
+    order: unset;
+  }
+}
+
+/* Intro Content Styling */
+.greeting {
+  @apply font-bold text-3xl mb-2;
+}
+
+.name-pronunciation {
+  @apply text-xl leading-tight;
+}
+
+.name-text {
+  @apply mb-1;
+}
+
+.pronunciation-note {
+  @apply text-sm flex items-center gap-2 text-gray-600;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
+}
+
+.pronunciation-button {
+  @apply hover:bg-gray-100 rounded-sm p-1 transition-colors;
+}
+
+/* Responsive pronunciation layout */
+@media (min-width: 640px) {
+  .name-pronunciation {
+    @apply flex items-baseline gap-3;
+  }
+  
+  .name-text {
+    @apply mb-0;
+  }
+  
+  .pronunciation-note {
+    @apply text-xs flex-nowrap;
+  }
+}
+.section-container {
+  @apply rounded-md md:p-2 flex flex-col gap-2;
+}
+
+.section-title {
+  @apply font-bold text-2xl;
+}
+
+/* Experience Section */
+.experience-item {
+  @apply pb-2;
+}
+
+.experience-header {
+  @apply grid grid-cols-2 justify-between align-baseline;
+}
+
+.job-title {
+  @apply text-xl font-semibold;
+}
+
+.date-range {
+  @apply justify-self-end text-base italic;
+}
+
+.company-info {
+  @apply -mt-0.5;
+}
+
+.job-descriptions {
+  @apply list-inside pb-2;
+}
+
+/* Education Section */
+.education-item {
+  @apply pb-2 grid grid-cols-[1fr_max-content];
+}
+
+.degree-title {
+  @apply text-lg leading-tight;
+}
+
+
+/* Skills Section */
+.skills-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-2;
+}
+
+.skills-title {
+  @apply text-lg font-semibold;
+}
+
+.skills-list {
+  @apply list-inside pb-2;
+}
+
+/* Development skills specific styling */
+#skills-dev .skills-list {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-2;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .skills-grid .row-span-2 {
+    grid-row: span 2;
+  }
+}

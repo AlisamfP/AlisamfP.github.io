@@ -9,7 +9,7 @@ type LinkProps = {
 
 
 const StyledLink = ({ text, href, itemProp, icon: Icon }: LinkProps) => {
-    const styles = "text-dark-cyan hover:underline";
+    const styles = "no-underline text-[#003333] border-b-2 border-transparent hover:border-[#003333]";
     return (
         <a
             itemProp={itemProp}

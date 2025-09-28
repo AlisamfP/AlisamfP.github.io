@@ -3,61 +3,119 @@ import { TbBrandGithub, TbFolderHeart, TbExternalLink } from "react-icons/tb";
 import type { Section } from "../types/section-types";
 import Button from "./Button";
 
-type button = {
-  name: string;
+import "./TopActionButtons.css"
+
+type ButtonType = "github" | "portfolio" | "link";
+
+interface ButtonConfig {
+  type: ButtonType;
   link: string;
   text: string;
-};
+}
 
-type TopActionButtonProps = {
-  button1: button;
-  button2?: button;
+interface TopActionButtonProps {
+  button1: ButtonConfig;
+  button2?: ButtonConfig;
   onNavigate?: (section: Section) => void;
-};
+}
 
+const BUTTON_ICONS = {
+  github: TbBrandGithub,
+  portfolio: TbFolderHeart,
+  link: TbExternalLink
+} as const;
 
 const TopActionButtons = ({
   button1,
   button2,
   onNavigate,
 }: TopActionButtonProps) => {
-  const github =
-    button1.name == "github"
-      ? button1
-      : button2?.name === "github"
-        ? button2
-        : null;
-  const portfolio =
-    button1.name == "portfolio"
-      ? button1
-      : button2?.name === "portfolio"
-        ? button2
-        : null;
-  const link =
-    button1.name == "link"
-      ? button1
-      : button2?.name === "link"
-        ? button2
-        : null;
+  const buttons = [button1, button2].filter((button): button is ButtonConfig => button != undefined);
+
+  const renderButton = (buttonConfig: ButtonConfig, key: string) => {
+    const {type, link, text} = buttonConfig;
+    const Icon = BUTTON_ICONS[type]
+    if(type === "portfolio" && onNavigate) {
+      return (
+        <Button
+          key={key}
+          variant="default"
+          text={text}
+          icon={Icon}
+          onClick={()=> onNavigate("projects")}
+          ariaLabel={`Navigate to ${text}`}
+        />
+      )
+    }
+    if(type === "github" || type === "link") {
+      return (
+        <Button 
+          key={key}
+          variant="link"
+          text={text}
+          href={link}
+          icon={Icon}
+          target="_blank"
+          ariaLabel={`Open ${text} in new tab`}
+        />
+      )
+    }
+    return null;
+  };
+
+  if( buttons.length === 0) {
+    console.log("NO BUTTONS")
+    return null;
+  }
+
   return (
-    <div
-      className={`flex gap-2 md:gap-4 md:py-2 ${!button2 ? "justify-end" : "justify-evenly sm:justify-between"
-        }`}
-    >
-      {github && (
-        <Button rowReverse={false} text={github.text} href={github.link} icon={TbBrandGithub} />
-
-      )}
-      {/* {button1 && button2 && (<div className="inline-block min-h-[1em] w-px md:hidden self-stretch bg-[#003333]"></div>)} */}
-      {portfolio && onNavigate && (
-        <Button rowReverse onClick={() => onNavigate("projects")} icon={TbFolderHeart} text={portfolio.text} />
-
-      )}
-      {link && (
-        <Button rowReverse href={link.link} icon={TbExternalLink} text={link.text} />
+    <div className="top-action-buttons">
+      {buttons.map((button, index) => 
+        renderButton(button, `button-${index}-${button.type}`)
       )}
     </div>
-  );
-};
+  )
+
+}
+
+//   return (
+//     <div
+//       className={`flex gap-2 md:gap-4 md:py-2 ${
+//         hasMultipleButtons ? "justify-between" : "justify-end"
+//       }`}
+//     >
+//       {github && (
+//         <Button
+//           variant="link"
+//           ariaLabel={`Open ${github.text} in new tab`}
+//           rowReverse={false}
+//           text={github.text}
+//           href={github.link}
+//           icon={TbBrandGithub}
+//         />
+//       )}
+//       {/* vertical bar seperator when there's two buttons */}
+//       {/* {button1 && button2 && (<div className="inline-block min-h-[1em] w-px md:hidden self-stretch bg-[#003333]"></div>)} */}
+//       {portfolio && onNavigate && (
+//         <Button
+//           variant="default"
+//           rowReverse
+//           onClick={() => onNavigate("projects")}
+//           icon={TbFolderHeart}
+//           text={portfolio.text}
+//         />
+//       )}
+//       {link && (
+//         <Button
+//           variant="link"
+//           rowReverse
+//           href={link.link}
+//           icon={TbExternalLink}
+//           text={link.text}
+//         />
+//       )}
+//     </div>
+//   );
+// };
 
 export default TopActionButtons;
