@@ -55,7 +55,7 @@
 }
 
 .name-pronunciation {
-  @apply text-xl leading-tight;
+  @apply text-xl leading-tight pt-4;
 }
 
 .name-text {
@@ -74,11 +74,11 @@
 /* Responsive pronunciation layout */
 @media (min-width: 640px) {
   .name-pronunciation {
-    @apply flex items-baseline gap-3;
+    @apply flex flex-row items-baseline gap-3;
   }
   
   .name-text {
-    @apply mb-0;
+    @apply -mb-2;
   }
   
   .pronunciation-note {

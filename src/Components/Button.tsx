@@ -61,7 +61,7 @@ const Button = forwardRef<
         const baseClasses = "btn";
         const variantClasses = `btn-${variant}`;
         const sizeClasses = size !== "md" ? `btn-${size}` : "";
-        const iconOnlyClasses = !children && Icon ? "btn-icon" : "";
+        const iconOnlyClasses = !children && Icon && variant != "icon" ? "btn-icon" : "";
         const fullWidthClasses = fullWidth ? "w-full" : "";
         const loadingClasses = loading ? "btn-loading" : "";
 
@@ -80,14 +80,7 @@ const Button = forwardRef<
 
     const renderIcon = () => {
         if (!Icon) return null;
-
-        const iconSize =
-            size === "sm" ? "16" :
-            size === "md" ? "24" : 
-            size === "lg" ? "32" :
-            "48";
-            console.log(iconSize)
-        return <Icon size={iconSize} aria-hidden="true" />;
+        return <Icon size="32" aria-hidden="true" />;
     };
 
     const renderContent = () => {
@@ -153,66 +146,7 @@ const Button = forwardRef<
         </button>
     );
 
-    // switch (variant) {
-    //     case "icon": {
-    //         const iconProps = restProps as Omit<
-    //             IconButtonProps,
-    //             keyof BaseButtonProps
-    //         >;
-    //         return (
-    //             <button
-    //                 ref={ref as React.Ref<HTMLButtonElement>}
-    //                 type="button"
-    //                 onClick={iconProps.onClick}
-    //                 aria-label={iconProps.ariaLabel}
-    //                 className={getButtonClasses()}
-    //             >
-    //                 {renderIcon()}
-    //                 <span className="sr-only">{text}</span>
-    //             </button>
-    //         );
-    //     }
-    //     case "link": {
-    //         const linkProps = restProps as Omit<
-    //             LinkButtonProps,
-    //             keyof BaseButtonProps
-    //         >;
-    //         return (
-    //             <a
-    //                 ref={ref as React.Ref<HTMLAnchorElement>}
-    //                 href={linkProps.href}
-    //                 target={linkProps.target || "_blank"}
-    //                 rel={
-    //                     linkProps.target === "_blank" ? "noopener noreferrer" : undefined
-    //                 }
-    //                 aria-label={linkProps.ariaLabel}
-    //                 className={getButtonClasses()}
-    //             >
-    //                 {renderIcon()}
-    //                 <span>{text}</span>
-    //             </a>
-    //         );
-    //     }
-    //     case "default":
-    //     default: {
-    //         const buttonProps = restProps as Omit<
-    //             DefaultButtonProps,
-    //             keyof BaseButtonProps
-    //         >;
-    //         return (
-    //             <button
-    //                 ref={ref as React.Ref<HTMLButtonElement>}
-    //                 type="button"
-    //                 onClick={buttonProps.onClick}
-    //                 aria-label={buttonProps.ariaLabel}
-    //                 className={`${getButtonClasses()} cursor-pointer`}
-    //             >
-    //                 {renderIcon()}
-    //                 <span>{text}</span>
-    //             </button>
-    //         );
-    //     }
-    // }
+
 });
 
 export default Button;

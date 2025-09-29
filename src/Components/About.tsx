@@ -124,7 +124,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 variant="icon"
                 icon={TbVolume}
                 onClick={handlePronounceName}
-                size="lg"
+                size="sm"
               />
             </span>
           </div>
