@@ -16,7 +16,7 @@ body {
 /* App Container */
 .app-container {
   @apply h-[100vh] items-center flex flex-col;
-  @apply md:justify-center md:grid md:grid-rows-[min-content_auto_min-content] md:justify-items-end md:grid-cols-[1fr_2fr];
+  @apply md:justify-center md:grid md:justify-items-end md:grid-cols-[1fr_2fr] md:relative;
   overflow: hidden;
 }
 

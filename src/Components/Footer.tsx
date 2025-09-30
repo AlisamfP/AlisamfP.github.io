@@ -3,7 +3,7 @@ import "../App.css";
 const Footer = () => {
 
   return (
-    <footer className="justify-self-center w-full col-[2/3] md:relative text-[#003333] text-center">
+    <footer className="justify-self-center w-fit col-[2/3] md:absolute md:-left-64 md:bottom-0 text-[#003333] text-center md:w-64">
       <div className="flex flex-col px-1 py-1">
          <div className="text-sm">
           Made with love, coffee, and React.

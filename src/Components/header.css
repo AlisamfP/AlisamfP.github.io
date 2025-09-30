@@ -4,6 +4,7 @@
 .header-container {
   @apply w-full border-b-2 border-[#003333] flex flex-row items-center;
   @apply md:border-b-0 md:border-r-2 md:p-2 md:h-screen md:flex-col md:items-end md:relative md:self-start;
+  @apply md:min-w-64;
 }
 
 /* Navigation Wrapper */
