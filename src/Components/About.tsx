@@ -8,7 +8,7 @@ import resumeData from "../data/resume";
 import Button from "./Button";
 import { EducationItem, ExperienceItem, SkillsGroup } from "./Resume";
 
-import "./About.css"
+import "./About.css";
 
 type AboutProps = {
   onNavigate: (section: Section) => void;
@@ -50,6 +50,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
     () => (
       <section className="about-experience section-container">
         <h2 className="section-title">Professional Experience</h2>
+        <hr className="section-divider" />
         {resumeData.experience.map((job, i) => (
           <ExperienceItem key={`experience-${i}`} job={job} />
         ))}
@@ -62,6 +63,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
     () => (
       <section className="about-education section-container">
         <h2 className="section-title">Education</h2>
+        <hr className="section-divider" />
         {resumeData.education.map((edu, i) => (
           <EducationItem key={`education-${i}`} education={edu} />
         ))}
@@ -74,6 +76,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
     () => (
       <section className="about-skills section-container">
         <h2 className="section-title">Skills</h2>
+        <hr className="section-divider" />
         <div className="skills-grid">
           <SkillsGroup
             id="skills-dev"
@@ -130,9 +133,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <p className="summary-text">
-          {resumeData.summary}
-        </p>
+        <p className="summary-text">{resumeData.summary}</p>
       </section>
       {renderExperience}
       {renderEducation}

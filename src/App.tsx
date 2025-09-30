@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import Header from "./Components/Header";
 import About from "./Components/About";
 import Projects from "./Components/Projects";
@@ -15,8 +15,13 @@ import "./index.css";
 function App() {
   const [activeSection, setActiveSection] = useState<Section>("about");
 
+  const mainContentRef = useRef<HTMLElement>(null);
+
   const handleNavigation = useCallback((section: Section) => {
     setActiveSection(section);
+    if(mainContentRef.current) {
+      mainContentRef.current.scrollTo(0,0)
+    }
   }, []);
 
   const renderContent = useMemo(() => {
@@ -36,7 +41,7 @@ function App() {
   return (
     <div className="app-container">
       <Header activeSection={activeSection} onNavigate={handleNavigation} />
-      <main className="main-content">
+      <main ref={mainContentRef} className="main-content">
         <div className="page-content">
           {renderContent}
         </div>

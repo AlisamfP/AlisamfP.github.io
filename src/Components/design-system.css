@@ -33,7 +33,7 @@
 }
 
 .section-divider {
-    @apply mb-2 border-[#003333];
+    @apply -mt-2 border-[#00333350];
 }
 
 .section-content {

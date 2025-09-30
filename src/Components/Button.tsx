@@ -84,6 +84,7 @@ const Button = forwardRef<
             );
         }
         if (iconPosition === "right") {
+            // using flex order to show icon on top when on mobile and buttons are flex col instead of row
             return (
                 <>
                     <span className="order-2 md:order-1">{children}</span>

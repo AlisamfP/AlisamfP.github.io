@@ -15,38 +15,35 @@
 /* Mobile-first: intro content comes first */
 .intro-content {
   @apply flex flex-col gap-2 order-1;
-  @apply md:mb-4; /* Add space after intro before image */
 }
 
 .profile-image {
   @apply w-full h-auto rounded-lg order-2 max-h-96 object-cover;
   @apply md:float-left md:mr-6 md:mb-4 md:w-72 md:max-w-2/5 md:order-[unset];
-  /* max-height: 400px;
-  object-fit: cover; */
 }
 
 .summary-text {
   @apply leading-relaxed order-3;
-  @apply md:text-justify md:order-[unset];
-
+  @apply md:order-[unset];
 }
 
 /* Intro Content Styling */
 .greeting {
-  @apply font-bold text-3xl mb-2;
+  @apply font-bold text-3xl;
 }
 
 .name-pronunciation {
-  @apply text-xl leading-tight pt-4;
-  @apply md:flex md:flex-row md:items-baseline md:gap-3;
+  @apply text-xl leading-tight flex items-baseline gap-1;
+  @apply flex-col sm:flex-row md:flex-col xl:flex-row;
+  @apply md:gap-2;
 }
 
 .name-text {
-  @apply mb-1 md:-mb-2;
+  @apply -mb-2 md:-mb-3;
 }
 
 .pronunciation-note {
-  @apply text-sm flex items-center gap-2 text-gray-600;
+  @apply text-sm flex items-center text-gray-600;
   @apply md:text-xs md:flex-nowrap;
   flex-wrap: wrap; /* Allow wrapping on very small screens */
 }

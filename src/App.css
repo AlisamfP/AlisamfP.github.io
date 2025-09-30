@@ -27,5 +27,5 @@ body {
 
 /* Page Content */
 .page-content {
-  @apply flex flex-col justify-center h-full;
+  @apply h-full;
 }
