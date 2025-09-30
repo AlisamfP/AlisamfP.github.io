@@ -3,8 +3,7 @@
 /* Header Container */
 .header-container {
   @apply w-full border-b-2 border-[#003333] flex flex-row items-center;
-  @apply md:border-0 md:p-2 md:h-screen md:flex-col md:items-end md:relative md:self-start;
-  /* header active w-full md:h-full border-b-2 border-[#003333] md:border-0 md:p-4 flex flex-col items-center */
+  @apply md:border-b-0 md:border-r-2 md:p-2 md:h-screen md:flex-col md:items-end md:relative md:self-start;
 }
 
 /* Navigation Wrapper */

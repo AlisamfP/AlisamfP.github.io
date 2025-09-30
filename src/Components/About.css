@@ -9,44 +9,26 @@
 /* About Me Section */
 .about-me-section {
   @apply flex flex-col gap-4;
+  @apply md:block; /* Switch from flex to block for floating */
 }
 
 /* Mobile-first: intro content comes first */
 .intro-content {
   @apply flex flex-col gap-2 order-1;
+  @apply md:mb-4; /* Add space after intro before image */
 }
 
 .profile-image {
-  @apply w-full h-auto rounded-lg order-2;
-  max-height: 400px;
-  object-fit: cover;
+  @apply w-full h-auto rounded-lg order-2 max-h-96 object-cover;
+  @apply md:float-left md:mr-6 md:mb-4 md:w-72 md:max-w-2/5 md:order-[unset];
+  /* max-height: 400px;
+  object-fit: cover; */
 }
 
 .summary-text {
   @apply leading-relaxed order-3;
-}
+  @apply md:text-justify md:order-[unset];
 
-/* Desktop: image floats left, content wraps */
-@media (min-width: 768px) {
-  .about-me-section {
-    @apply block; /* Switch from flex to block for floating */
-  }
-
-  .intro-content {
-    @apply mb-4; /* Add space after intro before image */
-  }
-
-  .profile-image {
-    @apply float-left mr-6 mb-4;
-    width: 280px;
-    max-width: 40%;
-    order: unset;
-  }
-
-  .summary-text {
-    @apply text-justify;
-    order: unset;
-  }
 }
 
 /* Intro Content Styling */
@@ -56,14 +38,16 @@
 
 .name-pronunciation {
   @apply text-xl leading-tight pt-4;
+  @apply md:flex md:flex-row md:items-baseline md:gap-3;
 }
 
 .name-text {
-  @apply mb-1;
+  @apply mb-1 md:-mb-2;
 }
 
 .pronunciation-note {
   @apply text-sm flex items-center gap-2 text-gray-600;
+  @apply md:text-xs md:flex-nowrap;
   flex-wrap: wrap; /* Allow wrapping on very small screens */
 }
 
@@ -71,22 +55,7 @@
   @apply rounded-2xl hover:bg-[#00333330] p-1 transition-colors;
 }
 
-/* Responsive pronunciation layout */
-@media (min-width: 640px) {
-  .name-pronunciation {
-    @apply flex flex-row items-baseline gap-3;
-  }
-  
-  .name-text {
-    @apply -mb-2;
-  }
-  
-  .pronunciation-note {
-    @apply text-xs flex-nowrap;
-  }
-}
-
-/* Experience Section - using shared styles */
+/* Experience Section */
 .experience-item {
   @apply pb-2;
 }
@@ -112,14 +81,11 @@
   @apply pb-2 grid grid-cols-[1fr_max-content];
 }
 
-
-
 /* Skills Section */
 .skills-grid {
   @apply grid grid-cols-1 sm:grid-cols-2 gap-2;
+  @apply md:row-span-2;
 }
-
-
 
 .skills-list {
   @apply list-inside pb-2;
@@ -128,11 +94,4 @@
 /* Development skills specific styling */
 #skills-dev .skills-list {
   @apply grid grid-cols-1 sm:grid-cols-2 gap-2;
-}
-
-/* Responsive adjustments */
-@media (min-width: 640px) {
-  .skills-grid .row-span-2 {
-    grid-row: span 2;
-  }
 }

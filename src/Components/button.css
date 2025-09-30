@@ -2,20 +2,20 @@
 
 /* Base Button Styles */
 .btn {
-  @apply font-medium px-4 py-2 rounded-lg border-2 transition-all duration-200;
+  @apply font-medium px-4 py-2 rounded-lg border-2 transition-all duration-200 min-h-11;
   @apply focus:outline-none focus:ring-4 focus:ring-offset-2;
   @apply disabled:opacity-50 disabled:cursor-not-allowed;
-  @apply inline-flex items-center justify-center gap-2;
-  min-height: 44px; /* Minimum touch target size for accessibility */
+  @apply flex flex-col items-center gap-1;
+  @apply md:flex-row md:gap-2;
   text-decoration: none; /* Remove default link underlines */
 }
 
 /* Primary Button - High contrast, main action */
 .btn-primary {
-  @apply bg-[#003333] text-white border-[#003333];
-  @apply hover:bg-[#004d4d] hover:border-[#004d4d];
+  @apply bg-[#003333] text-white border-[#004d4d];
+  @apply hover:bg-[#004d4d] hover:border-[#003333];
   @apply focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
-  @apply active:bg-[#002626] active:border-[#002626];
+  @apply active:bg-[#002626] active:border-[#004d4d];
 }
 
 /* Primary button on dark backgrounds */
@@ -27,15 +27,15 @@
 }
 
 /* Secondary Button - Outlined style */
-.btn-secondary {
+/* .btn-secondary {
   @apply bg-transparent text-[#003333] border-[#003333];
   @apply hover:bg-[#003333] hover:text-white;
   @apply focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
   @apply active:bg-[#002626] active:text-white active:border-[#002626];
-}
+} */
 
 /* Secondary button with subtle background */
-.btn-secondary-soft {
+.btn-secondary {
   @apply bg-[#00333308] text-[#003333] border-[#00333330];
   @apply hover:bg-[#00333315] hover:border-[#003333];
   @apply focus:ring-[#00666680] focus:ring-offset-[#f5eae0];
@@ -92,55 +92,18 @@
 
 .btn-sm {
   @apply text-sm px-3 py-1.5 rounded-md;
+  @apply gap-0.5 md:gap-1.5;
   min-height: 36px;
 }
 
 .btn-lg {
   @apply text-lg px-6 py-3 rounded-xl;
+  @apply gap-1.5 md:gap-3;
   min-height: 52px;
 }
 
 
-/* Button groups */
-.btn-group {
-  @apply inline-flex rounded-lg overflow-hidden;
-}
 
-.btn-group .btn {
-  @apply rounded-none border-r-0 focus:z-10;
-}
-
-.btn-group .btn:first-child {
-  @apply rounded-l-lg;
-}
-
-.btn-group .btn:last-child {
-  @apply rounded-r-lg border-r-2;
-}
-
-/* Loading state */
-.btn-loading {
-  @apply relative text-transparent pointer-events-none;
-}
-
-.btn-loading::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-  border: 2px solid transparent;
-  border-top: 2px solid currentColor;
-  border-radius: 50%;
-  animation: btn-spin 1s linear infinite;
-}
-
-@keyframes btn-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {

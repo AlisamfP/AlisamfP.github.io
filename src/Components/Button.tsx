@@ -13,9 +13,6 @@ type BaseButtonProps = {
     className?: string;
     icon?: IconType;
     iconPosition?: "left" | "right";
-    disabled?: boolean;
-    loading?: boolean;
-    fullWidth?: boolean;
 };
 
 interface ButtonProps extends BaseButtonProps {
@@ -48,13 +45,9 @@ const Button = forwardRef<
         size = "md",
         icon: Icon,
         iconPosition = "left",
-        loading = false,
-        disabled = false,
-        fullWidth = false,
         ...restProps
     } = props;
 
-    console.log(props)
 
     // Build class names
     const getButtonClasses = () => {
@@ -62,16 +55,13 @@ const Button = forwardRef<
         const variantClasses = `btn-${variant}`;
         const sizeClasses = size !== "md" ? `btn-${size}` : "";
         const iconOnlyClasses = !children && Icon && variant != "icon" ? "btn-icon" : "";
-        const fullWidthClasses = fullWidth ? "w-full" : "";
-        const loadingClasses = loading ? "btn-loading" : "";
+
 
         return [
             baseClasses,
             variantClasses,
             sizeClasses,
             iconOnlyClasses,
-            fullWidthClasses,
-            loadingClasses,
             className,
         ]
             .filter(Boolean)
@@ -96,8 +86,10 @@ const Button = forwardRef<
         if (iconPosition === "right") {
             return (
                 <>
-                    <span>{children}</span>
-                    {renderIcon()}
+                    <span className="order-2 md:order-1">{children}</span>
+                    <span className="order-1 md:order-2">
+                        {renderIcon()}
+                        </span>
                 </>
             );
         }
@@ -112,7 +104,6 @@ const Button = forwardRef<
     const commonProps = {
         className: getButtonClasses(),
         "aria-label": restProps.ariaLabel,
-        "aria-disabled": disabled || loading,
     };
 
     if (isLinkButton(props)) {
@@ -139,7 +130,6 @@ const Button = forwardRef<
             ref={ref as React.Ref<HTMLButtonElement>}
             type={buttonProps.type || "button"}
             onClick={buttonProps.onClick}
-            disabled={disabled || loading}
             {...commonProps}
         >
             {renderContent()}

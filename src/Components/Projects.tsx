@@ -34,8 +34,8 @@ const PROJECT_SECTIONS = [
 const ProjectHeader: React.FC<ProjectHeaderProps> = ({ title, description }) => (
   <section className="project-header">
     <div className="project-title-container">
-      <h2>Project Name:{" "}
-        <span className="project-title-value">{title}</span>
+      <h2 className="section-title">
+        {title}
       </h2>
     </div>
     <hr className="section-divider" />
@@ -125,7 +125,7 @@ const Projects: React.FC = () => {
       {/* the project info */}
       <div className="project-content px-2 flex flex-col gap-2 md:gap-4 grow">
         {selectedProject.title && (
-          <ProjectHeader title={selectedProject.title} description={selectedProject.description} />
+          <ProjectHeader title="Project Summary" description={selectedProject.description} />
         )}
         {heroImage && (
           <HeroImageSection image={heroImage} />
