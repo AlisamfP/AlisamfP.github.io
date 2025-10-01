@@ -54,7 +54,7 @@ const Button = forwardRef<
         const baseClasses = "btn";
         const variantClasses = `btn-${variant}`;
         const sizeClasses = size !== "md" ? `btn-${size}` : "";
-        const iconOnlyClasses = !children && Icon && variant != "icon" ? "btn-icon" : "";
+        const iconOnlyClasses = (!children && Icon) && variant != "icon" ? size==="sm" ? "btn-icon-sm" : "btn-icon" : "";
 
 
         return [
@@ -70,7 +70,8 @@ const Button = forwardRef<
 
     const renderIcon = () => {
         if (!Icon) return null;
-        return <Icon size="32" aria-hidden="true" />;
+        const iconSize = size === "sm" ? "24" : "32"
+        return <Icon size={iconSize} aria-hidden="true" />;
     };
 
     const renderContent = () => {

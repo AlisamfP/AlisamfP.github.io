@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Button from "./Button";
 import { TbArrowUp } from "react-icons/tb";
 
 
@@ -26,17 +27,24 @@ const BackToTop = () => {
   };
 
   return (
-    <button
+    // <button
+    //   onClick={handleBackToTop}
+    //   className={`${
+    //     visible
+    //       ? "fixed bottom-4 right-4 z-50 p-3 bg-[#006666] text-white rounded-full shadow-lg hover:bg-[#003333] focus:outline-none focus:ring-2 focus:ring-[#003333]"
+    //       : "hidden"
+    //   }`}
+    //   aria-label="Back to top"
+    // >
+    //   <TbArrowUp />
+    // </button>
+    <Button
+      variant="primary"
       onClick={handleBackToTop}
-      className={`${
-        visible
-          ? "fixed bottom-4 right-4 z-50 p-3 bg-[#006666] text-white rounded-full shadow-lg hover:bg-[#003333] focus:outline-none focus:ring-2 focus:ring-[#003333]"
-          : "hidden"
-      }`}
-      aria-label="Back to top"
-    >
-      <TbArrowUp />
-    </button>
+      className={visible ? "fixed bottom-4 right-4 z-50" : "!hidden"}
+      ariaLabel="Back to top"
+      icon={TbArrowUp}
+    />
   );
 };
 

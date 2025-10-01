@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
         <img src={logo} alt="Alisa Palson Wordmark" className="logo-image" />
       </div>
       <nav aria-label="Main navigation" className="navigation-wrapper">
-        <ul className="navigation-list overflow-hidden">
+        <ul className="navigation-list">
           {NAV_ITEMS.map((section) => {
             const isActive = section === activeSection;
             return (
