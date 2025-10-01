@@ -2,7 +2,6 @@ type ListItemProps = {
     text: string;
 }
 
-
 const ListItem = ({ text }: ListItemProps) => {
     // #8226 is just a smaller bullet point
     return (

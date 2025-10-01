@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
 import { TbArrowUp } from "react-icons/tb";
 
+
 const BackToTop = () => {
   const [visible, setVisible] = useState(false);
-
+  
   useEffect(() => {
-    const toggleVisible = () => {
-      const scrolled =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
+    const scrollElem = document.querySelector(".main-content");
+    console.log(scrollElem)
+    if(!scrollElem) return;
+    
+    console.log("here");
 
-      if (scrolled > 100) {
-        setVisible(true);
-      } else if (scrolled <= 100) {
-        setVisible(false);
-      }
+    const toggleVisible = () => {
+      setVisible(scrollElem.scrollTop > 100);
     };
-    window.addEventListener("scroll", toggleVisible);
+    scrollElem.addEventListener("scroll", toggleVisible);
 
     toggleVisible();
-    return () => window.removeEventListener("scroll", toggleVisible);
+    return () => scrollElem.removeEventListener("scroll", toggleVisible);
   }, []);
 
   const handleBackToTop = () => {
-    window.scrollTo({
+    document.querySelector("main")?.scrollTo({
       top: 0,
       behavior: "smooth",
     });
