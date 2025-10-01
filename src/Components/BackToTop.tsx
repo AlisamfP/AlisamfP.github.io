@@ -7,11 +7,8 @@ const BackToTop = () => {
   
   useEffect(() => {
     const scrollElem = document.querySelector(".main-content");
-    console.log(scrollElem)
     if(!scrollElem) return;
     
-    console.log("here");
-
     const toggleVisible = () => {
       setVisible(scrollElem.scrollTop > 100);
     };

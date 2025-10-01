@@ -41,7 +41,12 @@ function App() {
   return (
     <div className="app-container">
       <Header activeSection={activeSection} onNavigate={handleNavigation} />
-      <main ref={mainContentRef} className="main-content">
+      <main 
+        tabIndex={-1}
+        ref={mainContentRef} 
+        className="main-content"
+      >
+        <h1 className="sr-only">{activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h1>
         <div className="page-content">
           {renderContent}
         </div>
