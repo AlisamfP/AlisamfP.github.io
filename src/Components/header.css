@@ -78,3 +78,21 @@
     @apply border-b-4;
   }
 }
+
+@media only screen and (max-height: 400px) {
+  .header-container {
+    @apply items-end;
+  }
+  .logo-container{
+    @apply min-w-28
+  }
+  .logo-image {
+    @apply h-20 mt-6;
+  }
+  .navigation-list {
+    @apply flex-row;
+  }
+  .nav-item, .nav-item--active {
+    @apply order-0;
+  }
+}

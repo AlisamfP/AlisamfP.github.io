@@ -24,8 +24,8 @@ body {
 
 /* Main Content */
 .main-content {
-  @apply w-full p-1 justify-self-start overflow-auto;
-  @apply md:h-[100vh] md:pl-2 md:p-2;
+  @apply w-full p-2 justify-self-start overflow-auto;
+  @apply md:h-[100vh] md:pl-2;
 }
 
 /* Page Content */

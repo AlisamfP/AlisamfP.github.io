@@ -39,34 +39,3 @@
 .section-content {
     @apply ml-2;
 }
-
-/* Button Variants */
-.btn-primary {
-    @apply bg-[#006666] hover:bg-[#004d4d] text-white font-medium px-4 py-2 rounded transition-colors;
-}
-
-.btn-secondary {
-    @apply border border-[#006666] text-[#006666] hover:bg-[#006666] hover:text-white font-medium px-4 py-2 rounded transition-colors;
-}
-
-/* Common Spacing */
-.content-gap {
-    @apply gap-4;
-}
-
-.content-gap-small {
-    @apply gap-2;
-}
-
-/* Text Colors */
-.text-primary {
-    @apply text-[#003333];
-}
-
-.text-secondary {
-    @apply text-gray-600;
-}
-
-.text-accent {
-    @apply text-[#006666];
-}
