@@ -2,7 +2,9 @@
 @import "tailwindcss";
 
 body {
-  @apply min-h-80;
+  /* hiding x overflow because of navigation menu sliding off to the right on mobile */
+  @apply min-h-80 overflow-x-hidden;
+  @apply md:overflow-x-auto;
   margin: 0;
   font-family: "Raleway", sans-serif;
   background: #f5eae0;
@@ -17,15 +19,15 @@ body {
 
 /* App Container */
 .app-container {
-  @apply h-[100vh] items-center flex flex-col min-h-80;
-  @apply md:justify-center md:grid md:justify-items-end md:grid-cols-[1fr_2fr] md:relative;
-  overflow: hidden;
+  @apply h-[100vh] items-center flex flex-col ;
+  @apply md:justify-center md:grid md:justify-items-end md:grid-cols-[1fr_2fr] md:relative md:min-h-80 md:overflow-hidden;
+  /* overflow: hidden; */
 }
 
 /* Main Content */
 .main-content {
-  @apply w-full p-2 justify-self-start overflow-auto;
-  @apply md:h-[100vh] md:pl-2;
+  @apply w-full p-2 justify-self-start;
+  @apply md:h-[100vh] md:pl-2 md:overflow-auto;
 }
 
 /* Page Content */

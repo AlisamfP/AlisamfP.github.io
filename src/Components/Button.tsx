@@ -70,7 +70,7 @@ const Button = forwardRef<
 
     const renderIcon = () => {
         if (!Icon) return null;
-        const iconSize = size === "sm" ? "24" : "32"
+        const iconSize = size === "sm" ? "30" : "42"
         return <Icon size={iconSize} aria-hidden="true" />;
     };
 

@@ -2,42 +2,52 @@ import { useEffect, useState } from "react";
 import Button from "./Button";
 import { TbArrowUp } from "react-icons/tb";
 
-
 const BackToTop = () => {
   const [visible, setVisible] = useState(false);
-  
+  const [isMobile, setIsMobile] = useState(
+    window.matchMedia("(max-width: 768px)").matches
+  );
+  // 768px === md
+  // layout changes on md size
   useEffect(() => {
-    const scrollElem = document.querySelector(".main-content");
-    if(!scrollElem) return;
-    
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const scrollElem = isMobile
+      ? window
+      : document.querySelector(".main-content");
+    if (!scrollElem) return;
+
+    const getScrollTop = () =>
+      isMobile ? window.pageYOffset : (scrollElem as Element).scrollTop;
+
     const toggleVisible = () => {
-      setVisible(scrollElem.scrollTop > 100);
+      setVisible(getScrollTop() > 100);
     };
     scrollElem.addEventListener("scroll", toggleVisible);
 
     toggleVisible();
     return () => scrollElem.removeEventListener("scroll", toggleVisible);
-  }, []);
+  }, [isMobile]);
 
   const handleBackToTop = () => {
-    document.querySelector("main")?.scrollTo({
+    const scrollElem = isMobile
+      ? window
+      : document.querySelector(".main-content");
+    if (!scrollElem) return;
+    scrollElem.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
 
   return (
-    // <button
-    //   onClick={handleBackToTop}
-    //   className={`${
-    //     visible
-    //       ? "fixed bottom-4 right-4 z-50 p-3 bg-[#006666] text-white rounded-full shadow-lg hover:bg-[#003333] focus:outline-none focus:ring-2 focus:ring-[#003333]"
-    //       : "hidden"
-    //   }`}
-    //   aria-label="Back to top"
-    // >
-    //   <TbArrowUp />
-    // </button>
     <Button
       variant="primary"
       onClick={handleBackToTop}
