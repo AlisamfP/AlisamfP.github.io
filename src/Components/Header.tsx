@@ -3,7 +3,7 @@ import logo from "/wordmark-color-no-background.svg";
 
 import type { Section } from "../types/section-types";
 
-import "./header.css";
+import "../styles/header.css";
 
 interface HeaderProps {
   activeSection: Section;

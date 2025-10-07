@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import type { IconType } from "react-icons";
 
-import "./button.css";
+import "../styles/button.css";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary" | "icon" | "link";
 type ButtonSize = "sm" | "md" | "lg" | "xl";

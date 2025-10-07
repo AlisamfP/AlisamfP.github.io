@@ -4,7 +4,7 @@ import { projectData } from "../data/projects";
 import TopActionButtons from "./TopActionButtons";
 import ImageGallery from "./ImageGallery";
 
-import "./Projects.css";
+import "../styles/projects.css";
 
 type Project = ReturnType<typeof projectData>[0];
 

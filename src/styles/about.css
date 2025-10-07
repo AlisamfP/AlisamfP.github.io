@@ -43,9 +43,8 @@
 }
 
 .pronunciation-note {
-  @apply text-sm flex items-center text-gray-600;
+  @apply text-sm flex items-center flex-wrap text-gray-600;
   @apply md:text-xs md:flex-nowrap;
-  flex-wrap: wrap; /* Allow wrapping on very small screens */
 }
 
 .pronunciation-button {

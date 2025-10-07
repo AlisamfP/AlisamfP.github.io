@@ -1,18 +1,45 @@
 import { useState, useEffect, useRef } from "react";
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { Button, Field, Input, Label, Textarea } from "@headlessui/react";
-import { TbBrandGithub, TbBrandLinkedin, TbAt } from 'react-icons/tb';
-import emailjs from '@emailjs/browser';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import ReCAPTCHA from "react-google-recaptcha";
+import { Field, Input, Label, Textarea } from "@headlessui/react";
+import { TbBrandGithub, TbBrandLinkedin, TbAt } from "react-icons/tb";
+import emailjs from "@emailjs/browser";
+
+import Button from "./Button";
+import type { IconType } from "react-icons";
 
 const schema = yup.object({
   first_name: yup.string().required("First name is required"),
   last_name: yup.string().required("Last name is required"),
   email: yup.string().required("Email is required"),
   message: yup.string().required("Message is required"),
-})
+});
+
+interface SocialLink {
+  name: string;
+  href: string;
+  icon: IconType;
+}
+
+const SOCIAL_LINKS: SocialLink[] = [
+  {
+    name: "GitHub",
+    href: "https://github.com/alisamfp",
+    icon: TbBrandGithub
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/alisamfp",
+    icon: TbBrandLinkedin
+  },
+  {
+    name: "Email",
+    href: "mailto:alisa@palson.info",
+    icon: TbAt
+  }
+];
 
 type FormData = yup.InferType<typeof schema>;
 
@@ -23,18 +50,18 @@ const Contact: React.FC = () => {
 
   useEffect(() => {
     return () => {
-      if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current)
-    }
+      if (popupTimeoutRef.current) clearTimeout(popupTimeoutRef.current);
+    };
   }, []);
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting }
+    formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: yupResolver(schema)
-  })
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = async (data: FormData) => {
     if (!recaptchaRef.current) {
@@ -50,7 +77,10 @@ const Contact: React.FC = () => {
       return;
     }
     // Honeypot check
-    const honeypot = (document.querySelector<HTMLInputElement>('input[name="website"]')?.value || "").trim();
+    const honeypot = (
+      document.querySelector<HTMLInputElement>('input[name="website"]')
+        ?.value || ""
+    ).trim();
     if (honeypot !== "") {
       console.warn("Bot submission blocked");
       return;
@@ -62,7 +92,7 @@ const Contact: React.FC = () => {
         {
           ...data,
           time: new Date().toLocaleTimeString(),
-          'g-recaptcha-response': token
+          "g-recaptcha-response": token,
         },
         import.meta.env.VITE_EJS_PUBLIC_KEY
       );
@@ -73,7 +103,6 @@ const Contact: React.FC = () => {
 
       setShowPopup(true);
       popupTimeoutRef.current = setTimeout(() => setShowPopup(false), 3000);
-
     } catch (err: unknown) {
       if (err instanceof Error) {
         console.error("Form submission error", err.message);
@@ -90,33 +119,30 @@ const Contact: React.FC = () => {
       <section className="flex flex-row md:flex-col gap-2 justify-between mb-4">
         <h2 className="font-bold mb-2">Find me on the web</h2>
         <div className="flex flex-col md:flex-row items-center justify-items-center gap-2 md:justify-evenly">
-          <a className="no-underline" href="https://github.com/AlisamfP">
-            <Button className="max-w-full min-w-36 min-h-16 text-[1.15rem]
-              flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 border-2 border-[#003333] text-[#003333] data-hover:bg-[#003333] data-hover:text-stone-300">
-              <TbBrandGithub className="text-3xl" />
-              Github
-            </Button>
-          </a>
-          <a className="no-underline" href="https://www.linkedin.com/in/alisamfp/">
-            <Button className="max-w-full min-w-36 min-h-16 text-[1.15rem]
-             flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 border-2 border-[#003333] text-[#003333] data-hover:bg-[#003333] data-hover:text-stone-300">
-              <TbBrandLinkedin className="text-3xl" />
-              LinkedIn
-            </Button>
-          </a>
-
-          <a className="no-underline" href="mailto:alisa@palson.info">
-            <Button className="max-w-full min-w-36 min-h-16 text-[1.15rem]
-             flex items-center justify-center rounded-full p-2 md:p-3 gap-1 md:gap-2 border-2 border-[#003333] text-[#003333] data-hover:bg-[#003333] data-hover:text-stone-300">
-              <TbAt className="text-3xl" />
-              Email
-            </Button>
-          </a>
+          {SOCIAL_LINKS.map((link) => {
+            return (
+              <Button
+                href={link.href}
+                size="lg"
+                variant="primary"
+                iconPosition="left"
+                icon={link.icon}
+              >
+                {link.name}
+              </Button>
+            );
+          })}
         </div>
       </section>
       <section className="mt-12">
-        <h2 className="font-bold mb-2">Or just send me an email with the form below</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4" noValidate>
+        <h2 className="font-bold mb-2">
+          Or just send me an email with the form below
+        </h2>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-4"
+          noValidate
+        >
           {/* Honeypot */}
           <input
             type="text"
@@ -137,10 +163,16 @@ const Contact: React.FC = () => {
               {...register("first_name")}
               aria-invalid={!!errors.first_name}
               aria-describedby="error-first_name"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.first_name ? "border-red-500" : ""}`}
+              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
+                errors.first_name ? "border-red-500" : ""
+              }`}
             />
             {errors.first_name && (
-              <p role="alert" id="error-first_name" className="text-red-600 text-sm mt-1">
+              <p
+                role="alert"
+                id="error-first_name"
+                className="text-red-600 text-sm mt-1"
+              >
                 {errors.first_name.message}
               </p>
             )}
@@ -152,10 +184,16 @@ const Contact: React.FC = () => {
               {...register("last_name")}
               aria-invalid={!!errors.last_name}
               aria-describedby="error-last_name"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.last_name ? "border-red-500" : ""}`}
+              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
+                errors.last_name ? "border-red-500" : ""
+              }`}
             />
             {errors.last_name && (
-              <p role="alert" id="error-last_name" className="text-red-600 text-sm mt-1">
+              <p
+                role="alert"
+                id="error-last_name"
+                className="text-red-600 text-sm mt-1"
+              >
                 {errors.last_name.message}
               </p>
             )}
@@ -168,10 +206,16 @@ const Contact: React.FC = () => {
               {...register("email")}
               aria-invalid={!!errors.email}
               aria-describedby="error-email"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.email ? "border-red-500" : ""}`}
+              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
+                errors.email ? "border-red-500" : ""
+              }`}
             />
             {errors.email && (
-              <p role="alert" id="error-email" className="text-red-600 text-sm mt-1">
+              <p
+                role="alert"
+                id="error-email"
+                className="text-red-600 text-sm mt-1"
+              >
                 {errors.email.message}
               </p>
             )}
@@ -185,10 +229,16 @@ const Contact: React.FC = () => {
                 id="message"
                 {...register("message")}
                 rows={3}
-                className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${errors.message ? "border-red-500" : ""}`}
+                className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
+                  errors.message ? "border-red-500" : ""
+                }`}
               ></Textarea>
               {errors.message && (
-                <p role="alert" id="error-message" className="text-red-600 text-sm mt-1">
+                <p
+                  role="alert"
+                  id="error-message"
+                  className="text-red-600 text-sm mt-1"
+                >
                   {errors.message.message}
                 </p>
               )}
@@ -205,21 +255,21 @@ const Contact: React.FC = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="max-w-full min-w-36 min-h-16 text-[1.15rem] rounded-md p-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333] data-hover:shadow-lg">
+            className="max-w-full min-w-36 min-h-16 text-[1.15rem] rounded-md p-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333] data-hover:shadow-lg"
+          >
             {isSubmitting ? "Sending" : "Submit"}
           </Button>
         </form>
         {showPopup && (
           <div
-          role="alert"
-          aria-live="assertive"
-          className="fixed bottom-4 left-4 z-50 rounded-md bg-[#006666] p-4 text-white shadow-lg"
+            role="alert"
+            aria-live="assertive"
+            className="fixed bottom-4 left-4 z-50 rounded-md bg-[#006666] p-4 text-white shadow-lg"
           >
             Email sent successfully!
           </div>
-          )}
+        )}
       </section>
-
     </>
   );
 };

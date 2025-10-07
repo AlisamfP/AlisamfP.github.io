@@ -8,7 +8,7 @@ import resumeData from "../data/resume";
 import Button from "./Button";
 import { EducationItem, ExperienceItem, SkillsGroup } from "./Resume";
 
-import "./About.css";
+import "../styles/about.css";
 
 type AboutProps = {
   onNavigate: (section: Section) => void;

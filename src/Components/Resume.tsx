@@ -1,7 +1,7 @@
 import resumeData from "../data/resume";
 import ListItem from "./ListItem";
 
-import "./About.css"
+import "../styles/About.css"
 
 interface ExperienceItemProps {
   job: (typeof resumeData.experience)[0];

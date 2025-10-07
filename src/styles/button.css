@@ -7,7 +7,7 @@
   @apply disabled:opacity-50 disabled:cursor-not-allowed;
   @apply flex flex-col items-center gap-1;
   @apply md:flex-row md:gap-2;
-  text-decoration: none; /* Remove default link underlines */
+  text-decoration: none; 
 }
 
 /* Primary Button - High contrast, main action */
@@ -18,13 +18,7 @@
   @apply active:bg-[#002626] active:border-[#004d4d];
 }
 
-/* Primary button on dark backgrounds */
-.btn-primary-light {
-  @apply bg-white text-[#003333] border-white;
-  @apply hover:bg-[#f8f8f8] hover:border-[#f8f8f8];
-  @apply focus:ring-[#00333380] focus:ring-offset-transparent;
-  @apply active:bg-[#e8e8e8] active:border-[#e8e8e8];
-}
+
 
 /* Secondary Button - Outlined style */
 /* .btn-secondary {

@@ -8,8 +8,8 @@ import BackToTop from "./Components/BackToTop";
 
 import type { Section } from "./types/section-types";
 
-import "./App.css";
-import "./index.css";
+import "./app.css";
+import "./index.css"; 
 
 
 function App() {

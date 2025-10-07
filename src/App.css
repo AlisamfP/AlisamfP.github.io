@@ -5,23 +5,16 @@ body {
   /* hiding x overflow because of navigation menu sliding off to the right on mobile */
   @apply min-h-80 overflow-x-hidden;
   @apply md:overflow-x-auto;
-  margin: 0;
+
+  @apply m-0 bg-[#f5eae0] font-[#1a1a1a];
+  @apply flex flex-col justify-center min-w-80 min-h-full h-screen;
   font-family: "Raleway", sans-serif;
-  background: #f5eae0;
-  color: #1a1a1a;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100%;
-  height: 100vh;
 }
 
 /* App Container */
 .app-container {
-  @apply h-[100vh] items-center flex flex-col ;
+  @apply h-[100vh] items-center flex flex-col;
   @apply md:justify-center md:grid md:justify-items-end md:grid-cols-[1fr_2fr] md:relative md:min-h-80 md:overflow-hidden;
-  /* overflow: hidden; */
 }
 
 /* Main Content */
