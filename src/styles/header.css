@@ -12,8 +12,8 @@
 
 /* Logo Container */
 .logo-container {
-  @apply flex justify-end items-center min-w-32;
-  @apply md:mt-[50%];
+  @apply flex justify-end items-center min-w-32 md:mt-[33%];
+  /* margin-top: calc(20% + 1em); */
 }
 
 .logo-image {
@@ -27,7 +27,7 @@
 }
 
 .nav-closed {
-  @apply transform translate-x-full opacity-0 pointer-events-none;
+  @apply transform translate-x-full opacity-0 pointer-events-none z-[500];
 }
 
 /* Navigation Wrapper */
@@ -87,20 +87,11 @@
 }
 
 /* mainly just for me, styles for small height screens to move nav to row instead of col */
-/* @media only screen and (max-height: 400px) {
-  .header-container {
-    @apply items-end;
-  }
-  .logo-container{
-    @apply min-w-28
-  }
-  .logo-image {
-    @apply h-20 mt-6;
+/* @media only screen and (max-height: 500px) {
+  .logo-container {
+    @apply mt-9;
   }
   .navigation-list {
-    @apply flex-row;
-  }
-  .nav-item, .nav-item--active {
-    @apply order-0;
+    @apply p-0;
   }
 } */

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+
+.contact-page {
+    @apply flex flex-row md:flex-col gap-2 justify-between mb-4;
+}

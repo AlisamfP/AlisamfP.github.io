@@ -124,7 +124,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
               <Button
                 ariaLabel="Play pronunciation of name Alisa"
                 className="pronunciation-button"
-                variant="icon"
+                variant="tertiary"
                 icon={TbVolume}
                 onClick={handlePronounceName}
                 size="sm"

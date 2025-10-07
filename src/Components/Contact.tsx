@@ -9,6 +9,8 @@ import emailjs from "@emailjs/browser";
 
 import Button from "./Button";
 import type { IconType } from "react-icons";
+import "../styles/contact.css";
+import "../styles/design-system.css"
 
 const schema = yup.object({
   first_name: yup.string().required("First name is required"),
@@ -27,18 +29,18 @@ const SOCIAL_LINKS: SocialLink[] = [
   {
     name: "GitHub",
     href: "https://github.com/alisamfp",
-    icon: TbBrandGithub
+    icon: TbBrandGithub,
   },
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/alisamfp",
-    icon: TbBrandLinkedin
+    icon: TbBrandLinkedin,
   },
   {
     name: "Email",
     href: "mailto:alisa@palson.info",
-    icon: TbAt
-  }
+    icon: TbAt,
+  },
 ];
 
 type FormData = yup.InferType<typeof schema>;
@@ -116,159 +118,163 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      <section className="flex flex-row md:flex-col gap-2 justify-between mb-4">
-        <h2 className="font-bold mb-2">Find me on the web</h2>
-        <div className="flex flex-col md:flex-row items-center justify-items-center gap-2 md:justify-evenly">
-          {SOCIAL_LINKS.map((link) => {
-            return (
-              <Button
-                href={link.href}
-                size="lg"
-                variant="primary"
-                iconPosition="left"
-                icon={link.icon}
-              >
-                {link.name}
-              </Button>
-            );
-          })}
-        </div>
-      </section>
-      <section className="mt-12">
-        <h2 className="font-bold mb-2">
-          Or just send me an email with the form below
-        </h2>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-4"
-          noValidate
-        >
-          {/* Honeypot */}
-          <input
-            type="text"
-            name="website"
-            className="hidden"
-            tabIndex={-1}
-            autoComplete="off"
-          />
-          <Field>
-            <Label
-              htmlFor="first_name"
-              className="block text-sm/6 font-medium text-gray-900"
-            >
-              First Name
-            </Label>
-            <Input
-              id="first_name"
-              {...register("first_name")}
-              aria-invalid={!!errors.first_name}
-              aria-describedby="error-first_name"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
-                errors.first_name ? "border-red-500" : ""
-              }`}
+      <section className="contact-page">
+        <h2 className="sr-only">Contact</h2>
+        <section className="contact-social">
+          <h3 className="section-title">Find me on the web</h3>
+          <div className="flex flex-col md:flex-row items-center justify-items-center gap-2 md:justify-evenly">
+            {SOCIAL_LINKS.map((link) => {
+              return (
+                <Button
+                  key={`link-${link.name}`}
+                  href={link.href}
+                  size="lg"
+                  variant="primary"
+                  iconPosition="left"
+                  icon={link.icon}
+                >
+                  {link.name}
+                </Button>
+              );
+            })}
+          </div>
+        </section>
+        <section className="mt-12">
+          <h3 className="font-bold mb-2">
+            Or just send me an email with the form below
+          </h3>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-4"
+            noValidate
+          >
+            {/* Honeypot */}
+            <input
+              type="text"
+              name="website"
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
             />
-            {errors.first_name && (
-              <p
-                role="alert"
-                id="error-first_name"
-                className="text-red-600 text-sm mt-1"
+            <Field>
+              <Label
+                htmlFor="first_name"
+                className="block text-sm/6 font-medium text-gray-900"
               >
-                {errors.first_name.message}
-              </p>
-            )}
-          </Field>
-          <Field>
-            <Label htmlFor="last_name">Last Name</Label>
-            <Input
-              id="last_name"
-              {...register("last_name")}
-              aria-invalid={!!errors.last_name}
-              aria-describedby="error-last_name"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
-                errors.last_name ? "border-red-500" : ""
-              }`}
-            />
-            {errors.last_name && (
-              <p
-                role="alert"
-                id="error-last_name"
-                className="text-red-600 text-sm mt-1"
-              >
-                {errors.last_name.message}
-              </p>
-            )}
-          </Field>
-          <Field>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              {...register("email")}
-              aria-invalid={!!errors.email}
-              aria-describedby="error-email"
-              className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
-                errors.email ? "border-red-500" : ""
-              }`}
-            />
-            {errors.email && (
-              <p
-                role="alert"
-                id="error-email"
-                className="text-red-600 text-sm mt-1"
-              >
-                {errors.email.message}
-              </p>
-            )}
-          </Field>
-
-          <Field>
-            <div className="flex flex-col w-full">
-              <Label htmlFor="message">Message</Label>
-
-              <Textarea
-                id="message"
-                {...register("message")}
-                rows={3}
+                First Name
+              </Label>
+              <Input
+                id="first_name"
+                {...register("first_name")}
+                aria-invalid={!!errors.first_name}
+                aria-describedby="error-first_name"
                 className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
-                  errors.message ? "border-red-500" : ""
+                  errors.first_name ? "border-red-500" : ""
                 }`}
-              ></Textarea>
-              {errors.message && (
+              />
+              {errors.first_name && (
                 <p
                   role="alert"
-                  id="error-message"
+                  id="error-first_name"
                   className="text-red-600 text-sm mt-1"
                 >
-                  {errors.message.message}
+                  {errors.first_name.message}
                 </p>
               )}
+            </Field>
+            <Field>
+              <Label htmlFor="last_name">Last Name</Label>
+              <Input
+                id="last_name"
+                {...register("last_name")}
+                aria-invalid={!!errors.last_name}
+                aria-describedby="error-last_name"
+                className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
+                  errors.last_name ? "border-red-500" : ""
+                }`}
+              />
+              {errors.last_name && (
+                <p
+                  role="alert"
+                  id="error-last_name"
+                  className="text-red-600 text-sm mt-1"
+                >
+                  {errors.last_name.message}
+                </p>
+              )}
+            </Field>
+            <Field>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                {...register("email")}
+                aria-invalid={!!errors.email}
+                aria-describedby="error-email"
+                className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
+                  errors.email ? "border-red-500" : ""
+                }`}
+              />
+              {errors.email && (
+                <p
+                  role="alert"
+                  id="error-email"
+                  className="text-red-600 text-sm mt-1"
+                >
+                  {errors.email.message}
+                </p>
+              )}
+            </Field>
+
+            <Field>
+              <div className="flex flex-col w-full">
+                <Label htmlFor="message">Message</Label>
+
+                <Textarea
+                  id="message"
+                  {...register("message")}
+                  rows={3}
+                  className={`focus:shadow-outline w-full appearance-none rounded border px-3 py-2 text-gray-700 shadow hover:border-[#00c8c8] focus:border-[#00c8c8] focus:outline-none ${
+                    errors.message ? "border-red-500" : ""
+                  }`}
+                ></Textarea>
+                {errors.message && (
+                  <p
+                    role="alert"
+                    id="error-message"
+                    className="text-red-600 text-sm mt-1"
+                  >
+                    {errors.message.message}
+                  </p>
+                )}
+              </div>
+            </Field>
+
+            <div>
+              <ReCAPTCHA
+                sitekey={import.meta.env.VITE_GREC_SITE_KEY}
+                ref={recaptchaRef}
+              />
             </div>
-          </Field>
 
-          <div>
-            <ReCAPTCHA
-              sitekey={import.meta.env.VITE_GREC_SITE_KEY}
-              ref={recaptchaRef}
-            />
-          </div>
-
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="max-w-full min-w-36 min-h-16 text-[1.15rem] rounded-md p-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333] data-hover:shadow-lg"
-          >
-            {isSubmitting ? "Sending" : "Submit"}
-          </Button>
-        </form>
-        {showPopup && (
-          <div
-            role="alert"
-            aria-live="assertive"
-            className="fixed bottom-4 left-4 z-50 rounded-md bg-[#006666] p-4 text-white shadow-lg"
-          >
-            Email sent successfully!
-          </div>
-        )}
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="max-w-full min-w-36 min-h-16 text-[1.15rem] rounded-md p-2 text-stone-100 bg-[#006666] data-hover:bg-[#003333] data-hover:shadow-lg"
+            >
+              {isSubmitting ? "Sending" : "Submit"}
+            </Button>
+          </form>
+          {showPopup && (
+            <div
+              role="alert"
+              aria-live="assertive"
+              className="fixed bottom-4 left-4 z-50 rounded-md bg-[#006666] p-4 text-white shadow-lg"
+            >
+              Email sent successfully!
+            </div>
+          )}
+        </section>
       </section>
     </>
   );

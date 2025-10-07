@@ -83,12 +83,6 @@
   border: none;
 }
 
-.btn-icon-sm {
-  @apply w-9 h-9 p-1 justify-center !rounded-[50%];
-  border: none;
-}
-
-
 .btn-sm {
   @apply text-sm px-3 py-1.5 rounded-md;
   @apply gap-0.5 md:gap-1.5;

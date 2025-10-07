@@ -48,7 +48,12 @@
 }
 
 .pronunciation-button {
-  @apply rounded-2xl hover:bg-[#00333330] p-1 transition-colors;
+  @apply w-9 h-9 p-2;
+}
+
+/* removing underline on hover from the speaker button */
+.pronunciation-button::after {
+  height: 0;
 }
 
 /* Experience Section */

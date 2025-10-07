@@ -68,16 +68,19 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
     return () => mediaQuery.removeEventListener("change", handleMediaChange);
   }, []);
 
+
   return (
     <header className="header-container">
       <div className="logo-container">
         <img src={logo} alt="Alisa Palson Wordmark" className="logo-image" />
       </div>
       <button
+        aria-haspopup={true}
         aria-label={isNavOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
         aria-expanded={isNavOpen}
-        className="flex flex-col h-12 w-12 border-2 border-black rounded justify-center items-center group md:hidden"
+        className="nav-hamburger flex flex-col h-12 w-12 border-2 border-black rounded justify-center items-center group md:hidden"
         onClick={toggleNav}
+        onFocus={toggleNav}
       >
         <div
           className={`${genericHamburgerLine} ${isNavOpen ? "rotate-45 translate-y-3" : ""
@@ -97,12 +100,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
         <ul className="navigation-list">
           {sortedNavItems.map((section) => {
             const isActive = section === activeSection;
+            // tab index is -1 when the nav items are off screen/hidden
+            const tabIndex = (isMobile && !isNavOpen) ? -1 : undefined;
             return (
               <li
-                key={section}
-                className={`nav-item ${isActive ? "nav-item--active" : ""}`}
+              key={section}
+              className={`nav-item ${isActive ? "nav-item--active" : ""}`}
               >
                 <a
+                  tabIndex={tabIndex}
                   href={`#${section}`}
                   className={`nav-link ${isActive ? "nav-link--active" : ""}`}
                   aria-current={isActive ? "page" : undefined}

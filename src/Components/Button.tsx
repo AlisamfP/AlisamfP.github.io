@@ -54,7 +54,7 @@ const Button = forwardRef<
         const baseClasses = "btn";
         const variantClasses = `btn-${variant}`;
         const sizeClasses = size !== "md" ? `btn-${size}` : "";
-        const iconOnlyClasses = (!children && Icon) && variant != "icon" ? size==="sm" ? "btn-icon-sm" : "btn-icon" : "";
+        const iconOnlyClasses = (!children && Icon) && variant != "icon" ? "btn-icon" : "";
 
 
         return [
