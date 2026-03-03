@@ -19,8 +19,6 @@ export function parseLinkedText(text: string, links?: LinkMap): React.ReactNode[
     while ((match = TOKEN_REGEX.exec(text)) !== null) {
         const [full, token] = match;
 
-        console.log(`match: ${token}`)
-
         // push any text before this match
         if (match.index > lastIndex) {
             parts.push(text.slice(lastIndex, match.index));
