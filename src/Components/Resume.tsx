@@ -3,7 +3,7 @@ import ListItem from "./ListItem";
 
 import { parseLinkedText } from "../utils/linkedText";
 
-import "../styles/About.css"
+import "../styles/about.css"
 
 interface ExperienceItemProps {
   job: (typeof resumeData.experience)[0];
