@@ -8,6 +8,8 @@ import resumeData from "../data/resume";
 import Button from "./Button";
 import { EducationItem, ExperienceItem, SkillsGroup } from "./Resume";
 
+import { parseLinkedText } from "../utils/linkedText";
+
 import "../styles/about.css";
 
 type AboutProps = {
@@ -82,7 +84,6 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
             id="skills-dev"
             title="re: Development"
             skills={resumeData.skills.development}
-            className="row-span-2"
           />
           <SkillsGroup
             id="skills-design"
@@ -133,7 +134,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <p className="summary-text">{resumeData.summary}</p>
+        <p className="summary-text">{parseLinkedText(resumeData.summary, resumeData.summaryLinks)}</p>
       </section>
       {renderExperience}
       {renderEducation}

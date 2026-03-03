@@ -1,6 +1,8 @@
 import resumeData from "../data/resume";
 import ListItem from "./ListItem";
 
+import { parseLinkedText } from "../utils/linkedText";
+
 import "../styles/About.css"
 
 interface ExperienceItemProps {
@@ -44,7 +46,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({ job }) => (
       itemType="https://schema.org/Organization"
       className="company-info"
     >
-      <span itemProp="name">{job.company}</span>,{" "}
+      <span itemProp="name">{parseLinkedText(job.company, job.links)}</span>,{" "}
       <span itemProp="location">{job.location}</span>
     </div>
 
@@ -96,7 +98,7 @@ export const EducationItem: React.FC<EducationItemProps> = ({ education }) => {
 };
 
 export const SkillsGroup: React.FC<SkillsGroupProps> = ({ id, title, skills, className = "" }) => (
-  <div id={`skills-group ${className}`}>
+  <div id={`${id}`} className={`${className}`}>
     <h3 className="skills-title">{title}</h3>
     <ul className="skills-list" itemProp="skills">
       {skills.map((skill, i) => (

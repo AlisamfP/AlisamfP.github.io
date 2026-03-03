@@ -1,3 +1,5 @@
+type LinkMap = Record<string, string>
+
 interface ContactInfo {
     name: string;
     email: string;
@@ -15,6 +17,7 @@ interface Experience {
     endDate?: string;
     description: string[];
     technologies?: string[];
+    links?: LinkMap;
 }
 
 interface Education {
@@ -34,6 +37,7 @@ interface ProfessionalDevelopment {
     startDate: string;
     endDate: string;
     description: string[];
+    links?: LinkMap;
 }
 
 interface skillsets {
@@ -46,6 +50,7 @@ interface ResumeData {
     contactInfo: ContactInfo;
     skills: skillsets;
     summary: string;
+    summaryLinks: LinkMap;
     education: Education[];
     experience: Experience[];
     professionalDevelopment: ProfessionalDevelopment[];
@@ -61,11 +66,15 @@ const resumeData: ResumeData = {
         github: "alisamfp"
     },
     skills: {
-        development: ["React", "JavaScript", "TypeScript", "CSS3", "Tailwind CSS", "Node", "Material UI", "Git", "Semantic HTML"],
+        development: ["Liquid", "React", "JavaScript", "TypeScript", "CSS3", "Tailwind CSS", "Node", "Material UI", "Git", "Semantic HTML"],
         design: ["Adobe InDesign", "Adobe Illustrator", "Figma"],
         additional: ["Accessibility (a11y/WCAG)", "Cross-Browser Testing", "Agile/Scrum"]
     },
-    summary: "Front-end developer with a background in full-stack JavaScript and a B.S. in Graphic Information Technology. Recurse Center alum and magna cum laude graduate, dedicated to creating meaningful user experiences and supporting open source initiatives. Skilled in React, TypeScript, and Tailwind CSS with a strong foundation in graphic and UI design. Passionate about contributing to collaborative teams and building inclusive digital experiences.",
+    summary: "Front-end developer with deep experience in JavaScript, React, and TypeScript, building dynamic and maintainable web applications. Currently, working as lead web developer at Magnolia Development, specializing in Shopify theme development, custom sections, and store migrations. I combine strong technical skills with a foundation in UI and visual design to create flexible, user-friendly digital experiences. I am a [[Recurse Center]] alum, magna cum laude graduate, and volunteer with [[HeatSync Labs]], committed to accessibility, open source, and inclusive digital products.",
+    summaryLinks: {
+        "HeatSync Labs": "https://heatsynclabs.org",
+        "Recurse Center": "https://www.recurse.com/"
+    },
     education: [
         {
             school: "Arizona State University",
@@ -85,6 +94,22 @@ const resumeData: ResumeData = {
         }
     ],
     experience: [
+        {
+            company: "[[Magnolia Development]]",
+            role: "Lead Web Developer",
+            location: "Remote",
+            startDate: "2025",
+            endDate: "present",
+            description: [
+                "Led Shopify theme architecture and core feature development, owning implementation, version control, and production deployments in a collaborative consulting environment.",
+                "Migrated a heavily customized Shopify 1.0 theme to Shopify 2.0, rebuilding functionality to align with modern best practices and consolidating duplicate device-specific sections into responsive, performance-focused components.",
+                "Developed 15+ custom sections and reusable snippets, including a subscription-integrated product purchase system using the Stay.ai API and a dynamic sale countdown powered by Shopify metaobjects.",
+            ],
+            technologies: ["Shopify", "Liquid", "API integration", "Theme Architecture", "JavaScript", "Responsive Web Design"],
+            links: {
+                "Magnolia Development": "https://magnoliadevelopment.io/"
+            }
+        },
         {
             company: "Octoblu",
             role: "Software Engineer",
@@ -115,7 +140,7 @@ const resumeData: ResumeData = {
     ],
     professionalDevelopment: [
         {
-            company: "Recurse Center",
+            company: "[[Recurse Center]]",
             role: "Software Engineering Resident",
             location: "New York, NY",
             startDate: "2013",
@@ -126,7 +151,10 @@ const resumeData: ResumeData = {
                 "Gained practical understanding of making and handling HTML requests (AJAX) and working with web APIs",
                 "Focused on rapid learning, experimentation, and collaboration within a peer-driven environment"
 
-            ]
+            ],
+            links: {
+                "Recurse Center": "https://www.recurse.com",
+            }
 
         }
     ]

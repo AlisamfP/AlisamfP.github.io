@@ -7,6 +7,9 @@
   --color-text-light: "";
   --color-background-light: "#f5eae0";
 
+  --font-heading: "Raleway", sans-serif;
+  --font-body: "Poppins", sans-serif;
+
   /* cyan */
      --color-cyan-50: "#c2e6e6";
       --color-cyan-100: "#89cccc";
@@ -16,12 +19,10 @@
       --color-cyan-500: "#005a5a";
       --color-cyan-600: "#003e3e";
       --color-cyan-700: "#002424";
-
-
   }
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.5;
   font-weight: 400;
   font-size: 20px;
@@ -40,6 +41,9 @@
   width: 100%;
 }
 
+h1, h2, h3, h4, h5, h6, .nav-link {
+  font-family: var(--font-heading);
+}
 
 h1 {
   line-height: 1.1;
