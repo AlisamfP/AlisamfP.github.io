@@ -8,7 +8,7 @@ import BackToTop from "./Components/BackToTop";
 
 import type { Section } from "./types/section-types";
 
-import "./app.css";
+import "./App.css";
 import "./index.css"; 
 
 
