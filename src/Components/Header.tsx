@@ -4,6 +4,7 @@ import logo from "/wordmark-color-no-background.svg";
 import type { Section } from "../types/section-types";
 
 import "../styles/header.css";
+import Button from "./Button";
 
 interface HeaderProps {
   activeSection: Section;
@@ -68,33 +69,39 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
     return () => mediaQuery.removeEventListener("change", handleMediaChange);
   }, []);
 
+  useEffect(() => {
+    const mainElement = document.querySelector(".main-content");
+    if (!mainElement) return;
+    if (isNavOpen) {
+      mainElement.setAttribute("inert", "");
+    } else {
+      mainElement.removeAttribute("inert");
+    }
+  }, [isNavOpen]);
 
   return (
     <header className="header-container">
       <div className="logo-container">
         <img src={logo} alt="Alisa Palson Wordmark" className="logo-image" />
       </div>
-      <button
-        aria-haspopup={true}
+      <Button
+        variant="icon"
         aria-label={isNavOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
+        aria-haspopup={true}
         aria-expanded={isNavOpen}
-        className="nav-hamburger flex flex-col h-12 w-12 border-2 border-black rounded justify-center items-center group md:hidden"
         onClick={toggleNav}
-        onFocus={toggleNav}
+        className="nav-hamburger group md:hidden"
       >
         <div
-          className={`${genericHamburgerLine} ${isNavOpen ? "rotate-45 translate-y-3" : ""
-            } opacity-50 group-hover:opacity-100`}
+          className={`${genericHamburgerLine} ${isNavOpen ? "rotate-45 translate-y-2" : ""} group-hover:opacity-80`}
         />
         <div
-          className={`${genericHamburgerLine} ${isNavOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"
-            }`}
+          className={`${genericHamburgerLine} ${isNavOpen ? "opacity-0" : "group-hover:opacity-80"}`}
         />
         <div
-          className={`${genericHamburgerLine} ${isNavOpen ? "-rotate-45 -translate-y-3" : ""
-            } opacity-50 group-hover:opacity-100`}
+          className={`${genericHamburgerLine} ${isNavOpen ? "-rotate-45 -translate-y-2" : ""} group-hover:opacity-80`}
         />
-      </button>
+      </Button>
 
       <nav aria-label="Main navigation" className={getNavClasses()}>
         <ul className="navigation-list">

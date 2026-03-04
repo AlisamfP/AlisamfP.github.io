@@ -6,7 +6,7 @@ body {
   @apply min-h-80 overflow-x-hidden;
   @apply md:overflow-x-auto;
 
-  @apply m-0 bg-[#f5eae0] font-[#1a1a1a];
+  @apply m-0 bg-[#f5eae0] text-[#1a1a1a];
   @apply flex flex-col justify-center min-w-0 min-h-full h-screen;
 }
 

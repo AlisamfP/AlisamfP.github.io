@@ -72,7 +72,10 @@
 
 /* Focus styles for accessibility */
 .nav-link:focus {
-  @apply outline-none ring-2 ring-[#003333] ring-offset-2 ring-offset-[#f5eae0];
+  /* @apply outline-none ring-2 ring-[#003333] ring-offset-2 ring-offset-[#f5eae0]; */
+  --tw-outline-style: solid;
+  box-shadow: none;
+  @apply outline-offset-8  outline-2 outline-[#003333];
 }
 
 /* High contrast mode support */

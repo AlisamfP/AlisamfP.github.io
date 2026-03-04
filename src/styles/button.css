@@ -2,12 +2,18 @@
 
 /* Base Button Styles */
 .btn {
-  @apply font-medium px-4 py-2 rounded-lg border-2 transition-all duration-200 min-h-11;
+  @apply font-medium px-4 py-2 rounded-md border-2 transition-all duration-200 min-h-11;
   @apply focus:outline-none focus:ring-4 focus:ring-offset-2;
   @apply disabled:opacity-50 disabled:cursor-not-allowed;
-  @apply flex flex-col items-center gap-1;
-  @apply md:flex-row md:gap-2;
+  @apply flex flex-row items-center gap-1;
+  @apply md:gap-2;
   text-decoration: none; 
+}
+
+.btn:focus {
+  --tw-outline-style: solid;
+  box-shadow: none;
+  @apply outline-2 outline-[#003333];
 }
 
 /* Primary Button - High contrast, main action */
@@ -84,14 +90,14 @@
 }
 
 .btn-sm {
-  @apply text-sm px-3 py-1.5 rounded-md;
+  @apply text-sm px-3 py-1.5;
   @apply gap-0.5 md:gap-1.5;
   min-height: 36px;
 }
 
 .btn-lg {
-  @apply text-lg px-6 py-3 rounded-xl;
-  @apply gap-1.5 md:gap-3;
+  @apply text-lg px-6 py-3 md:text-base;
+  @apply gap-1.5;
   min-height: 52px;
 }
 
