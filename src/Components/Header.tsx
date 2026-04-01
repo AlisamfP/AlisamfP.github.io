@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
         aria-haspopup={true}
         aria-expanded={isNavOpen}
         onClick={toggleNav}
-        className="nav-hamburger group md:hidden"
+        className="nav-hamburger group md:!hidden"
       >
         <div
           className={`${genericHamburgerLine} ${isNavOpen ? "rotate-45 translate-y-2" : ""} group-hover:opacity-80`}
