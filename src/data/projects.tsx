@@ -9,7 +9,7 @@ export const projectData = (): Project[] =>
             description:
                 "Open Flow is a free, open-source communication tool for people with speech or language challenges. Originally developed as my senior project, it was inspired by my own use of physical communication cards and how often I lose them. The app offers a digital version with customizable cards and text-to-speech support. It’s built with React and TypeScript, and designed with autistic users in mind.",
             github: "https://github.com/AlisamfP/openflow",
-            projectLink: "https://alisa.palson.info/OpenFlow/",
+            projectLink: "https://openflow.palson.info/",
             background:
                 "AAC, or Augmentative and Alternative Communication, refers to all the ways people communicate without speaking. Many who have trouble communicating use AAC tools like picture boards with images and words to help express themselves. Open Flow is a digital version of an AAC tool I personally use: communication cards. It's a web app where users can click on cards to speak phrases out loud using text-to-speech. Users can favorite commonly used cards, create their own cards, adjust voice settings, or switch to an audio off mode where the cards display full screen instead. As an autistic adult, this project is personal to me, and that perspective influenced the design's focus on comfort, clarity, and reducing sensory overload.",
             problem:
