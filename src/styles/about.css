@@ -70,7 +70,7 @@
 }
 
 .experience-header {
-  @apply grid grid-cols-2 justify-between align-baseline;
+  @apply grid grid-cols-[1fr_max-content] justify-between align-baseline gap-2;
 }
 
 .date-range {

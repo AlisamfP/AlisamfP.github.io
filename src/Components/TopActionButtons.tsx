@@ -80,7 +80,7 @@ const TopActionButtons = ({
   }
 
   return (
-    <div className={`flex gap-2 md:gap-4 md:py-2 ${buttons.length === 1 ? "justify-end" : "justify-between"}`}>
+    <div className={`flex flex-col md:flex-row gap-2 md:gap-4 md:py-2 ${buttons.length === 1 ? "justify-end" : "justify-between"}`}>
       {buttons.map((button, i) =>
         renderButton(button, `button-${i}-${button.type}`, i)
       )}

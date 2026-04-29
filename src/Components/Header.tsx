@@ -22,11 +22,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
 
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    section: Section
-  ) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, section: Section) => {
     e.preventDefault();
+    e.currentTarget.blur();
     onNavigate(section);
     if(isMobile) setIsNavOpen(false);
   };

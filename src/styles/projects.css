@@ -48,9 +48,9 @@
   @apply font-bold text-xl text-[#003333];
 }
 
-.section-divider {
+/* .section-divider {
   @apply mb-2 text-[#003333];
-}
+} */
 
 .section-content {
   @apply ml-2;

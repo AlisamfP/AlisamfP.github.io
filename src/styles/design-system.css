@@ -16,7 +16,7 @@
 }
 
 .job-title {
-    @apply text-lg font-semibold text-gray-900;
+    @apply text-lg font-semibold text-gray-900 leading-tight;
 }
 
 .skills-title {
@@ -33,7 +33,7 @@
 }
 
 .section-divider {
-    @apply -mt-2 border-[#00333350];
+    @apply -mt-2.5 mb-1 border-[#00333350];
 }
 
 .section-content {
