@@ -1,0 +1,24 @@
+@use "mixins" as *;
+
+.lead {
+  color: var(--color-text-muted);
+  margin-top: var(--space-2xs);
+  max-width: 55ch;
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xl) 0 0;
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+
+  @include respond($bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  li {
+    display: flex;
+  }
+}

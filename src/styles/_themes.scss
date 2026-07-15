@@ -1,0 +1,111 @@
+// ===========================================================================
+// THEMES
+// ---------------------------------------------------------------------------
+// Each theme is ONE self-contained block that defines every semantic color
+// role below. Components NEVER use raw hex — only these `--color-*` roles —
+// so restyling a theme is entirely contained to its block here.
+//
+// To add a theme:   copy a block, rename `[data-theme="..."]`, recolor.
+//                   then register its name + label in src/styles/themes.ts
+// To recolor:       edit the hex values in that theme's block. That's it.
+//
+// Semantic roles (what each one is for):
+//   --color-bg              page background
+//   --color-surface         cards / raised panels
+//   --color-surface-2       secondary / inset surface
+//   --color-text            primary body text
+//   --color-text-muted      secondary text, captions
+//   --color-border          borders, dividers
+//   --color-accent          primary brand color (links, buttons)
+//   --color-accent-hover    accent hover/active state
+//   --color-on-accent       text/icons ON an accent background
+//   --color-secondary       secondary accent
+//   --color-on-secondary    text/icons ON a secondary background
+//   --color-focus           focus ring
+//   color-scheme            light | dark (native form controls, scrollbars)
+// ===========================================================================
+
+// Default fallback (used pre-JS / no-JS) — mirrors the "teal" theme.
+:root {
+  --color-bg: #0f2b2b;
+  --color-surface: #163a3a;
+  --color-surface-2: #1e4747;
+  --color-text: #eef4f1;
+  --color-text-muted: #a9c4bf;
+  --color-border: #2b5a58;
+  --color-accent: #d9773f;
+  --color-accent-hover: #e88a52;
+  --color-on-accent: #17130f;
+  --color-secondary: #62c0c0;
+  --color-on-secondary: #08201f;
+  --color-focus: #f2a35e;
+  color-scheme: dark;
+}
+
+// --- Teal & Ember (dark) ---------------------------------------------------
+[data-theme="teal"] {
+  --color-bg: #0f2b2b;
+  --color-surface: #163a3a;
+  --color-surface-2: #1e4747;
+  --color-text: #eef4f1;
+  --color-text-muted: #a9c4bf;
+  --color-border: #2b5a58;
+  --color-accent: #d9773f;
+  --color-accent-hover: #e88a52;
+  --color-on-accent: #17130f;
+  --color-secondary: #62c0c0;
+  --color-on-secondary: #08201f;
+  --color-focus: #f2a35e;
+  color-scheme: dark;
+}
+
+// --- Rose (light) ----------------------------------------------------------
+[data-theme="rose"] {
+  --color-bg: #fbf3f1;
+  --color-surface: #ffffff;
+  --color-surface-2: #f6e7e3;
+  --color-text: #382a2d;
+  --color-text-muted: #785e62;
+  --color-border: #e6cbc6;
+  --color-accent: #a83f5e;
+  --color-accent-hover: #8d3350;
+  --color-on-accent: #ffffff;
+  --color-secondary: #2f7e7e;
+  --color-on-secondary: #ffffff;
+  --color-focus: #a83f5e;
+  color-scheme: light;
+}
+
+// --- Forest (dark) ---------------------------------------------------------
+[data-theme="forest"] {
+  --color-bg: #10231a;
+  --color-surface: #17301f;
+  --color-surface-2: #1f3f2a;
+  --color-text: #eaf3ec;
+  --color-text-muted: #a7c4b1;
+  --color-border: #2c5138;
+  --color-accent: #e0a458;
+  --color-accent-hover: #edb46a;
+  --color-on-accent: #17130f;
+  --color-secondary: #6bbf8a;
+  --color-on-secondary: #08160f;
+  --color-focus: #e0a458;
+  color-scheme: dark;
+}
+
+// --- Sand (light) ----------------------------------------------------------
+[data-theme="sand"] {
+  --color-bg: #f5eae0;
+  --color-surface: #fffaf3;
+  --color-surface-2: #ece0d1;
+  --color-text: #2e2a24;
+  --color-text-muted: #6b6252;
+  --color-border: #d8c8b4;
+  --color-accent: #2f6b4f;
+  --color-accent-hover: #275a42;
+  --color-on-accent: #ffffff;
+  --color-secondary: #b5652f;
+  --color-on-secondary: #ffffff;
+  --color-focus: #2f6b4f;
+  color-scheme: light;
+}

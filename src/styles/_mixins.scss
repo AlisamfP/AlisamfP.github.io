@@ -1,0 +1,49 @@
+// ---------------------------------------------------------------------------
+// Mixins & compile-time variables
+// Emit no CSS on their own — safe to `@use` from any module without duplication.
+// ---------------------------------------------------------------------------
+
+// Breakpoints (min-width, mobile-first)
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+/// Mobile-first media query.
+/// @example scss - @include respond($bp-md) { ... }
+@mixin respond($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+/// Accessible screen-reader-only content (still focusable if needed).
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/// Consistent, theme-aware focus ring. Use on :focus-visible.
+@mixin focus-ring {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/// Centered content column with responsive gutters.
+@mixin container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-sm);
+
+  @include respond($bp-md) {
+    padding-inline: var(--space-lg);
+  }
+}
