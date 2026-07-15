@@ -1,18 +1,18 @@
 @use "mixins" as *;
 
 .wrapper {
+  position: relative;
   display: inline-flex;
-  align-items: center;
-  gap: var(--space-2xs);
 }
 
-.swatch {
-  --swatch-size: 1.35rem;
-
-  width: var(--swatch-size);
-  height: var(--swatch-size);
+%swatch-base {
+  width: 1.35rem;
+  height: 1.35rem;
   padding: 0;
-  border: 1px solid var(--color-border);
+  // Neutral border — a theme-colored border tends to blend into a fill
+  // that's close to it, so a plain neutral line reads clearly regardless
+  // of which two colors are inside.
+  border: 1.5px solid var(--color-border);
   border-radius: 50%;
   cursor: pointer;
   flex-shrink: 0;
@@ -27,11 +27,41 @@
   &:focus-visible {
     @include focus-ring;
   }
+}
 
-  // Selected theme gets a ring that reads on any background.
-  &[data-selected="true"] {
-    box-shadow:
-      0 0 0 2px var(--color-bg),
-      0 0 0 4px var(--color-text);
+.trigger {
+  @extend %swatch-base;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0 50%,
+    var(--color-accent) 50% 100%
+  );
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + var(--space-2xs));
+  right: calc(var(--space-2xs) * -1);
+  z-index: var(--z-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs);
+  opacity: 0;
+  transform: translateY(-0.25rem) scale(0.95);
+  pointer-events: none;
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+
+  &[data-open="true"] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
+}
+
+.option {
+  @extend %swatch-base;
 }

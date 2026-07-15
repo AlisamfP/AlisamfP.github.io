@@ -45,40 +45,46 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
-          alisa palson<span className={styles.dot}>.</span>
+          Alisa Palson
         </Link>
 
-        <button
-          type="button"
-          className={styles.toggle}
-          aria-expanded={open}
-          aria-controls="primary-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          {open ? <TbX aria-hidden /> : <TbMenu2 aria-hidden />}
-        </button>
+        <div className={styles.navGroup}>
+          <div id="primary-nav" className={styles.right} data-open={open}>
+            <nav aria-label="Primary">
+              <ul className={styles.navList}>
+                {NAV_ITEMS.map((item) => {
+                  const active = isActive(pathname, item.href);
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={styles.navLink}
+                        aria-current={active ? "page" : undefined}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </div>
 
-        <div id="primary-nav" className={styles.right} data-open={open}>
-          <nav aria-label="Primary">
-            <ul className={styles.navList}>
-              {NAV_ITEMS.map((item) => {
-                const active = isActive(pathname, item.href);
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={styles.navLink}
-                      aria-current={active ? "page" : undefined}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-          <ThemeSelector />
+          <div className={styles.controls}>
+            <div className={styles.themeSlot}>
+              <ThemeSelector />
+            </div>
+            <button
+              type="button"
+              className={styles.toggle}
+              aria-expanded={open}
+              aria-controls="primary-nav"
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen((prev) => !prev)}
+            >
+              {open ? <TbX aria-hidden /> : <TbMenu2 aria-hidden />}
+            </button>
+          </div>
         </div>
       </div>
     </header>

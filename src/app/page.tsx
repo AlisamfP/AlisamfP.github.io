@@ -5,7 +5,6 @@ import { parseLinkedText } from "@/utils/linkedText";
 import { Button } from "@/components/Button/Button";
 import { PronounceButton } from "@/components/PronounceButton/PronounceButton";
 import { SkillList } from "@/components/SkillList/SkillList";
-import { Squiggle } from "@/components/Squiggle/Squiggle";
 import styles from "./home.module.scss";
 
 export default function HomePage() {
@@ -15,10 +14,6 @@ export default function HomePage() {
         <div className={styles.intro}>
           <p className={styles.hi}>Hello there! The name's</p>
           <h1 className={styles.name}>Alisa Palson</h1>
-          {/* <Squiggle className={styles.squiggle} /> */}
-          {/* <p className={styles.role}>
-            Front-end developer and designer based in Arizona.
-          </p> */}
           <p className={styles.pron}>
             pronounced uh-lisa
             <PronounceButton />

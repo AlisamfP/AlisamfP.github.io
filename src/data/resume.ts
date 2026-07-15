@@ -51,7 +51,7 @@ const resumeData: ResumeData = {
     contactInfo: {
         name: "Alisa Palson",
         email: "alisa@palson.info",
-        location: "Casa Grande, AZ",
+        location: "Arizona",
         openToRelocation: true,
         linkedIn: "alisamfp",
         github: "alisamfp"

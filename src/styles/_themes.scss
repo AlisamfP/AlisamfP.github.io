@@ -16,11 +16,14 @@
 //   --color-text            primary body text
 //   --color-text-muted      secondary text, captions
 //   --color-border          borders, dividers
-//   --color-accent          primary brand color (links, buttons)
+//   --color-primary         main brand/CTA color (buttons, skip link)
+//   --color-primary-hover   primary hover/active state
+//   --color-on-primary      text/icons ON a primary background
+//   --color-accent          secondary highlight color (links, active states,
+//                           decorative underlines/borders) — distinct from
+//                           primary so CTAs don't blend into everything else
 //   --color-accent-hover    accent hover/active state
 //   --color-on-accent       text/icons ON an accent background
-//   --color-secondary       secondary accent
-//   --color-on-secondary    text/icons ON a secondary background
 //   --color-focus           focus ring
 //   color-scheme            light | dark (native form controls, scrollbars)
 // ===========================================================================
@@ -33,11 +36,12 @@
   --color-text: #eef4f1;
   --color-text-muted: #a9c4bf;
   --color-border: #2b5a58;
-  --color-accent: #d9773f;
-  --color-accent-hover: #e88a52;
-  --color-on-accent: #17130f;
-  --color-secondary: #62c0c0;
-  --color-on-secondary: #08201f;
+  --color-primary: #d9773f;
+  --color-primary-hover: #e88a52;
+  --color-on-primary: #17130f;
+  --color-accent: #62c0c0;
+  --color-accent-hover: #78c9c9;
+  --color-on-accent: #08201f;
   --color-focus: #f2a35e;
   color-scheme: dark;
 }
@@ -50,11 +54,12 @@
   --color-text: #eef4f1;
   --color-text-muted: #a9c4bf;
   --color-border: #2b5a58;
-  --color-accent: #d9773f;
-  --color-accent-hover: #e88a52;
-  --color-on-accent: #17130f;
-  --color-secondary: #62c0c0;
-  --color-on-secondary: #08201f;
+  --color-primary: #d9773f;
+  --color-primary-hover: #e88a52;
+  --color-on-primary: #17130f;
+  --color-accent: #62c0c0;
+  --color-accent-hover: #78c9c9;
+  --color-on-accent: #08201f;
   --color-focus: #f2a35e;
   color-scheme: dark;
 }
@@ -67,11 +72,12 @@
   --color-text: #382a2d;
   --color-text-muted: #785e62;
   --color-border: #e6cbc6;
-  --color-accent: #a83f5e;
-  --color-accent-hover: #8d3350;
+  --color-primary: #a83f5e;
+  --color-primary-hover: #8d3350;
+  --color-on-primary: #ffffff;
+  --color-accent: #2f7e7e;
+  --color-accent-hover: #256262;
   --color-on-accent: #ffffff;
-  --color-secondary: #2f7e7e;
-  --color-on-secondary: #ffffff;
   --color-focus: #a83f5e;
   color-scheme: light;
 }
@@ -84,11 +90,12 @@
   --color-text: #eaf3ec;
   --color-text-muted: #a7c4b1;
   --color-border: #2c5138;
-  --color-accent: #e0a458;
-  --color-accent-hover: #edb46a;
-  --color-on-accent: #17130f;
-  --color-secondary: #6bbf8a;
-  --color-on-secondary: #08160f;
+  --color-primary: #e0a458;
+  --color-primary-hover: #edb46a;
+  --color-on-primary: #17130f;
+  --color-accent: #6bbf8a;
+  --color-accent-hover: #80c89b;
+  --color-on-accent: #08160f;
   --color-focus: #e0a458;
   color-scheme: dark;
 }
@@ -101,11 +108,12 @@
   --color-text: #2e2a24;
   --color-text-muted: #6b6252;
   --color-border: #d8c8b4;
-  --color-accent: #2f6b4f;
-  --color-accent-hover: #275a42;
+  --color-primary: #2f6b4f;
+  --color-primary-hover: #275a42;
+  --color-on-primary: #ffffff;
+  --color-accent: #b5652f;
+  --color-accent-hover: #a15a2a;
   --color-on-accent: #ffffff;
-  --color-secondary: #b5652f;
-  --color-on-secondary: #ffffff;
   --color-focus: #2f6b4f;
   color-scheme: light;
 }
