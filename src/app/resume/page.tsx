@@ -9,9 +9,9 @@ import { Button } from "@/components/Button/Button";
 import styles from "./resume.module.scss";
 
 export const metadata: Metadata = {
-  title: "Résumé",
+  title: "Resume",
   description:
-    "The full résumé of Alisa Palson — experience, education, and skills. Also available as machine-readable JSON.",
+    "The full resume of Alisa Palson. Also available as machine-readable JSON.",
 };
 
 export default function ResumePage() {
@@ -20,7 +20,6 @@ export default function ResumePage() {
     summary,
     summaryLinks,
     experience,
-    professionalDevelopment,
     education,
     skills,
   } = resumeData;
@@ -29,7 +28,7 @@ export default function ResumePage() {
     <div className={`page ${styles.resume}`}>
       <div className={styles.header}>
         <div>
-          <h1>Résumé</h1>
+          <h1>Resume</h1>
           <p className={styles.contact}>
             <TbMapPin aria-hidden />
             {contactInfo.location}
@@ -56,22 +55,6 @@ export default function ResumePage() {
             location={job.location}
             bullets={job.description}
             technologies={job.technologies}
-          />
-        ))}
-      </section>
-
-      <section aria-labelledby="development-heading">
-        <h2 id="development-heading">Professional Development</h2>
-        {professionalDevelopment.map((item, i) => (
-          <TimelineItem
-            key={i}
-            role={item.role}
-            org={item.company}
-            orgLinks={item.links}
-            startDate={item.startDate}
-            endDate={item.endDate}
-            location={item.location}
-            bullets={item.description}
           />
         ))}
       </section>

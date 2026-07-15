@@ -53,14 +53,6 @@ export function GET() {
       highlights: job.description,
       keywords: job.technologies,
     })),
-    volunteer: r.professionalDevelopment.map((item) => ({
-      organization: strip(item.company),
-      position: item.role,
-      startDate: item.startDate,
-      endDate: item.endDate,
-      summary: item.description.join(" "),
-      url: firstLink(item.links),
-    })),
     education: r.education.map((edu) => ({
       institution: edu.school,
       studyType: edu.degree,
@@ -68,6 +60,7 @@ export function GET() {
       startDate: edu.startDate,
       endDate: edu.graduationDate,
       courses: edu.achievements,
+      url: firstLink(edu.links),
     })),
     skills: [
       { name: "Development", keywords: r.skills.development },

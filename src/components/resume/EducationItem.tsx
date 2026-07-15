@@ -1,3 +1,4 @@
+import { parseLinkedText } from "@/utils/linkedText";
 import type { Education } from "@/data/resume";
 import styles from "./resume.module.scss";
 
@@ -10,10 +11,11 @@ export function EducationItem({ education }: { education: Education }) {
         {education.degree}
         {majors ? `, ${majors}` : ""}
       </h3>
-      <p className={styles.org}>{education.school}</p>
+      <p className={styles.org}>{parseLinkedText(education.school, education.links)}</p>
       <p className={styles.meta}>
         {education.startDate}&ndash;{education.graduationDate}
         {education.focus ? ` · ${education.focus}` : ""}
+        {education.location ? ` · ${education.location}` : ""}
       </p>
       {education.achievements && education.achievements.length > 0 && (
         <ul className={styles.bullets}>

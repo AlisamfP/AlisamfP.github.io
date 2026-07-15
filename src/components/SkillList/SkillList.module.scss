@@ -1,6 +1,7 @@
 // Running list — semantic <ul>, reads as spaced prose with breathing room.
 .list {
-  display: inline;
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;

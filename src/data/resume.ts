@@ -25,18 +25,10 @@ export interface Education {
     degree: string;
     major: string[];
     focus?: string;
+    location?: string;
     startDate: string;
     graduationDate: string;
     achievements?: string[];
-}
-
-export interface ProfessionalDevelopment {
-    company: string;
-    role: string;
-    location: string;
-    startDate: string;
-    endDate: string;
-    description: string[];
     links?: LinkMap;
 }
 
@@ -53,7 +45,6 @@ export interface ResumeData {
     summaryLinks: LinkMap;
     education: Education[];
     experience: Experience[];
-    professionalDevelopment: ProfessionalDevelopment[];
 }
 
 const resumeData: ResumeData = {
@@ -84,6 +75,23 @@ const resumeData: ResumeData = {
             startDate: "2022",
             graduationDate: "2025",
             achievements: ["Magna Cum Laude"]
+        },
+        {
+            school: "Recurse Center",
+            degree: "Software Engineering Residency",
+            major: [],
+            location: "New York, NY",
+            startDate: "2013",
+            graduationDate: "2013",
+            achievements: [
+                "Selected for a competitive programming residency (70 accepted from 700+ applicants worldwide)",
+                "Explored game development and backend JavaScript with Node.js, building foundational development skills",
+                "Gained practical understanding of making and handling HTML requests (AJAX) and working with web APIs",
+                "Focused on rapid learning, experimentation, and collaboration within a peer-driven environment"
+            ],
+            links: {
+                "Recurse Center": "https://www.recurse.com"
+            }
         },
         {
             school: "South Mountain Community College",
@@ -138,26 +146,6 @@ const resumeData: ResumeData = {
         },
 
     ],
-    professionalDevelopment: [
-        {
-            company: "[[Recurse Center]]",
-            role: "Software Engineering Resident",
-            location: "New York, NY",
-            startDate: "2013",
-            endDate: "2013",
-            description: [
-                "Selected for a competitive programming residency (70 accepted from 700+ applicants worldwide)",
-                "Explored game development and backend JavaScript with Node.js, building foundational development skills",
-                "Gained practical understanding of making and handling HTML requests (AJAX) and working with web APIs",
-                "Focused on rapid learning, experimentation, and collaboration within a peer-driven environment"
-
-            ],
-            links: {
-                "Recurse Center": "https://www.recurse.com",
-            }
-
-        }
-    ]
 };
 
 export default resumeData;

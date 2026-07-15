@@ -13,12 +13,12 @@ export default function HomePage() {
     <div className="page">
       <section className={styles.hero}>
         <div className={styles.intro}>
-          <p className={styles.hi}>Hi, I&apos;m</p>
+          <p className={styles.hi}>Hello there! The name's</p>
           <h1 className={styles.name}>Alisa Palson</h1>
-          <Squiggle className={styles.squiggle} />
-          <p className={styles.role}>
+          {/* <Squiggle className={styles.squiggle} /> */}
+          {/* <p className={styles.role}>
             Front-end developer and designer based in Arizona.
-          </p>
+          </p> */}
           <p className={styles.pron}>
             pronounced uh-lisa
             <PronounceButton />
@@ -27,9 +27,9 @@ export default function HomePage() {
             {parseLinkedText(resumeData.summary, resumeData.summaryLinks)}
           </p>
           <div className={styles.ctas}>
-            <Button href="/projects">See my work →</Button>
+            <Button href="/projects">See my work</Button>
             <Button href="/resume" variant="secondary">
-              Résumé
+              Resume
             </Button>
           </div>
         </div>
@@ -70,9 +70,9 @@ export default function HomePage() {
             </dd>
           </div>
         </dl>
-        <p className={styles.resumeLink}>
-          <Link href="/resume">Read the full résumé →</Link>
-        </p>
+        {/* <p className={styles.resumeLink}>
+          <Link href="/resume">Read the full resume</Link>
+        </p> */}
       </section>
     </div>
   );

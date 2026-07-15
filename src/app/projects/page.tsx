@@ -14,8 +14,7 @@ export default function ProjectsPage() {
     <div className="page">
       <h1>Projects</h1>
       <p className={styles.lead}>
-        A mix of web apps and design work. Each one has a full case study —
-        pick one to dig in.
+        A mix of web apps and design work. Each one has a full case study.
       </p>
       <ul className={styles.grid} role="list">
         {projects.map((project) => (
