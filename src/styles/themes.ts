@@ -1,31 +1,31 @@
-// Single source of truth for the theme selector.
-// Every id here MUST have a matching [data-theme="<id>"] block in _themes.scss.
+// Single source of truth for the display-options picker.
+// Mode (light/dark) and accent are independent axes — every accent must have
+// a matching [data-accent="<id>"] block in _themes.scss (base = dark-tuned
+// value, overridden for light via [data-mode="light"][data-accent="<id>"]).
 
-export type ThemeMode = "light" | "dark";
+export type Mode = "light" | "dark";
 
-export interface ThemeMeta {
-  /** Matches [data-theme="<id>"] in _themes.scss */
+export interface AccentMeta {
+  /** Matches [data-accent="<id>"] in _themes.scss */
   id: string;
-  /** Human-readable name shown in the selector */
+  /** Human-readable name shown in the picker */
   label: string;
-  /** Whether the theme reads as light or dark (for grouping/icons) */
-  mode: ThemeMode;
   /**
-   * The two colors shown in the selector swatch (split diagonally), mirroring
-   * the theme's --color-primary and --color-accent. Two contrasting colors
-   * read clearly regardless of the page background — unlike a single flat
-   * color, which can end up matching the background exactly on dark themes.
+   * The accent's representative color, shown as the picker swatch
+   * (dark-mode value — a representative sample, not mode-dependent).
    */
-  colors: [primary: string, accent: string];
+  color: string;
 }
 
-export const THEMES: ThemeMeta[] = [
-  { id: "teal", label: "Teal & Ember", mode: "dark", colors: ["#d9773f", "#62c0c0"] },
-  { id: "rose", label: "Rose", mode: "light", colors: ["#a83f5e", "#2f7e7e"] },
-  { id: "forest", label: "Forest", mode: "dark", colors: ["#e0a458", "#6bbf8a"] },
-  { id: "sand", label: "Sand", mode: "light", colors: ["#2f6b4f", "#b5652f"] },
+export const ACCENTS: AccentMeta[] = [
+  { id: "teal", label: "Teal", color: "#62c0c0" },
+  { id: "rose", label: "Rose", color: "#e8789a" },
+  { id: "forest", label: "Forest", color: "#6bbf8a" },
+  { id: "sand", label: "Sand", color: "#e0975a" },
 ];
 
-export const THEME_IDS = THEMES.map((t) => t.id);
+export const ACCENT_IDS = ACCENTS.map((a) => a.id);
+export const DEFAULT_ACCENT = "teal";
 
-export const DEFAULT_THEME = "teal";
+export const MODES: Mode[] = ["light", "dark"];
+export const DEFAULT_MODE: Mode = "dark";

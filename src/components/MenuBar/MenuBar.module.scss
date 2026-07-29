@@ -1,0 +1,29 @@
+.menuBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: var(--menubar-height);
+  padding-inline: var(--space-sm);
+  background: var(--color-primary);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.clock {
+  min-width: 3.5rem;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-on-primary);
+  text-align: right;
+}

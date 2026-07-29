@@ -1,18 +1,19 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import { THEME_IDS, DEFAULT_THEME } from "@/styles/themes";
+import { MODES, DEFAULT_MODE } from "@/styles/themes";
+import { AccentProvider } from "./accent-provider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider
-      attribute="data-theme"
-      defaultTheme={DEFAULT_THEME}
-      themes={THEME_IDS}
+      attribute="data-mode"
+      defaultTheme={DEFAULT_MODE}
+      themes={MODES}
       enableSystem={false}
       disableTransitionOnChange
     >
-      {children}
+      <AccentProvider>{children}</AccentProvider>
     </ThemeProvider>
   );
 }

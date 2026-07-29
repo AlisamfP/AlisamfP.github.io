@@ -17,15 +17,11 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   background-color: var(--color-bg);
-
-  @include respond($bp-md) {
-    --frame-edge: 1.1rem;
-  }
 }
 
 body {
   min-height: 100dvh;
-  padding: var(--frame-edge);
+  margin: 0;
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
@@ -33,32 +29,12 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
-  width: fit-content;
-  margin: 0 auto;
-
-  @include respond(1000px) {
-    min-width: 1000px;
-  }
-}
-
-// All content lives inside a bordered "sheet" that sits within the viewport
-// frame — content is fully contained, never bleeding past the border.
-.shell {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100dvh - 2 * var(--frame-edge));
-  background-color: var(--color-bg);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-
-  @include respond($bp-md) {
-    border: 1.5px solid var(--color-border);
-  }
 }
 
 #main-content {
-  flex: 1 0 auto;
+  display: block;
+  min-height: 100dvh;
+  padding-top: var(--menubar-height);
 }
 
 // Page content column

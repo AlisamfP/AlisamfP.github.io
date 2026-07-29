@@ -1,13 +1,15 @@
 // ===========================================================================
-// THEMES
-// ---------------------------------------------------------------------------
-// Each theme is ONE self-contained block that defines every semantic color
-// role below. Components NEVER use raw hex — only these `--color-*` roles —
-// so restyling a theme is entirely contained to its block here.
+// THEMES — two independent axes: mode (light/dark) and accent (a single
+// color). Mode sets the neutral palette; accent sets --color-primary (+
+// hover/on-color) on top, tuned per mode so the same accent choice stays
+// legible in both. --color-accent is an alias of --color-primary — there is
+// only one theme color, not a pair — kept as a separate variable so
+// components can still express "the highlight color" semantically.
+// Components NEVER use raw hex — only these `--color-*` roles.
 //
-// To add a theme:   copy a block, rename `[data-theme="..."]`, recolor.
-//                   then register its name + label in src/styles/themes.ts
-// To recolor:       edit the hex values in that theme's block. That's it.
+// To add an accent: add a `[data-accent="<id>"]` block (dark-tuned values)
+// and a `[data-mode="light"][data-accent="<id>"]` override block below, then
+// register it in src/styles/themes.ts (ACCENTS).
 //
 // Semantic roles (what each one is for):
 //   --color-bg              page background
@@ -16,104 +18,98 @@
 //   --color-text            primary body text
 //   --color-text-muted      secondary text, captions
 //   --color-border          borders, dividers
-//   --color-primary         main brand/CTA color (buttons, skip link)
+//   --color-primary         the theme color (buttons, skip link, menu bar)
 //   --color-primary-hover   primary hover/active state
 //   --color-on-primary      text/icons ON a primary background
-//   --color-accent          secondary highlight color (links, active states,
-//                           decorative underlines/borders) — distinct from
-//                           primary so CTAs don't blend into everything else
-//   --color-accent-hover    accent hover/active state
-//   --color-on-accent       text/icons ON an accent background
+//   --color-accent          alias of --color-primary (links, active states,
+//                           decorative underlines/borders)
+//   --color-accent-hover    alias of --color-primary-hover
+//   --color-on-accent       alias of --color-on-primary
 //   --color-focus           focus ring
 //   color-scheme            light | dark (native form controls, scrollbars)
 // ===========================================================================
 
-// Default fallback (used pre-JS / no-JS) — mirrors the "teal" theme.
-:root {
-  --color-bg: #0f2b2b;
-  --color-surface: #163a3a;
-  --color-surface-2: #1e4747;
-  --color-text: #eef4f1;
-  --color-text-muted: #a9c4bf;
-  --color-border: #2b5a58;
-  --color-primary: #d9773f;
-  --color-primary-hover: #e88a52;
-  --color-on-primary: #17130f;
-  --color-accent: #62c0c0;
-  --color-accent-hover: #78c9c9;
-  --color-on-accent: #08201f;
-  --color-focus: #f2a35e;
+// --- Mode: neutrals ----------------------------------------------------------
+// Dark is also the pre-hydration/no-JS fallback (`:root`).
+:root,
+[data-mode="dark"] {
+  --color-bg: #10231f;
+  --color-surface: #17302a;
+  --color-surface-2: #1f3f36;
+  --color-text: #eef4f0;
+  --color-text-muted: #a7c0b8;
+  --color-border: #2c5148;
   color-scheme: dark;
 }
 
-// --- Teal & Ember (dark) ---------------------------------------------------
-[data-theme="teal"] {
-  --color-bg: #0f2b2b;
-  --color-surface: #163a3a;
-  --color-surface-2: #1e4747;
-  --color-text: #eef4f1;
-  --color-text-muted: #a9c4bf;
-  --color-border: #2b5a58;
-  --color-primary: #d9773f;
-  --color-primary-hover: #e88a52;
-  --color-on-primary: #17130f;
-  --color-accent: #62c0c0;
-  --color-accent-hover: #78c9c9;
-  --color-on-accent: #08201f;
-  --color-focus: #f2a35e;
-  color-scheme: dark;
-}
-
-// --- Rose (light) ----------------------------------------------------------
-[data-theme="rose"] {
-  --color-bg: #fbf3f1;
+[data-mode="light"] {
+  --color-bg: #f7f0ec;
   --color-surface: #ffffff;
-  --color-surface-2: #f6e7e3;
-  --color-text: #382a2d;
-  --color-text-muted: #785e62;
-  --color-border: #e6cbc6;
+  --color-surface-2: #efe2da;
+  --color-text: #33282a;
+  --color-text-muted: #6f6260;
+  --color-border: #ddccc2;
+  color-scheme: light;
+}
+
+// --- Accent: Teal --------------------------------------------------------------
+:root,
+[data-accent="teal"] {
+  --color-primary: #62c0c0;
+  --color-primary-hover: #78c9c9;
+  --color-on-primary: #08201f;
+}
+
+[data-mode="light"][data-accent="teal"] {
+  --color-primary: #1f7a7a;
+  --color-primary-hover: #186363;
+  --color-on-primary: #ffffff;
+}
+
+// --- Accent: Rose ---------------------------------------------------------------
+[data-accent="rose"] {
+  --color-primary: #e8789a;
+  --color-primary-hover: #ef8fac;
+  --color-on-primary: #2b0f18;
+}
+
+[data-mode="light"][data-accent="rose"] {
   --color-primary: #a83f5e;
   --color-primary-hover: #8d3350;
   --color-on-primary: #ffffff;
-  --color-accent: #2f7e7e;
-  --color-accent-hover: #256262;
-  --color-on-accent: #ffffff;
-  --color-focus: #a83f5e;
-  color-scheme: light;
 }
 
-// --- Forest (dark) ---------------------------------------------------------
-[data-theme="forest"] {
-  --color-bg: #10231a;
-  --color-surface: #17301f;
-  --color-surface-2: #1f3f2a;
-  --color-text: #eaf3ec;
-  --color-text-muted: #a7c4b1;
-  --color-border: #2c5138;
-  --color-primary: #e0a458;
-  --color-primary-hover: #edb46a;
-  --color-on-primary: #17130f;
-  --color-accent: #6bbf8a;
-  --color-accent-hover: #80c89b;
-  --color-on-accent: #08160f;
-  --color-focus: #e0a458;
-  color-scheme: dark;
+// --- Accent: Forest ---------------------------------------------------------------
+[data-accent="forest"] {
+  --color-primary: #6bbf8a;
+  --color-primary-hover: #80c89b;
+  --color-on-primary: #08160f;
 }
 
-// --- Sand (light) ----------------------------------------------------------
-[data-theme="sand"] {
-  --color-bg: #f5eae0;
-  --color-surface: #fffaf3;
-  --color-surface-2: #ece0d1;
-  --color-text: #2e2a24;
-  --color-text-muted: #6b6252;
-  --color-border: #d8c8b4;
-  --color-primary: #2f6b4f;
-  --color-primary-hover: #275a42;
+[data-mode="light"][data-accent="forest"] {
+  --color-primary: #2f7d4f;
+  --color-primary-hover: #266641;
   --color-on-primary: #ffffff;
-  --color-accent: #b5652f;
-  --color-accent-hover: #a15a2a;
-  --color-on-accent: #ffffff;
-  --color-focus: #2f6b4f;
-  color-scheme: light;
+}
+
+// --- Accent: Sand -----------------------------------------------------------------
+[data-accent="sand"] {
+  --color-primary: #e0975a;
+  --color-primary-hover: #eba873;
+  --color-on-primary: #17130f;
+}
+
+[data-mode="light"][data-accent="sand"] {
+  --color-primary: #b5652f;
+  --color-primary-hover: #a15a2a;
+  --color-on-primary: #ffffff;
+}
+
+// --- Accent aliases ------------------------------------------------------------
+// One color per theme, not a pair — --color-accent* just mirrors --color-primary*.
+:root {
+  --color-accent: var(--color-primary);
+  --color-accent-hover: var(--color-primary-hover);
+  --color-on-accent: var(--color-on-primary);
+  --color-focus: var(--color-primary);
 }

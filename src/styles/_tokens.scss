@@ -26,9 +26,6 @@
   --font-heading: var(--font-raleway), "Raleway", system-ui, sans-serif;
   --font-body: var(--font-poppins), "Poppins", system-ui, sans-serif;
 
-  // Viewport frame
-  --frame-edge: 0.75rem;
-
   --text-xs: 0.8rem;
   --text-sm: 0.9rem;
   --text-base: 1rem;
@@ -45,7 +42,7 @@
 
   // Layout
   --container-max: 72rem;
-  --header-height: 4.5rem;
+  --menubar-height: 2.25rem;
 
   // Motion — kept intentionally minimal
   --transition-fast: 120ms ease;
@@ -56,6 +53,5 @@
   --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.14);
 
   // Layering
-  --z-header: 100;
   --z-overlay: 200;
 }
