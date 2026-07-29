@@ -16,9 +16,10 @@ export function Clock() {
     return () => clearInterval(id);
   }, []);
 
+
   return (
     <span className={styles.clock}>
-      {now?.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}
+      {now?.toDateString()}{" "}{now?.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}
     </span>
   );
 }

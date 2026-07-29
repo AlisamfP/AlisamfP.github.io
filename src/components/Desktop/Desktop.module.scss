@@ -2,8 +2,20 @@
   position: relative;
   min-height: calc(100dvh - var(--menubar-height));
   overflow: hidden;
-  background: linear-gradient(160deg, var(--color-surface-2), var(--color-surface));
   padding: var(--space-lg);
+  background: linear-gradient(160deg, var(--color-surface-2), var(--color-surface));
+
+  &[data-wallpaper="solid"] {
+    background: var(--color-bg);
+  }
+
+  &[data-wallpaper="wash"] {
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--color-primary) 18%, var(--color-surface)),
+      var(--color-surface)
+    );
+  }
 }
 
 .icons {

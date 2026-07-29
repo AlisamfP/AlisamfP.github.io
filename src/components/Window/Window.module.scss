@@ -4,8 +4,12 @@
   left: 0;
   display: flex;
   flex-direction: column;
+  width: var(--window-width, 420px);
+  height: var(--window-height, auto);
   min-width: 260px;
-  max-width: min(90vw, 420px);
+  min-height: 160px;
+  max-width: 90vw;
+  max-height: 85vh;
   border-radius: 14px;
   overflow: hidden;
   background: var(--color-surface);
@@ -21,11 +25,12 @@
   justify-content: space-between;
   gap: var(--space-sm);
   padding: 0.5rem 0.75rem;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  background: var(--color-primary);
   color: var(--color-on-primary);
   cursor: grab;
   touch-action: none;
   user-select: none;
+  flex-shrink: 0;
 
   &:active {
     cursor: grabbing;
@@ -41,7 +46,14 @@
   text-overflow: ellipsis;
 }
 
-.close {
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+%titleBarButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -61,8 +73,59 @@
   }
 }
 
+.minimize {
+  @extend %titleBarButton;
+}
+
+.close {
+  @extend %titleBarButton;
+}
+
 .body {
+  flex: 1 1 auto;
+  min-height: 0;
   padding: var(--space-md);
   overflow-y: auto;
-  max-height: 60vh;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+.body::-webkit-scrollbar-button {
+  display:none;
+  size: 0;
+  height: 0;
+  width: 0;
+}
+
+// Invisible resize hit-zones — no visual affordance, just a cursor change.
+// Right/bottom resize a single axis; the corner resizes both at once and
+// sits on top of where the two strips would otherwise overlap.
+.resizeRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 14px;
+  width: 6px;
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.resizeBottom {
+  position: absolute;
+  left: 0;
+  right: 14px;
+  bottom: 0;
+  height: 6px;
+  cursor: ns-resize;
+  touch-action: none;
+}
+
+.resizeCorner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  touch-action: none;
 }

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Raleway, Poppins, Caveat } from "next/font/google";
+import { Ubuntu_Mono, Poppins, Newsreader } from "next/font/google";
 import { Providers } from "./providers";
 import { MenuBar } from "@/components/MenuBar/MenuBar";
+import { Dock } from "@/components/Dock/Dock";
+import { WindowManagerProvider } from "@/components/Desktop/window-manager";
+import { BackgroundProvider } from "@/components/Desktop/background-provider";
 import { ACCENT_STORAGE_KEY } from "./accent-provider";
 import "./globals.scss";
 
@@ -11,24 +14,22 @@ const noFlashAccentScript = `(function(){try{var a=localStorage.getItem(${JSON.s
   ACCENT_STORAGE_KEY,
 )});if(a)document.documentElement.setAttribute('data-accent',a);}catch(e){}})();`;
 
-const raleway = Raleway({
+const ubuntuMono = Ubuntu_Mono({
   subsets: ["latin"],
-  variable: "--font-raleway",
-  display: "swap",
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-ubuntu-mono",
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
-  display: "swap",
 });
 
-// Handwritten display face — used for large, playful moments only.
-const caveat = Caveat({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-caveat",
-  display: "swap",
+  variable: "--font-newsreader",
 });
 
 export const metadata: Metadata = {
@@ -49,7 +50,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${raleway.variable} ${poppins.variable} ${caveat.variable}`}
+      className={`${ubuntuMono.variable} ${poppins.variable} ${newsreader.variable}`}
     >
       <body>
         <script dangerouslySetInnerHTML={{ __html: noFlashAccentScript }} />
@@ -57,10 +58,15 @@ export default function RootLayout({
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
-          <MenuBar />
-          <main id="main-content" tabIndex={-1}>
-            {children}
-          </main>
+          <WindowManagerProvider>
+            <BackgroundProvider>
+              <MenuBar />
+              <main id="main-content" tabIndex={-1}>
+                {children}
+              </main>
+              <Dock/>
+            </BackgroundProvider>
+          </WindowManagerProvider>
         </Providers>
       </body>
     </html>

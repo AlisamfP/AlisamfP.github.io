@@ -47,3 +47,26 @@ $bp-xl: 1280px;
     padding-inline: var(--space-lg);
   }
 }
+
+/// Circular color-swatch button — the appearance picker's accent swatches
+/// and its trigger dot share this shape.
+@mixin circular-swatch {
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
