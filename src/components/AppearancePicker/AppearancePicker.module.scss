@@ -27,10 +27,22 @@
   }
 }
 
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  // adding padding top to account for 2rem gap for group, since the appearance picker has both dark/light mode and accent color. (Currently 1rem gap, +1 1rem padding before accents to equal 2 rem)
+  padding-top: var(--space-sm);
+}
+
 .accents {
   display: flex;
-  justify-content: center;
   gap: var(--space-2xs);
+  
 }
 
 .swatch {

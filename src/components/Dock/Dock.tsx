@@ -13,6 +13,7 @@ export function Dock() {
     <div className={styles.dock}>
       {DOCK_APPS.map((id) => {
         const isOpen = windows.some((w) => w.id === id);
+        const Glyph = APPS[id].glyph;
         return (
           <button
             key={id}
@@ -21,9 +22,7 @@ export function Dock() {
             aria-pressed={isOpen}
             onClick={() => openApp(id)}
           >
-            <span className={styles.glyph} aria-hidden="true">
-              {APPS[id].glyph}
-            </span>
+            <Glyph className={styles.glyph} aria-hidden="true" />
             <span className={styles.label}>{APPS[id].title}</span>
             <span className={styles.indicator} data-open={isOpen} aria-hidden="true" />
           </button>

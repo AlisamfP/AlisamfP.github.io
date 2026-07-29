@@ -1,10 +1,17 @@
 // ===========================================================================
 // THEMES — two independent axes: mode (light/dark) and accent (a single
 // color). Mode sets the neutral palette; accent sets --color-primary (+
-// hover/on-color) on top, tuned per mode so the same accent choice stays
-// legible in both. --color-accent is an alias of --color-primary — there is
-// only one theme color, not a pair — kept as a separate variable so
-// components can still express "the highlight color" semantically.
+// on-color) on top, tuned per mode so the same accent choice stays legible
+// in both. --color-accent is an alias of --color-primary — there is only
+// one theme color, not a pair — kept as a separate variable so components
+// can still express "the highlight color" semantically.
+//
+// Each accent block only needs to define --color-primary/--color-on-primary
+// — the lighter/darker steps (and the hover color, which is always the
+// darker step) are computed once, globally, from whatever --color-primary
+// currently resolves to. That single formula automatically tracks every
+// accent × mode combination, so it never needs hand-tuning per block.
+//
 // Components NEVER use raw hex — only these `--color-*` roles.
 //
 // To add an accent: add a `[data-accent="<id>"]` block (dark-tuned values)
@@ -18,11 +25,16 @@
 //   --color-text            primary body text
 //   --color-text-muted      secondary text, captions
 //   --color-border          borders, dividers
-//   --color-primary         the theme color (buttons, skip link, menu bar)
-//   --color-primary-hover   primary hover/active state
+//   --color-primary         the theme color (buttons, skip link, menu bar,
+//                           window title bars, scrollbar thumb)
+//   --color-primary-light   computed lighter step (subtle tints/washes)
+//   --color-primary-dark    computed darker step
+//   --color-primary-hover   primary hover state — always --color-primary-dark
 //   --color-on-primary      text/icons ON a primary background
 //   --color-accent          alias of --color-primary (links, active states,
 //                           decorative underlines/borders)
+//   --color-accent-light    alias of --color-primary-light
+//   --color-accent-dark     alias of --color-primary-dark
 //   --color-accent-hover    alias of --color-primary-hover
 //   --color-on-accent       alias of --color-on-primary
 //   --color-focus           focus ring
@@ -56,59 +68,58 @@
 :root,
 [data-accent="teal"] {
   --color-primary: #62c0c0;
-  --color-primary-hover: #78c9c9;
   --color-on-primary: #08201f;
 }
 
 [data-mode="light"][data-accent="teal"] {
   --color-primary: #1f7a7a;
-  --color-primary-hover: #186363;
   --color-on-primary: #ffffff;
 }
 
 // --- Accent: Rose ---------------------------------------------------------------
 [data-accent="rose"] {
   --color-primary: #e8789a;
-  --color-primary-hover: #ef8fac;
   --color-on-primary: #2b0f18;
 }
 
 [data-mode="light"][data-accent="rose"] {
   --color-primary: #a83f5e;
-  --color-primary-hover: #8d3350;
   --color-on-primary: #ffffff;
 }
 
 // --- Accent: Forest ---------------------------------------------------------------
 [data-accent="forest"] {
   --color-primary: #6bbf8a;
-  --color-primary-hover: #80c89b;
   --color-on-primary: #08160f;
 }
 
 [data-mode="light"][data-accent="forest"] {
   --color-primary: #2f7d4f;
-  --color-primary-hover: #266641;
   --color-on-primary: #ffffff;
 }
 
 // --- Accent: Sand -----------------------------------------------------------------
 [data-accent="sand"] {
   --color-primary: #e0975a;
-  --color-primary-hover: #eba873;
   --color-on-primary: #17130f;
 }
 
 [data-mode="light"][data-accent="sand"] {
   --color-primary: #b5652f;
-  --color-primary-hover: #a15a2a;
   --color-on-primary: #ffffff;
 }
 
-// --- Accent aliases ------------------------------------------------------------
-// One color per theme, not a pair — --color-accent* just mirrors --color-primary*.
+// --- Computed steps & accent aliases --------------------------------------------
+// One color per theme, not a pair. Lighter/darker steps are computed from
+// whatever --color-primary resolves to (see the file header) — hover is
+// always the darker step, matching a "buttons darken on hover" convention.
 :root {
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 70%, white);
+  --color-primary-dark: color-mix(in srgb, var(--color-primary) 75%, black);
+  --color-primary-hover: var(--color-primary-dark);
   --color-accent: var(--color-primary);
+  --color-accent-light: var(--color-primary-light);
+  --color-accent-dark: var(--color-primary-dark);
   --color-accent-hover: var(--color-primary-hover);
   --color-on-accent: var(--color-on-primary);
   --color-focus: var(--color-primary);

@@ -1,4 +1,14 @@
 import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
+import {
+  PiFileText,
+  PiSpeakerHigh,
+  PiGear,
+  PiUserCircle,
+  PiFolderOpen,
+  PiFolder,
+  PiBriefcase,
+} from "react-icons/pi";
 import { projects } from "@/data/projects";
 import { AboutMeWindow } from "@/components/AboutMeWindow/AboutMeWindow";
 import { PronunciationWindow } from "@/components/PronunciationWindow/PronunciationWindow";
@@ -19,7 +29,7 @@ export type AppId =
 
 type AppMeta = {
   title: string;
-  glyph: string;
+  glyph: IconType;
   content: ReactNode;
   /** One of the standard window sizes (see window-sizes.ts). Defaults to
    * "thin" (via Window) when omitted. */
@@ -35,39 +45,39 @@ type AppMeta = {
 export const APPS: Record<AppId, AppMeta> = {
   about: {
     title: "aboutme.txt",
-    glyph: "📄",
+    glyph: PiFileText,
     content: <AboutMeWindow />,
     href: "/desktop/about",
   },
   pronunciation: {
     title: "name.wav",
-    glyph: "🔊",
+    glyph: PiSpeakerHigh,
     content: <PronunciationWindow />,
     size: "compact",
     href: "/desktop/pronunciation",
   },
   settings: {
     title: "Settings",
-    glyph: "⚙️",
+    glyph: PiGear,
     content: <SettingsWindow />,
     href: "/settings",
   },
   portfolioAbout: {
     title: "About",
-    glyph: "🖼️",
+    glyph: PiUserCircle,
     content: <AboutPortfolioWindow />,
     size: "base",
     href: "/about",
   },
   portfolioWorks: {
     title: "Works",
-    glyph: "🗂️",
+    glyph: PiFolderOpen,
     content: <WorksWindow />,
     href: "/works",
   },
   experience: {
     title: "Experience",
-    glyph: "💼",
+    glyph: PiBriefcase,
     content: <ExperienceWindow />,
     size: "wide",
     href: "/experience",
@@ -97,7 +107,7 @@ export function getWindowContent(id: string): AppMeta | undefined {
     if (!project) return undefined;
     return {
       title: project.title,
-      glyph: "🗂️",
+      glyph: PiFolder,
       content: <ProjectWindow project={project} />,
       size: "base",
     };

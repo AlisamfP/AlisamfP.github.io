@@ -43,7 +43,7 @@ export function AppearancePicker() {
         </button>
       </div>
 
-      <h4>Themes</h4>
+      <h4 className={styles.heading}>Accent Color</h4>
       <div className={styles.accents}>
         {ACCENTS.map((a) => (
           <button
