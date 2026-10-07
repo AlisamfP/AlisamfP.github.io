@@ -2,18 +2,22 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
+import { WALLPAPER_PHOTOS } from "./wallpaper-photos";
 
-export type WallpaperId = "gradient" | "solid" | "wash";
+export type WallpaperId = string;
 
 export interface WallpaperMeta {
   id: WallpaperId;
   label: string;
 }
 
-export const WALLPAPERS: WallpaperMeta[] = [
-  { id: "gradient", label: "Gradient" },
+const BASE_WALLPAPERS: WallpaperMeta[] = [
   { id: "solid", label: "Solid" },
-  { id: "wash", label: "Accent wash" },
+];
+
+export const WALLPAPERS: WallpaperMeta[] = [
+  ...BASE_WALLPAPERS,
+  ...WALLPAPER_PHOTOS.map((p) => ({ id: p.id, label: p.label })),
 ];
 
 const STORAGE_KEY = "desktop-wallpaper";

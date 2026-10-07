@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .menuBar {
   position: fixed;
   top: 0;
@@ -11,8 +13,7 @@
   justify-content: space-between;
   height: var(--menubar-height);
   padding-inline: var(--space-sm);
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-primary);
 }
 
 .nav {
@@ -22,14 +23,25 @@
   gap: var(--space-xs);
 }
 
-.favicon {
-  height: 1.25rem;
-  width: 1.25rem;
-}
-
 .menu {
   position: relative;
   height: 100%;
+}
+
+.desktopOnly {
+  display: none;
+
+  @include respond($bp-md) {
+    display: block;
+  }
+}
+
+.mobileOnly {
+  display: block;
+
+  @include respond($bp-md) {
+    display: none;
+  }
 }
 
 .navItem {
@@ -39,19 +51,21 @@
   padding-inline: var(--space-sm);
   border: none;
   background: transparent;
-  color: var(--color-text);
+  // Sits directly on the (now accent-colored) bar, so it needs the
+  // on-primary role, not the neutral text color that role assumes.
+  color: var(--color-on-primary);
   font-family: var(--font-heading);
   font-size: var(--text-sm);
   font-weight: 700;
   cursor: pointer;
 
-  &:hover {
-    background: var(--color-surface-2);
-  }
-
+  &:hover,
   &[aria-expanded="true"] {
-    background: var(--color-primary);
-    color: var(--color-on-primary);
+    // An opaque neutral backdrop — a primary-colored highlight here would
+    // blend into the bar itself, since the bar's background already is
+    // --color-primary.
+    background: var(--color-surface-2);
+    color: var(--color-text);
   }
 }
 
@@ -80,6 +94,10 @@
 }
 
 .menuOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
   padding: var(--space-2xs) var(--space-sm);
   border: none;
   background: transparent;
@@ -89,9 +107,40 @@
   text-align: left;
   cursor: pointer;
 
-  &:hover {
+  width: 100%;
+
+  &:hover,
+  &[aria-expanded="true"] {
     background: var(--color-primary);
     color: var(--color-on-primary);
+  }
+}
+
+.menuItem {
+  position: relative;
+}
+
+.submenuPanel {
+  position: absolute;
+  // Flush against the parent panel's right edge — same seamless look as
+  // .menuPanel is flush against the bar.
+  top: -1px;
+  left: 100%;
+  z-index: var(--z-overlay);
+  display: flex;
+  flex-direction: column;
+  min-width: 11rem;
+  padding: var(--space-3xs) 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 80ms ease;
+
+  &[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -107,6 +156,7 @@
   font-family: var(--font-heading);
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--color-on-primary);
+  opacity: 0.75;
   text-align: right;
 }

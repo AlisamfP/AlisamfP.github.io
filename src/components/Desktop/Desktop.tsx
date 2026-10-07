@@ -1,11 +1,13 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { Window } from "@/components/Window/Window";
 import { useWindowManager } from "./window-manager";
 import { useBackground } from "./background-provider";
 import { useAppLauncher } from "./use-app-launcher";
 import { APPS, DESKTOP_ICON_APPS, getWindowContent } from "./apps";
 import { DesktopIcon } from "./DesktopIcon";
+import { getWallpaperPhoto } from "./wallpaper-photos";
 import styles from "./Desktop.module.scss";
 
 export function Desktop() {
@@ -13,9 +15,19 @@ export function Desktop() {
     useWindowManager();
   const { wallpaper } = useBackground();
   const { openApp, closeApp } = useAppLauncher();
+  const photo = getWallpaperPhoto(wallpaper);
 
   return (
-    <div id="desktop-root" className={styles.desktop} data-wallpaper={wallpaper}>
+    <div
+      id="desktop-root"
+      className={styles.desktop}
+      data-wallpaper={photo ? "photo" : wallpaper}
+      style={
+        photo
+          ? ({ "--wallpaper-image": `url(/wallpapers/photos/${photo.file})` } as CSSProperties)
+          : undefined
+      }
+    >
       <div className={styles.icons}>
         {DESKTOP_ICON_APPS.map((id) => (
           <DesktopIcon

@@ -16,6 +16,13 @@
       var(--color-surface)
     );
   }
+
+  &[data-wallpaper="photo"] {
+    background-image: var(--wallpaper-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 .icons {

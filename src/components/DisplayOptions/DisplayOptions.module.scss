@@ -22,7 +22,9 @@
   border: none;
   border-radius: 50%;
   background: transparent;
-  color: var(--color-text);
+  // Sits directly on the (accent-colored) bar at rest, so it needs the
+  // on-primary role, not the neutral text color that role assumes.
+  color: var(--color-on-primary);
   font-size: 1rem;
   cursor: pointer;
   transition:
@@ -32,8 +34,11 @@
   &:hover,
   &:active,
   &[aria-expanded="true"] {
+    // An opaque neutral backdrop — a primary-colored icon here would blend
+    // into the bar itself, since the bar's background already is
+    // --color-primary.
     background: var(--color-surface-2);
-    color: var(--color-primary);
+    color: var(--color-text);
   }
 
   &:focus-visible {

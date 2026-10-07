@@ -7,7 +7,7 @@
   display: flex;
   gap: var(--space-2xs);
   padding: var(--space-2xs) var(--space-sm);
-  background: var(--color-surface);
+  background: var(--color-primary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-md);
@@ -23,11 +23,17 @@
   border: none;
   border-radius: var(--radius-full);
   background: transparent;
-  color: var(--color-text);
+  // Sits directly on the (accent-colored) dock at rest, so it needs the
+  // on-primary role, not the neutral text color that role assumes.
+  color: var(--color-on-primary);
   cursor: pointer;
 
   &:hover {
+    // An opaque neutral backdrop — a primary-colored highlight here would
+    // blend into the dock itself, since the dock's background already is
+    // --color-primary.
     background: var(--color-surface-2);
+    color: var(--color-text);
   }
 }
 
@@ -52,6 +58,9 @@
   background: transparent;
 
   &[data-open="true"] {
-    background: var(--color-primary);
+    // Same reasoning as .dockItem's color: the dock's own background is
+    // --color-primary now, so the dot needs the on-primary role to still
+    // show up against it.
+    background: var(--color-on-primary);
   }
 }

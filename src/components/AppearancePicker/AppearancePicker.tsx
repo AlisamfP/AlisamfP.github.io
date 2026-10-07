@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { PiMoonStars, PiStarFourFill, PiSun } from "react-icons/pi";
 import { useAccent } from "@/app/accent-provider";
 import { ACCENTS, DEFAULT_MODE } from "@/styles/themes";
 import styles from "./AppearancePicker.module.scss";
@@ -22,25 +23,31 @@ export function AppearancePicker() {
 
   return (
     <div className={styles.appearance}>
-      <div className={styles.modeToggle} role="radiogroup" aria-label="Light or dark mode">
-        <button
-          type="button"
-          role="radio"
-          aria-checked={mode === "light"}
-          className={styles.modeButton}
-          onClick={() => setTheme("light")}
-        >
+      <div className={styles.modeRow}>
+        <span className={styles.modeLabel} data-active={mode === "light"}>
           Light
-        </button>
+        </span>
         <button
           type="button"
-          role="radio"
+          role="switch"
           aria-checked={mode === "dark"}
-          className={styles.modeButton}
-          onClick={() => setTheme("dark")}
+          aria-label={mode === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          className={styles.modeToggle}
+          data-mode={mode}
+          onClick={() => setTheme(mode === "dark" ? "light" : "dark")}
         >
-          Dark
+          <span className={styles.sky} aria-hidden="true">
+            <PiStarFourFill className={styles.star} />
+            <PiStarFourFill className={styles.star} />
+            <PiStarFourFill className={styles.star} />
+          </span>
+          <span className={styles.thumb} aria-hidden="true">
+            {mode === "dark" ? <PiMoonStars /> : <PiSun />}
+          </span>
         </button>
+        <span className={styles.modeLabel} data-active={mode === "dark"}>
+          Dark
+        </span>
       </div>
 
       <h4 className={styles.heading}>Accent Color</h4>

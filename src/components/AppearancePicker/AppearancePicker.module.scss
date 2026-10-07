@@ -6,24 +6,124 @@
   gap: var(--space-sm);
 }
 
-.modeToggle {
+// A literal day/night sky, not a themed surface — deliberately raw hex
+// rather than --color-* roles, since the whole point is to depict light vs.
+// dark independent of whatever accent is active.
+$sky-day-start: #8ec9f0;
+$sky-day-end: #cdeeff;
+$sky-night-start: #0d1b3e;
+$sky-night-end: #1b2a5e;
+$sun-color: #ffb703;
+$moon-color: #d8dbf0;
+
+.modeRow {
   display: flex;
-  border: 1px solid var(--color-border);
-  overflow: hidden;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
-.modeButton {
-  flex: 1;
-  padding: var(--space-3xs) var(--space-xs);
-  background: transparent;
+.modeLabel {
   color: var(--color-text-muted);
   font-size: var(--text-xs);
   font-weight: 600;
-  cursor: pointer;
+  transition: color 200ms ease;
 
-  &[aria-checked="true"] {
-    background: var(--color-primary);
-    color: var(--color-on-primary);
+  &[data-active="true"] {
+    color: var(--color-text);
+  }
+}
+
+// Track is sized so the stars' left-hand cluster stays clear of the thumb's
+// dark-mode (slid-right) position. Keep these in sync if the track/thumb
+// sizes change: inset 0.25rem, thumb 2rem, track 5.5rem → thumb spans
+// 0.25–2.25rem at rest, 3.25–5.25rem when slid.
+.modeToggle {
+  position: relative;
+  width: 5.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  overflow: hidden;
+  background: linear-gradient(135deg, $sky-day-start, $sky-day-end);
+  transition: background 400ms ease;
+
+  &[data-mode="dark"] {
+    background: linear-gradient(135deg, $sky-night-start, $sky-night-end);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+}
+
+// Sit in the left-hand clear zone (the thumb rests on the right in dark
+// mode) — hidden in light mode. Varied sizes read as a scattered twinkle
+// rather than a uniform row of dots.
+.star {
+  position: absolute;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 250ms ease;
+
+  &:nth-of-type(1) {
+    top: 0.5rem;
+    left: 0.75rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    transition-delay: 150ms;
+  }
+
+  &:nth-of-type(2) {
+    top: 1.55rem;
+    left: 1.25rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    transition-delay: 220ms;
+  }
+
+  &:nth-of-type(3) {
+    top: 0.85rem;
+    left: 1.9rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    transition-delay: 280ms;
+  }
+
+  [data-mode="dark"] & {
+    opacity: 1;
+  }
+}
+
+.thumb {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: $sun-color;
+  color: #fff8e8;
+  font-size: 1.25rem;
+  transform: translateX(0);
+  transition:
+    transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 300ms ease,
+    color 300ms ease;
+
+  [data-mode="dark"] & {
+    transform: translateX(3rem);
+    background: $moon-color;
+    color: #2a2a45;
   }
 }
 

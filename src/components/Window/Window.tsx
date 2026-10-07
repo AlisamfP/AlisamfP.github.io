@@ -1,9 +1,15 @@
 "use client";
 
 import type { CSSProperties, PointerEvent, ReactNode } from "react";
-import { useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { WINDOW_SIZES, type WindowSize } from "./window-sizes";
 import styles from "./Window.module.scss";
+
+// Layout effects don't run during SSR (React warns if used directly in a
+// server-rendered tree) — falls back to a regular effect there, since the
+// clamp-before-paint trick this hook enables only matters once we're in the
+// browser anyway.
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 type Position = { x: number; y: number };
 type Size = { width: number; height: number };
@@ -74,6 +80,22 @@ export function Window({
   children,
 }: WindowProps) {
   const windowRef = useRef<HTMLDivElement>(null);
+  // Stays hidden for the first paint so the clamp below (which needs a real
+  // measured rect) can correct an offscreen cascade position before the
+  // window ever becomes visible — otherwise it flashes at the wrong spot
+  // and visibly jumps.
+  const [ready, setReady] = useState(false);
+
+  // A window's cascade position is chosen without knowing the viewport size
+  // (see BASE_POSITION in window-manager.tsx), so on a narrow/mobile desktop
+  // it can land partly offscreen. Snap it back inside the desktop bounds
+  // right after mount, before the browser gets to paint the unclamped spot.
+  useIsomorphicLayoutEffect(() => {
+    const clamped = clampToDesktop(position, windowRef.current);
+    if (clamped.x !== position.x || clamped.y !== position.y) onDrag(clamped);
+    setReady(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const dragState = useRef<{
     pointerId: number;
@@ -161,6 +183,7 @@ export function Window({
           transform: `translate(${position.x}px, ${position.y}px)`,
           zIndex,
           display: hidden ? "none" : undefined,
+          opacity: ready ? 1 : 0,
           "--window-width": customSize ? `${customSize.width}px` : WINDOW_SIZES[size],
           "--window-height": customSize ? `${customSize.height}px` : "auto",
         } as CSSProperties
